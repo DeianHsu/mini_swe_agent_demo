@@ -186,6 +186,26 @@ class ActionsTests(unittest.TestCase):
         with zipfile.ZipFile(self.root / "artifacts/case-0001.zip") as archive:
             self.assertEqual(archive.read("model.patch"), payload)
 
+    def test_raw_verifier_logs_are_saved_redacted_and_bounded(self):
+        plan = self.fixture_plan()
+        output = self.root / "run"
+        verifier = output / "case/verifier"
+        verifier.mkdir(parents=True)
+        ci.core.write_json(output / "checkpoint.json", self.checkpoint([self.row(1, "failed")]))
+        (verifier / "run-script-stderr.txt").write_text(
+            "x" * 40000 + "\ngo: command not found TEST_SECRET", encoding="utf-8")
+        (verifier / "run-script-stdout.txt").write_text("Running selected tests", encoding="utf-8")
+        (verifier / "output.json").write_text('{"tests": []}', encoding="utf-8")
+        with patch.dict(os.environ, {"DEEPSEEK_API_KEY": "TEST_SECRET"}):
+            ci.pack(argparse.Namespace(plan=plan, number=1, output=output, artifacts=self.root / "artifacts"))
+        with zipfile.ZipFile(self.root / "artifacts/case-0001.zip") as archive:
+            stderr = archive.read("verifier/run-script-stderr.txt")
+            self.assertIn(b"go: command not found", stderr)
+            self.assertNotIn(b"TEST_SECRET", stderr)
+            self.assertLess(len(stderr), 33000)
+            self.assertIn("verifier/run-script-stdout.txt", archive.namelist())
+            self.assertEqual(json.loads(archive.read("verifier/output.json")), {"tests": []})
+
     def test_interrupted_case_is_error_not_test_failure(self):
         plan = self.fixture_plan()
         ci.pack(argparse.Namespace(plan=plan, number=1, output=self.root / "missing", artifacts=self.root / "artifacts"))
@@ -204,13 +224,13 @@ class ActionsTests(unittest.TestCase):
                    "batch_errors": 0, "batch_missing": 0, "batch_fatal_errors": 0,
                    "campaign_remaining": 325, "campaign_id": "start", "retry_failed": True}
         second = ci.next_batch_inputs(healthy, 1, 200, 20, "123")
-        self.assertEqual(second["batch_number"], 2)
+        self.assertEqual(second["batch_number"], "2")
         self.assertEqual(second["resume_run_id"], "123")
         self.assertEqual(second["parallelism"], "20")
         self.assertTrue(second["auto_continue"])
         self.assertEqual(second["campaign_id"], "start")
         self.assertTrue(second["retry_failed"])
-        self.assertEqual(ci.next_batch_inputs(healthy, 2, 200, 20, "124")["batch_number"], 3)
+        self.assertEqual(ci.next_batch_inputs(healthy, 2, 200, 20, "124")["batch_number"], "3")
         self.assertIsNone(ci.next_batch_inputs(healthy, 3, 200, 20, "125"))
         self.assertIsNotNone(ci.next_batch_inputs({**healthy, "batch_errors": 1}, 1, 200, 20, "123"))
         for change in ({"batch_fatal_errors": 1}, {"batch_missing": 1}, {"campaign_remaining": 0}):
@@ -240,7 +260,9 @@ class ActionsTests(unittest.TestCase):
         payload = ci.read_json(self.root / "next-batch.json")
         self.assertEqual(payload["ref"], "master")
         self.assertEqual(payload["inputs"]["resume_run_id"], "123")
-        self.assertEqual(payload["inputs"]["batch_number"], 2)
+        self.assertEqual(payload["inputs"]["batch_number"], "2")
+        # GitHub 的 workflow_dispatch 接口拒绝 JSON 数字批号，需作为字符串传输。
+        self.assertIsInstance(payload["inputs"]["batch_number"], str)
 
     def test_timeout_and_test_failure_continue_but_authentication_error_stops_matrix(self):
         class FakeImages:

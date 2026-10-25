@@ -272,12 +272,13 @@ def pack(args):
     checkpoint = json.loads(redact(json.dumps(checkpoint, ensure_ascii=False)))
     checkpoint["omitted_files"] = {}
     files = {}
-    for name in ("agent_result.json", "model.patch", "verifier.log"):
+    for name in ("agent_result.json", "model.patch", "verifier.log",
+                 "verifier/run-script-stderr.txt", "verifier/run-script-stdout.txt", "verifier/output.json"):
         path = args.output / "case" / name
         if not path.is_file():
             continue
         raw = path.read_bytes()
-        if name == "verifier.log" and len(raw) > 32768:
+        if name.endswith((".log", ".txt")) and len(raw) > 32768:
             raw = b"[Only the last 32768 bytes retained]\n" + raw[-32768:]
         if name == "model.patch":
             key = os.environ.get("DEEPSEEK_API_KEY")
@@ -326,7 +327,7 @@ def next_batch_inputs(summary, batch_number, batch_size, parallelism, run_id):
             or summary.get("batch_fatal_errors", 0) or summary["batch_missing"] or summary["batch_received"] == 0):
         return None
     return {"batch_size": str(batch_size), "parallelism": str(parallelism),
-            "resume_run_id": str(run_id), "auto_continue": True, "batch_number": batch_number + 1,
+            "resume_run_id": str(run_id), "auto_continue": True, "batch_number": str(batch_number + 1),
             "retry_failed": summary["retry_failed"], "campaign_id": summary["campaign_id"]}
 
 
