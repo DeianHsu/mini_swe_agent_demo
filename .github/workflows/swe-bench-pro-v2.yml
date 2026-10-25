@@ -1,0 +1,220 @@
+name: SWE-bench Pro V2 后续评测
+
+on:
+  workflow_dispatch:
+    inputs:
+      batch_size:
+        description: 本批最多题数（不重跑已完成评分的题目）
+        type: choice
+        options: ['20', '50', '100', '200']
+        default: '200'
+      parallelism:
+        description: 同时运行的单题执行器数量
+        type: choice
+        options: ['4', '8', '12', '16', '20']
+        default: '20'
+      resume_run_id:
+        description: latest 自动接续同分支上次运行；也可填运行 ID；none 仅使用本地基线
+        type: string
+        default: latest
+      auto_continue:
+        description: 本批正常完成后自动启动下一批，最多连续三批
+        type: boolean
+        default: true
+      batch_number:
+        description: 自动接续使用；首次启动保留 1
+        type: number
+        default: 1
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: swe-bench-pro-v2
+  cancel-in-progress: false
+
+env:
+  DEEPSEEK_MODEL: ${{ vars.DEEPSEEK_MODEL || 'deepseek-flash' }}
+  DEEPSEEK_BASE_URL: ${{ vars.DEEPSEEK_BASE_URL || 'https://api.deepseek.com' }}
+  PYTHONUNBUFFERED: '1'
+
+jobs:
+  prepare:
+    if: github.event.repository.private == false
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    outputs:
+      matrix: ${{ steps.plan.outputs.matrix }}
+      count: ${{ steps.plan.outputs.count }}
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - name: 检查模型密钥是否已配置
+        env:
+          MODEL_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+          BATCH_NUMBER: ${{ inputs.batch_number }}
+        run: |
+          if [[ -z "$MODEL_KEY" ]]; then
+            echo '::error::请先配置仓库密钥 DEEPSEEK_API_KEY。'
+            exit 1
+          fi
+          if [[ ! "$BATCH_NUMBER" =~ ^[123]$ ]]; then
+            echo '::error::batch_number 必须为 1、2 或 3。'
+            exit 1
+          fi
+      - uses: actions/checkout@v7
+        with:
+          repository: scaleapi/SWE-bench_Pro-os
+          ref: 66f92766bba642462d4bbe5479e83f91f9211862
+          path: benchmark-tasks
+          sparse-checkout: v2/tasks
+          persist-credentials: false
+      - name: 下载上次运行的续跑记录
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RESUME: ${{ inputs.resume_run_id }}
+        run: |
+          mkdir -p cloud-resume
+          case "$RESUME" in
+            none) exit 0 ;;
+            latest)
+              run_id="$(gh run list --repo "$GITHUB_REPOSITORY" --workflow swe-bench-pro-v2.yml \
+                --branch "$GITHUB_REF_NAME" --status completed --limit 1 \
+                --json databaseId --jq '.[0].databaseId // empty')"
+              ;;
+            *)
+              if [[ ! "$RESUME" =~ ^[0-9]+$ ]]; then
+                echo '::error::resume_run_id 必须是 latest、none 或数字运行 ID。'
+                exit 1
+              fi
+              run_id="$RESUME"
+              ;;
+          esac
+          if [[ -n "$run_id" ]]; then
+            echo "接续运行：$run_id"
+            gh run download "$run_id" --repo "$GITHUB_REPOSITORY" \
+              --pattern 'pro-v2-*' --dir cloud-resume
+          else
+            echo '首次运行，使用仓库内的本地基线。'
+          fi
+      - name: 生成本批任务矩阵
+        id: plan
+        env:
+          BATCH_SIZE: ${{ inputs.batch_size }}
+        run: |
+          python3 scripts/pro_v2_actions.py plan --tasks-dir benchmark-tasks/v2/tasks \
+            --resume-dir cloud-resume --limit "$BATCH_SIZE" --output cloud-plan
+      - uses: actions/upload-artifact@v7
+        with:
+          name: pro-v2-plan
+          path: cloud-plan/
+          retention-days: 7
+          overwrite: true
+
+  evaluate:
+    needs: prepare
+    if: needs.prepare.outputs.count != '0'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 180
+    strategy:
+      # 测试未通过仍然正常退出；模型服务或启动器故障会停止矩阵，控制费用。
+      fail-fast: true
+      max-parallel: ${{ fromJSON(inputs.parallelism) }}
+      matrix: ${{ fromJSON(needs.prepare.outputs.matrix) }}
+    env:
+      CASE_NUMBER: ${{ matrix.case }}
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: actions/download-artifact@v8
+        id: plan
+        with:
+          name: pro-v2-plan
+          path: cloud-plan
+      - uses: actions/checkout@v7
+        with:
+          repository: scaleapi/SWE-bench_Pro-os
+          ref: 66f92766bba642462d4bbe5479e83f91f9211862
+          path: benchmark-tasks
+          sparse-checkout: v2/tasks
+          persist-credentials: false
+      - name: 为本题镜像释放云端执行器磁盘
+        run: |
+          df -h /
+          # 固定路径，仅清理全新云端虚拟机中本项目不用的 Android/.NET/Haskell 工具。
+          sudo rm -rf -- /usr/local/lib/android /usr/share/dotnet /opt/ghc
+          df -h /
+          docker info --format '{{.OSType}}'
+      - uses: astral-sh/setup-uv@07a047e608db84b3d8c06cd9a7c7dcc9c355c18e # v10.3.2
+        with:
+          python-version: '3.14'
+          enable-cache: false
+      - name: 按锁文件安装项目依赖
+        run: uv sync --frozen
+      - name: 执行本题（最多 150 分钟）
+        timeout-minutes: 155
+        env:
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+        run: |
+          timeout --signal=TERM --kill-after=60s 150m \
+            uv run --no-sync python scripts/pro_v2_actions.py run \
+            --tasks-dir benchmark-tasks/v2/tasks --number "$CASE_NUMBER" --output cloud-run
+      - name: 保存结果及有限大小的补丁与日志
+        if: always() && steps.plan.outcome == 'success'
+        env:
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+        run: |
+          python3 scripts/pro_v2_actions.py pack --number "$CASE_NUMBER" --output cloud-run
+      - uses: actions/upload-artifact@v7
+        if: always() && steps.plan.outcome == 'success'
+        with:
+          name: pro-v2-case-${{ matrix.case }}-attempt-${{ github.run_attempt }}
+          path: cloud-artifacts/case-*.zip
+          compression-level: 0
+          retention-days: 7
+          if-no-files-found: warn
+
+  summarize:
+    needs: [prepare, evaluate]
+    if: always() && needs.prepare.result == 'success'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    permissions:
+      contents: read
+      actions: write
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: actions/download-artifact@v8
+        with:
+          name: pro-v2-plan
+          path: cloud-plan
+      - uses: actions/download-artifact@v8
+        if: needs.prepare.outputs.count != '0'
+        continue-on-error: true
+        with:
+          pattern: pro-v2-case-*
+          path: cloud-collected
+      - name: 合并本地基线与云端结果
+        run: |
+          python3 scripts/pro_v2_actions.py merge --resume-dir cloud-collected --output cloud-summary
+      - uses: actions/upload-artifact@v7
+        with:
+          name: pro-v2-summary
+          path: cloud-summary/
+          retention-days: 30
+          overwrite: true
+      - name: 正常完成后自动启动下一批
+        if: inputs.auto_continue && needs.evaluate.result == 'success' && github.run_attempt == '1'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          BATCH_NUMBER: ${{ inputs.batch_number }}
+          BATCH_SIZE: ${{ inputs.batch_size }}
+          PARALLELISM: ${{ inputs.parallelism }}
+        run: |
+          python3 scripts/pro_v2_actions.py dispatch-next --batch-number "$BATCH_NUMBER" \
+            --batch-size "$BATCH_SIZE" --parallelism "$PARALLELISM"

@@ -1,0 +1,1676 @@
+{
+  "config": {
+    "dataset_commit": "66f92766bba642462d4bbe5479e83f91f9211862",
+    "model": "deepseek-flash",
+    "base_url": "https://api.deepseek.com",
+    "max_steps": 30,
+    "command_timeout": 180
+  },
+  "total": 642,
+  "records": [
+    {
+      "instance_id": "instance_ansible__ansible-0ea40e09d1b35bcb69ff4d9cecf3d0defa4b36e8-v30a923fb5c164d6cd18280c02422f75e611e8fb2",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 57.78,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 10
+      },
+      "patch_bytes": 838,
+      "number": 1,
+      "source": "local",
+      "updated_at": "2026-10-21T02:20:48.817359+00:00"
+    },
+    {
+      "instance_id": "instance_ansible__ansible-0fd88717c953b92ed8a50495d55e630eb5d59166-vba6da65a0f3baefda7a058ebbd0a8dcafb8512f5",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 196.66,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 16
+      },
+      "patch_bytes": 5239,
+      "number": 2,
+      "source": "local",
+      "updated_at": "2026-10-21T02:24:05.488210+00:00"
+    },
+    {
+      "instance_id": "instance_ansible__ansible-106909db8b730480615f4a33de0eb5b710944e78-v0f01c69f1e2528b935359cfe578530722bca2c59",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 218.79,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 21
+      },
+      "patch_bytes": 3973,
+      "number": 3,
+      "source": "local",
+      "updated_at": "2026-10-21T02:27:44.293229+00:00"
+    },
+    {
+      "instance_id": "instance_ansible__ansible-11c1777d56664b1acb56b387a1ad6aeadef1391d-v0f01c69f1e2528b935359cfe578530722bca2c59",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 259.91,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 11
+      },
+      "patch_bytes": 1618,
+      "number": 4,
+      "source": "local",
+      "updated_at": "2026-10-21T02:32:04.215794+00:00"
+    },
+    {
+      "instance_id": "instance_ansible__ansible-12734fa21c08a0ce8c84e533abdc560db2eb1955-v7eee2454f617569fd6889f2211f75bc02a35f9f8",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 257.31,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 14
+      },
+      "patch_bytes": 1628,
+      "number": 5,
+      "source": "local",
+      "updated_at": "2026-10-21T02:36:21.535144+00:00"
+    },
+    {
+      "instance_id": "instance_ansible__ansible-164881d871964aa64e0f911d03ae270acbad253c-v390e508d27db7a51eece36bb6d9698b63a5b638a",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 416.8,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 9
+      },
+      "patch_bytes": 1780,
+      "number": 6,
+      "source": "local",
+      "updated_at": "2026-10-21T02:43:18.353442+00:00"
+    },
+    {
+      "instance_id": "instance_ansible__ansible-185d41031660a676c43fbb781cd1335902024bfe-vba6da65a0f3baefda7a058ebbd0a8dcafb8512f5",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 311.43,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 29
+      },
+      "patch_bytes": 9448,
+      "number": 7,
+      "source": "local",
+      "updated_at": "2026-10-21T02:48:29.808489+00:00"
+    },
+    {
+      "instance_id": "instance_ansible__ansible-189fcb37f973f0b1d52b555728208eeb9a6fce83-v906c969b551b346ef54a2c0b41e04f632b7b73c2",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 368.69,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 20
+      },
+      "patch_bytes": 21206,
+      "number": 8,
+      "source": "local",
+      "updated_at": "2026-10-21T02:54:38.597654+00:00"
+    },
+    {
+      "instance_id": "instance_ansible__ansible-1bd7dcf339dd8b6c50bc16670be2448a206f4fdb-vba6da65a0f3baefda7a058ebbd0a8dcafb8512f5",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 284.81,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 23
+      },
+      "patch_bytes": 24557,
+      "number": 9,
+      "source": "local",
+      "updated_at": "2026-10-21T02:59:23.422978+00:00"
+    },
+    {
+      "instance_id": "instance_ansible__ansible-1c06c46cc14324df35ac4f39a45fb3ccd602195d-v0f01c69f1e2528b935359cfe578530722bca2c59",
+      "evaluation_status": "failed",
+      "reward": 0,
+      "seconds": 314.86,
+      "agent": {
+        "status": "step_limit",
+        "model_rounds": 30
+      },
+      "patch_bytes": 2847,
+      "number": 10,
+      "source": "local",
+      "updated_at": "2026-10-21T03:04:38.301313+00:00"
+    },
+    {
+      "instance_id": "instance_ansible__ansible-1ee70fc272aff6bf3415357c6e13c5de5b928d9b-v1055803c3a812189a1133297f7f5468579283f86",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 225.97,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 10
+      },
+      "patch_bytes": 2370,
+      "number": 11,
+      "source": "local",
+      "updated_at": "2026-10-21T03:08:24.283677+00:00"
+    },
+    {
+      "instance_id": "instance_ansible__ansible-29aea9ff3466e4cd2ed00524b9e56738d568ce8b-vba6da65a0f3baefda7a058ebbd0a8dcafb8512f5",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 313.56,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 21
+      },
+      "patch_bytes": 6381,
+      "number": 12,
+      "source": "local",
+      "updated_at": "2026-10-21T03:13:37.863869+00:00"
+    },
+    {
+      "instance_id": "instance_ansible__ansible-34db57a47f875d11c4068567b9ec7ace174ec4cf-v1055803c3a812189a1133297f7f5468579283f86",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 352.99,
+      "agent": {
+        "status": "step_limit",
+        "model_rounds": 30
+      },
+      "patch_bytes": 9126,
+      "number": 13,
+      "source": "local",
+      "updated_at": "2026-10-21T03:19:30.870487+00:00"
+    },
+    {
+      "instance_id": "instance_ansible__ansible-379058e10f3dbc0fdcaf80394bd09b18927e7d33-v1055803c3a812189a1133297f7f5468579283f86",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 431.19,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 22
+      },
+      "patch_bytes": 6472,
+      "number": 14,
+      "source": "local",
+      "updated_at": "2026-10-21T03:26:42.078504+00:00"
+    },
+    {
+      "instance_id": "instance_ansible__ansible-3889ddeb4b780ab4bac9ca2e75f8c1991bcabe83-v0f01c69f1e2528b935359cfe578530722bca2c59",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 134.76,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 14
+      },
+      "patch_bytes": 13750,
+      "number": 15,
+      "source": "local",
+      "updated_at": "2026-10-21T04:48:28.227152+00:00"
+    },
+    {
+      "instance_id": "instance_ansible__ansible-395e5e20fab9cad517243372fa3c3c5d9e09ab2a-v7eee2454f617569fd6889f2211f75bc02a35f9f8",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 122.91,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 16
+      },
+      "patch_bytes": 33597,
+      "number": 16,
+      "source": "local",
+      "updated_at": "2026-10-21T04:50:31.151115+00:00"
+    },
+    {
+      "instance_id": "instance_ansible__ansible-39bd8b99ec8c6624207bf3556ac7f9626dad9173-v1055803c3a812189a1133297f7f5468579283f86",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 117.37,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 19
+      },
+      "patch_bytes": 7118,
+      "number": 17,
+      "source": "local",
+      "updated_at": "2026-10-21T04:52:28.529428+00:00"
+    },
+    {
+      "instance_id": "instance_ansible__ansible-3b823d908e8a5d17674f8c26d337d3114b7493b1-v0f01c69f1e2528b935359cfe578530722bca2c59",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 266.47,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 28
+      },
+      "patch_bytes": 9794,
+      "number": 18,
+      "source": "local",
+      "updated_at": "2026-10-21T04:56:55.012480+00:00"
+    },
+    {
+      "instance_id": "instance_ansible__ansible-3db08adbb1cc6aa9941be5e0fc810132c6e1fa4b-vba6da65a0f3baefda7a058ebbd0a8dcafb8512f5",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 115.97,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 15
+      },
+      "patch_bytes": 4454,
+      "number": 19,
+      "source": "local",
+      "updated_at": "2026-10-21T04:58:50.998111+00:00"
+    },
+    {
+      "instance_id": "instance_ansible__ansible-40ade1f84b8bb10a63576b0ac320c13f57c87d34-v6382ea168a93d80a64aab1fbd8c4f02dc5ada5bf",
+      "evaluation_status": "failed",
+      "reward": 0,
+      "seconds": 216.49,
+      "agent": {
+        "status": "step_limit",
+        "model_rounds": 30
+      },
+      "patch_bytes": 23766,
+      "number": 20,
+      "source": "local",
+      "updated_at": "2026-10-21T05:02:27.499810+00:00"
+    },
+    {
+      "instance_id": "instance_ansible__ansible-415e08c2970757472314e515cb63a51ad825c45e-v7eee2454f617569fd6889f2211f75bc02a35f9f8",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 125.42,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 9
+      },
+      "patch_bytes": 2500,
+      "number": 21,
+      "source": "local",
+      "updated_at": "2026-10-21T05:04:32.940648+00:00"
+    },
+    {
+      "instance_id": "instance_ansible__ansible-42355d181a11b51ebfc56f6f4b3d9c74e01cb13b-v1055803c3a812189a1133297f7f5468579283f86",
+      "evaluation_status": "failed",
+      "reward": 0,
+      "seconds": 145.12,
+      "agent": {
+        "status": "step_limit",
+        "model_rounds": 30
+      },
+      "patch_bytes": 10301,
+      "number": 22,
+      "source": "local",
+      "updated_at": "2026-10-21T05:06:58.076051+00:00"
+    },
+    {
+      "instance_id": "instance_ansible__ansible-489156378c8e97374a75a544c7c9c2c0dd8146d1-v390e508d27db7a51eece36bb6d9698b63a5b638a",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 311.57,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 17
+      },
+      "patch_bytes": 3145,
+      "number": 23,
+      "source": "local",
+      "updated_at": "2026-10-21T05:12:09.670068+00:00"
+    },
+    {
+      "instance_id": "instance_ansible__ansible-5260527c4a71bfed99d803e687dd19619423b134-vba6da65a0f3baefda7a058ebbd0a8dcafb8512f5",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 182.53,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 15
+      },
+      "patch_bytes": 2344,
+      "number": 24,
+      "source": "local",
+      "updated_at": "2026-10-21T05:15:12.216387+00:00"
+    },
+    {
+      "instance_id": "instance_ansible__ansible-5640093f1ca63fd6af231cc8a7fb7d40e1907b8c-vba6da65a0f3baefda7a058ebbd0a8dcafb8512f5",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 206.86,
+      "agent": {
+        "status": "step_limit",
+        "model_rounds": 30
+      },
+      "patch_bytes": 4600,
+      "number": 25,
+      "source": "local",
+      "updated_at": "2026-10-21T05:18:39.090483+00:00"
+    },
+    {
+      "instance_id": "instance_ansible__ansible-5c225dc0f5bfa677addeac100a8018df3f3a9db1-v173091e2e36d38c978002990795f66cfc0af30ad",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 177.16,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 7
+      },
+      "patch_bytes": 1475,
+      "number": 26,
+      "source": "local",
+      "updated_at": "2026-10-21T05:21:36.261761+00:00"
+    },
+    {
+      "instance_id": "instance_ansible__ansible-5d253a13807e884b7ce0b6b57a963a45e2f0322c-v1055803c3a812189a1133297f7f5468579283f86",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 164.13,
+      "agent": {
+        "status": "step_limit",
+        "model_rounds": 30
+      },
+      "patch_bytes": 8651,
+      "number": 27,
+      "source": "local",
+      "updated_at": "2026-10-21T05:24:20.402776+00:00"
+    },
+    {
+      "instance_id": "instance_ansible__ansible-5e369604e1930b1a2e071fecd7ec5276ebd12cb1-v0f01c69f1e2528b935359cfe578530722bca2c59",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 190.38,
+      "agent": {
+        "status": "step_limit",
+        "model_rounds": 30
+      },
+      "patch_bytes": 11231,
+      "number": 28,
+      "source": "local",
+      "updated_at": "2026-10-21T05:34:47.118119+00:00"
+    },
+    {
+      "instance_id": "instance_ansible__ansible-5e88cd9972f10b66dd97e1ee684c910c6a2dd25e-v906c969b551b346ef54a2c0b41e04f632b7b73c2",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 134.18,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 10
+      },
+      "patch_bytes": 5296,
+      "number": 29,
+      "source": "local",
+      "updated_at": "2026-10-21T05:37:01.306005+00:00"
+    },
+    {
+      "instance_id": "instance_ansible__ansible-5f4e332e3762999d94af27746db29ff1729252c1-v0f01c69f1e2528b935359cfe578530722bca2c59",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 81.05,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 21
+      },
+      "patch_bytes": 3609,
+      "number": 30,
+      "source": "local",
+      "updated_at": "2026-10-21T05:38:22.510669+00:00"
+    },
+    {
+      "instance_id": "instance_ansible__ansible-622a493ae03bd5e5cf517d336fc426e9d12208c7-v906c969b551b346ef54a2c0b41e04f632b7b73c2",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 238.45,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 23
+      },
+      "patch_bytes": 16649,
+      "number": 31,
+      "source": "local",
+      "updated_at": "2026-10-21T05:42:22.260108+00:00"
+    },
+    {
+      "instance_id": "instance_ansible__ansible-6cc97447aac5816745278f3735af128afb255c81-v0f01c69f1e2528b935359cfe578530722bca2c59",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 72.95,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 18
+      },
+      "patch_bytes": 2465,
+      "number": 32,
+      "source": "local",
+      "updated_at": "2026-10-21T05:43:35.919261+00:00"
+    },
+    {
+      "instance_id": "instance_ansible__ansible-709484969c8a4ffd74b839a673431a8c5caa6457-vba6da65a0f3baefda7a058ebbd0a8dcafb8512f5",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 99.96,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 11
+      },
+      "patch_bytes": 1674,
+      "number": 33,
+      "source": "local",
+      "updated_at": "2026-10-21T05:45:19.016218+00:00"
+    },
+    {
+      "instance_id": "instance_ansible__ansible-748f534312f2073a25a87871f5bd05882891b8c4-v0f01c69f1e2528b935359cfe578530722bca2c59",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 130.67,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 26
+      },
+      "patch_bytes": 2378,
+      "number": 34,
+      "source": "local",
+      "updated_at": "2026-10-21T05:47:30.508399+00:00"
+    },
+    {
+      "instance_id": "instance_ansible__ansible-77658704217d5f166404fc67997203c25381cb6e-v390e508d27db7a51eece36bb6d9698b63a5b638a",
+      "evaluation_status": "failed",
+      "reward": 0,
+      "seconds": 247.66,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 15
+      },
+      "patch_bytes": 9934,
+      "number": 35,
+      "source": "local",
+      "updated_at": "2026-10-21T05:51:40.361653+00:00"
+    },
+    {
+      "instance_id": "instance_ansible__ansible-7e1a347695c7987ae56ef1b6919156d9254010ad-v390e508d27db7a51eece36bb6d9698b63a5b638a",
+      "evaluation_status": "failed",
+      "reward": 0,
+      "seconds": 222.87,
+      "agent": {
+        "status": "step_limit",
+        "model_rounds": 30
+      },
+      "patch_bytes": 20019,
+      "number": 36,
+      "source": "local",
+      "updated_at": "2026-10-21T05:55:23.877131+00:00"
+    },
+    {
+      "instance_id": "instance_ansible__ansible-8127abbc298cabf04aaa89a478fc5e5e3432a6fc-v30a923fb5c164d6cd18280c02422f75e611e8fb2",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 106.03,
+      "agent": {
+        "status": "step_limit",
+        "model_rounds": 30
+      },
+      "patch_bytes": 12743,
+      "number": 37,
+      "source": "local",
+      "updated_at": "2026-10-21T05:57:12.007317+00:00"
+    },
+    {
+      "instance_id": "instance_ansible__ansible-83fb24b923064d3576d473747ebbe62e4535c9e3-vba6da65a0f3baefda7a058ebbd0a8dcafb8512f5",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 52.75,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 13
+      },
+      "patch_bytes": 2320,
+      "number": 38,
+      "source": "local",
+      "updated_at": "2026-10-21T05:58:07.058322+00:00"
+    },
+    {
+      "instance_id": "instance_ansible__ansible-9142be2f6cabbe6597c9254c5bb9186d17036d55-v0f01c69f1e2528b935359cfe578530722bca2c59",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 52.81,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 11
+      },
+      "patch_bytes": 3692,
+      "number": 39,
+      "source": "local",
+      "updated_at": "2026-10-21T05:59:00.592040+00:00"
+    },
+    {
+      "instance_id": "instance_ansible__ansible-935528e22e5283ee3f63a8772830d3d01f55ed8c-vba6da65a0f3baefda7a058ebbd0a8dcafb8512f5",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 94.69,
+      "agent": {
+        "status": "step_limit",
+        "model_rounds": 30
+      },
+      "patch_bytes": 13060,
+      "number": 40,
+      "source": "local",
+      "updated_at": "2026-10-21T06:00:35.927398+00:00"
+    },
+    {
+      "instance_id": "instance_ansible__ansible-942424e10b2095a173dbd78e7128f52f7995849b-v30a923fb5c164d6cd18280c02422f75e611e8fb2",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 530.55,
+      "agent": {
+        "status": "step_limit",
+        "model_rounds": 30
+      },
+      "patch_bytes": 13596,
+      "number": 41,
+      "source": "local",
+      "updated_at": "2026-10-21T06:09:27.103515+00:00"
+    },
+    {
+      "instance_id": "instance_ansible__ansible-949c503f2ef4b2c5d668af0492a5c0db1ab86140-v0f01c69f1e2528b935359cfe578530722bca2c59",
+      "evaluation_status": "failed",
+      "reward": 0,
+      "seconds": 167.29,
+      "agent": {
+        "status": "step_limit",
+        "model_rounds": 30
+      },
+      "patch_bytes": 10188,
+      "number": 42,
+      "source": "local",
+      "updated_at": "2026-10-21T06:12:15.689835+00:00"
+    },
+    {
+      "instance_id": "instance_ansible__ansible-9759e0ca494de1fd5fc2df2c5d11c57adbe6007c-v1055803c3a812189a1133297f7f5468579283f86",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 127.4,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 26
+      },
+      "patch_bytes": 21958,
+      "number": 43,
+      "source": "local",
+      "updated_at": "2026-10-21T06:14:23.745864+00:00"
+    },
+    {
+      "instance_id": "instance_ansible__ansible-984216f52e76b904e5b0fa0fb956ab4f1e0a7751-v1055803c3a812189a1133297f7f5468579283f86",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 67.3,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 14
+      },
+      "patch_bytes": 2834,
+      "number": 44,
+      "source": "local",
+      "updated_at": "2026-10-21T06:15:31.663082+00:00"
+    },
+    {
+      "instance_id": "instance_ansible__ansible-9a21e247786ebd294dafafca1105fcd770ff46c6-v67cdaa49f89b34e42b69d5b7830b3c3ad3d8803f",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 302.62,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 19
+      },
+      "patch_bytes": 4362,
+      "number": 45,
+      "source": "local",
+      "updated_at": "2026-10-21T06:20:34.789686+00:00"
+    },
+    {
+      "instance_id": "instance_ansible__ansible-a02e22e902a69aeb465f16bf03f7f5a91b2cb828-vba6da65a0f3baefda7a058ebbd0a8dcafb8512f5",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 483.65,
+      "agent": {
+        "status": "step_limit",
+        "model_rounds": 30
+      },
+      "patch_bytes": 19727,
+      "number": 46,
+      "source": "local",
+      "updated_at": "2026-10-21T06:28:39.040947+00:00"
+    },
+    {
+      "instance_id": "instance_ansible__ansible-a1569ea4ca6af5480cf0b7b3135f5e12add28a44-v0f01c69f1e2528b935359cfe578530722bca2c59",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 56.6,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 8
+      },
+      "patch_bytes": 10001,
+      "number": 47,
+      "source": "local",
+      "updated_at": "2026-10-21T06:29:36.689808+00:00"
+    },
+    {
+      "instance_id": "instance_ansible__ansible-a20a52701402a12f91396549df04ac55809f68e9-v1055803c3a812189a1133297f7f5468579283f86",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 57.42,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 9
+      },
+      "patch_bytes": 1749,
+      "number": 48,
+      "source": "local",
+      "updated_at": "2026-10-21T06:30:35.361323+00:00"
+    },
+    {
+      "instance_id": "instance_ansible__ansible-a6e671db25381ed111bbad0ab3e7d97366395d05-v0f01c69f1e2528b935359cfe578530722bca2c59",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 178.83,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 9
+      },
+      "patch_bytes": 2209,
+      "number": 49,
+      "source": "local",
+      "updated_at": "2026-10-21T06:33:34.827033+00:00"
+    },
+    {
+      "instance_id": "instance_ansible__ansible-a7d2a4e03209cff1e97e59fd54bb2b05fdbdbec6-v0f01c69f1e2528b935359cfe578530722bca2c59",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 91.13,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 24
+      },
+      "patch_bytes": 5297,
+      "number": 50,
+      "source": "local",
+      "updated_at": "2026-10-21T06:35:06.539927+00:00"
+    },
+    {
+      "instance_id": "instance_ansible__ansible-b2a289dcbb702003377221e25f62c8a3608f0e89-v173091e2e36d38c978002990795f66cfc0af30ad",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 113.5,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 11
+      },
+      "patch_bytes": 2823,
+      "number": 51,
+      "source": "local",
+      "updated_at": "2026-10-21T06:37:00.697579+00:00"
+    },
+    {
+      "instance_id": "instance_ansible__ansible-b748edea457a4576847a10275678127895d2f02f-v1055803c3a812189a1133297f7f5468579283f86",
+      "evaluation_status": "failed",
+      "reward": 0,
+      "seconds": 89.37,
+      "agent": {
+        "status": "step_limit",
+        "model_rounds": 30
+      },
+      "patch_bytes": 4914,
+      "number": 52,
+      "source": "local",
+      "updated_at": "2026-10-21T06:38:30.577484+00:00"
+    },
+    {
+      "instance_id": "instance_ansible__ansible-be2c376ab87e3e872ca21697508f12c6909cf85a-vba6da65a0f3baefda7a058ebbd0a8dcafb8512f5",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 179.0,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 14
+      },
+      "patch_bytes": 3517,
+      "number": 53,
+      "source": "local",
+      "updated_at": "2026-10-21T06:41:30.526954+00:00"
+    },
+    {
+      "instance_id": "instance_ansible__ansible-be59caa59bf47ca78a4760eb7ff38568372a8260-v1055803c3a812189a1133297f7f5468579283f86",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 56.1,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 14
+      },
+      "patch_bytes": 4338,
+      "number": 54,
+      "source": "local",
+      "updated_at": "2026-10-21T06:42:27.209688+00:00"
+    },
+    {
+      "instance_id": "instance_ansible__ansible-bec27fb4c0a40c5f8bbcf26a475704227d65ee73-v30a923fb5c164d6cd18280c02422f75e611e8fb2",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 96.6,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 22
+      },
+      "patch_bytes": 8325,
+      "number": 55,
+      "source": "local",
+      "updated_at": "2026-10-21T06:44:04.875138+00:00"
+    },
+    {
+      "instance_id": "instance_ansible__ansible-bf98f031f3f5af31a2d78dc2f0a58fe92ebae0bb-v1055803c3a812189a1133297f7f5468579283f86",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 154.15,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 27
+      },
+      "patch_bytes": 12349,
+      "number": 56,
+      "source": "local",
+      "updated_at": "2026-10-21T06:46:39.501221+00:00"
+    },
+    {
+      "instance_id": "instance_ansible__ansible-c1f2df47538b884a43320f53e787197793b105e8-v906c969b551b346ef54a2c0b41e04f632b7b73c2",
+      "evaluation_status": "failed",
+      "reward": 0,
+      "seconds": 199.59,
+      "agent": {
+        "status": "step_limit",
+        "model_rounds": 30
+      },
+      "patch_bytes": 15969,
+      "number": 57,
+      "source": "local",
+      "updated_at": "2026-10-21T06:49:59.785510+00:00"
+    },
+    {
+      "instance_id": "instance_ansible__ansible-c616e54a6e23fa5616a1d56d243f69576164ef9b-v1055803c3a812189a1133297f7f5468579283f86",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 104.69,
+      "agent": {
+        "status": "step_limit",
+        "model_rounds": 30
+      },
+      "patch_bytes": 20642,
+      "number": 58,
+      "source": "local",
+      "updated_at": "2026-10-21T06:51:45.142524+00:00"
+    },
+    {
+      "instance_id": "instance_ansible__ansible-cd473dfb2fdbc97acf3293c134b21cbbcfa89ec3-vba6da65a0f3baefda7a058ebbd0a8dcafb8512f5",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 88.05,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 18
+      },
+      "patch_bytes": 2695,
+      "number": 59,
+      "source": "local",
+      "updated_at": "2026-10-21T06:53:15.390299+00:00"
+    },
+    {
+      "instance_id": "instance_ansible__ansible-cd9c4eb5a6b2bfaf4a6709f001ce3d0c92c1eed2-v0f01c69f1e2528b935359cfe578530722bca2c59",
+      "evaluation_status": "failed",
+      "reward": 0,
+      "seconds": 54.4,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 10
+      },
+      "patch_bytes": 2944,
+      "number": 60,
+      "source": "local",
+      "updated_at": "2026-10-21T06:54:10.413080+00:00"
+    },
+    {
+      "instance_id": "instance_ansible__ansible-d2f80991180337e2be23d6883064a67dcbaeb662-vba6da65a0f3baefda7a058ebbd0a8dcafb8512f5",
+      "evaluation_status": "failed",
+      "reward": 0,
+      "seconds": 156.06,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 25
+      },
+      "patch_bytes": 10213,
+      "number": 61,
+      "source": "local",
+      "updated_at": "2026-10-21T06:56:47.141411+00:00"
+    },
+    {
+      "instance_id": "instance_ansible__ansible-d30fc6c0b359f631130b0e979d9a78a7b3747d48-v1055803c3a812189a1133297f7f5468579283f86",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 109.36,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 25
+      },
+      "patch_bytes": 11197,
+      "number": 62,
+      "source": "local",
+      "updated_at": "2026-10-21T06:58:37.031831+00:00"
+    },
+    {
+      "instance_id": "instance_ansible__ansible-d33bedc48fdd933b5abd65a77c081876298e2f07-v0f01c69f1e2528b935359cfe578530722bca2c59",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 101.95,
+      "agent": {
+        "status": "step_limit",
+        "model_rounds": 30
+      },
+      "patch_bytes": 11173,
+      "number": 63,
+      "source": "local",
+      "updated_at": "2026-10-21T07:00:20.258074+00:00"
+    },
+    {
+      "instance_id": "instance_ansible__ansible-d58e69c82d7edd0583dd8e78d76b075c33c3151e-v173091e2e36d38c978002990795f66cfc0af30ad",
+      "evaluation_status": "failed",
+      "reward": 0,
+      "seconds": 155.75,
+      "agent": {
+        "status": "step_limit",
+        "model_rounds": 30
+      },
+      "patch_bytes": 20737,
+      "number": 64,
+      "source": "local",
+      "updated_at": "2026-10-21T07:02:56.650380+00:00"
+    },
+    {
+      "instance_id": "instance_ansible__ansible-d62496fe416623e88b90139dc7917080cb04ce70-v0f01c69f1e2528b935359cfe578530722bca2c59",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 173.01,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 18
+      },
+      "patch_bytes": 2166,
+      "number": 65,
+      "source": "local",
+      "updated_at": "2026-10-21T07:05:50.309295+00:00"
+    },
+    {
+      "instance_id": "instance_ansible__ansible-d6d2251929c84c3aa883bad7db0f19cc9ff0339e-v30a923fb5c164d6cd18280c02422f75e611e8fb2",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 84.06,
+      "agent": {
+        "status": "step_limit",
+        "model_rounds": 30
+      },
+      "patch_bytes": 7680,
+      "number": 66,
+      "source": "local",
+      "updated_at": "2026-10-21T07:07:15.453704+00:00"
+    },
+    {
+      "instance_id": "instance_ansible__ansible-d72025be751c894673ba85caa063d835a0ad3a8c-v390e508d27db7a51eece36bb6d9698b63a5b638a",
+      "evaluation_status": "failed",
+      "reward": 0,
+      "seconds": 253.13,
+      "agent": {
+        "status": "step_limit",
+        "model_rounds": 30
+      },
+      "patch_bytes": 25483,
+      "number": 67,
+      "source": "local",
+      "updated_at": "2026-10-21T07:11:29.439504+00:00"
+    },
+    {
+      "instance_id": "instance_ansible__ansible-d9f1866249756efc264b00ff7497e92c11a9885f-v0f01c69f1e2528b935359cfe578530722bca2c59",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 66.83,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 17
+      },
+      "patch_bytes": 4171,
+      "number": 68,
+      "source": "local",
+      "updated_at": "2026-10-21T07:12:37.041035+00:00"
+    },
+    {
+      "instance_id": "instance_ansible__ansible-de01db08d00c8d2438e1ba5989c313ba16a145b0-vba6da65a0f3baefda7a058ebbd0a8dcafb8512f5",
+      "evaluation_status": "failed",
+      "reward": 0,
+      "seconds": 93.72,
+      "agent": {
+        "status": "step_limit",
+        "model_rounds": 30
+      },
+      "patch_bytes": 8620,
+      "number": 69,
+      "source": "local",
+      "updated_at": "2026-10-21T07:14:13.225698+00:00"
+    },
+    {
+      "instance_id": "instance_ansible__ansible-de5858f48dc9e1ce9117034e0d7e76806f420ca8-v1055803c3a812189a1133297f7f5468579283f86",
+      "evaluation_status": "failed",
+      "reward": 0,
+      "seconds": 167.63,
+      "agent": {
+        "status": "step_limit",
+        "model_rounds": 30
+      },
+      "patch_bytes": 11510,
+      "number": 70,
+      "source": "local",
+      "updated_at": "2026-10-21T07:17:01.364945+00:00"
+    },
+    {
+      "instance_id": "instance_ansible__ansible-e0c91af45fa9af575d10fd3e724ebc59d2b2d6ac-v30a923fb5c164d6cd18280c02422f75e611e8fb2",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 87.78,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 28
+      },
+      "patch_bytes": 5967,
+      "number": 71,
+      "source": "local",
+      "updated_at": "2026-10-21T07:18:30.255903+00:00"
+    },
+    {
+      "instance_id": "instance_ansible__ansible-e22e103cdf8edc56ff7d9b848a58f94f1471a263-v1055803c3a812189a1133297f7f5468579283f86",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 87.22,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 19
+      },
+      "patch_bytes": 6413,
+      "number": 72,
+      "source": "local",
+      "updated_at": "2026-10-21T07:19:58.089559+00:00"
+    },
+    {
+      "instance_id": "instance_ansible__ansible-e64c6c1ca50d7d26a8e7747d8eb87642e767cd74-v0f01c69f1e2528b935359cfe578530722bca2c59",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 53.25,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 13
+      },
+      "patch_bytes": 2467,
+      "number": 73,
+      "source": "local",
+      "updated_at": "2026-10-21T07:20:51.839384+00:00"
+    },
+    {
+      "instance_id": "instance_ansible__ansible-e9e6001263f51103e96e58ad382660df0f3d0e39-v30a923fb5c164d6cd18280c02422f75e611e8fb2",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 75.65,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 19
+      },
+      "patch_bytes": 20279,
+      "number": 74,
+      "source": "local",
+      "updated_at": "2026-10-21T07:22:07.972798+00:00"
+    },
+    {
+      "instance_id": "instance_ansible__ansible-ea04e0048dbb3b63f876aad7020e1de8eee9f362-v1055803c3a812189a1133297f7f5468579283f86",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 62.48,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 15
+      },
+      "patch_bytes": 2118,
+      "number": 75,
+      "source": "local",
+      "updated_at": "2026-10-21T07:23:11.077900+00:00"
+    },
+    {
+      "instance_id": "instance_ansible__ansible-ecea15c508f0e081525be036cf76bbb56dbcdd9d-vba6da65a0f3baefda7a058ebbd0a8dcafb8512f5",
+      "evaluation_status": "failed",
+      "reward": 0,
+      "seconds": 165.54,
+      "agent": {
+        "status": "step_limit",
+        "model_rounds": 30
+      },
+      "patch_bytes": 12742,
+      "number": 76,
+      "source": "local",
+      "updated_at": "2026-10-21T07:25:57.160276+00:00"
+    },
+    {
+      "instance_id": "instance_ansible__ansible-ed6581e4db2f1bec5a772213c3e186081adc162d-v0f01c69f1e2528b935359cfe578530722bca2c59",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 67.88,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 17
+      },
+      "patch_bytes": 2005,
+      "number": 77,
+      "source": "local",
+      "updated_at": "2026-10-21T07:27:05.572877+00:00"
+    },
+    {
+      "instance_id": "instance_ansible__ansible-eea46a0d1b99a6dadedbb6a3502d599235fa7ec3-v390e508d27db7a51eece36bb6d9698b63a5b638a",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 344.83,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 18
+      },
+      "patch_bytes": 19669,
+      "number": 78,
+      "source": "local",
+      "updated_at": "2026-10-21T07:32:51.593759+00:00"
+    },
+    {
+      "instance_id": "instance_ansible__ansible-f327e65d11bb905ed9f15996024f857a95592629-vba6da65a0f3baefda7a058ebbd0a8dcafb8512f5",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 109.4,
+      "agent": {
+        "status": "step_limit",
+        "model_rounds": 30
+      },
+      "patch_bytes": 2525,
+      "number": 79,
+      "source": "local",
+      "updated_at": "2026-10-21T07:34:41.561915+00:00"
+    },
+    {
+      "instance_id": "instance_ansible__ansible-f86c58e2d235d8b96029d102c71ee2dfafd57997-v0f01c69f1e2528b935359cfe578530722bca2c59",
+      "evaluation_status": "failed",
+      "reward": 0,
+      "seconds": 92.08,
+      "agent": {
+        "status": "step_limit",
+        "model_rounds": 30
+      },
+      "patch_bytes": 6822,
+      "number": 80,
+      "source": "local",
+      "updated_at": "2026-10-21T07:36:15.632959+00:00"
+    },
+    {
+      "instance_id": "instance_ansible__ansible-f8ef34672b961a95ec7282643679492862c688ec-vba6da65a0f3baefda7a058ebbd0a8dcafb8512f5",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 80.41,
+      "agent": {
+        "status": "step_limit",
+        "model_rounds": 30
+      },
+      "patch_bytes": 8748,
+      "number": 81,
+      "source": "local",
+      "updated_at": "2026-10-21T07:37:36.699248+00:00"
+    },
+    {
+      "instance_id": "instance_ansible__ansible-fb144c44144f8bd3542e71f5db62b6d322c7bd85-vba6da65a0f3baefda7a058ebbd0a8dcafb8512f5",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 74.55,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 10
+      },
+      "patch_bytes": 2279,
+      "number": 82,
+      "source": "local",
+      "updated_at": "2026-10-21T07:38:51.897516+00:00"
+    },
+    {
+      "instance_id": "instance_element-hq__element-web-1077729a19c0ce902e713cf6fab42c91fb7907f1-vnan",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 1086.7,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 28
+      },
+      "patch_bytes": 4524,
+      "number": 83,
+      "source": "local",
+      "updated_at": "2026-10-21T07:56:59.216458+00:00"
+    },
+    {
+      "instance_id": "instance_element-hq__element-web-1216285ed2e82e62f8780b6702aa0f9abdda0b34-vnan",
+      "evaluation_status": "failed",
+      "reward": 0,
+      "seconds": 188.7,
+      "agent": {
+        "status": "step_limit",
+        "model_rounds": 30
+      },
+      "patch_bytes": 3508,
+      "number": 84,
+      "source": "local",
+      "updated_at": "2026-10-21T08:00:10.088670+00:00"
+    },
+    {
+      "instance_id": "instance_element-hq__element-web-18c03daa865d3c5b10e52b669cd50be34c67b2e5-vnan",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 205.42,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 25
+      },
+      "patch_bytes": 5395,
+      "number": 85,
+      "source": "local",
+      "updated_at": "2026-10-21T08:03:38.427318+00:00"
+    },
+    {
+      "instance_id": "instance_element-hq__element-web-27139ca68eb075a4438c18fca184887002a4ffbc-vnan",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 181.65,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 7
+      },
+      "patch_bytes": 3072,
+      "number": 86,
+      "source": "local",
+      "updated_at": "2026-10-21T08:06:41.838644+00:00"
+    },
+    {
+      "instance_id": "instance_element-hq__element-web-2760bfc8369f1bee640d6d7a7e910783143d4c5f-vnan",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 422.82,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 30
+      },
+      "patch_bytes": 20993,
+      "number": 87,
+      "source": "local",
+      "updated_at": "2026-10-21T08:13:46.728713+00:00"
+    },
+    {
+      "instance_id": "instance_element-hq__element-web-33e8edb3d508d6eefb354819ca693b7accc695e7",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 269.86,
+      "agent": {
+        "status": "step_limit",
+        "model_rounds": 30
+      },
+      "patch_bytes": 13039,
+      "number": 88,
+      "source": "local",
+      "updated_at": "2026-10-21T08:18:18.969706+00:00"
+    },
+    {
+      "instance_id": "instance_element-hq__element-web-404c412bcb694f04ba0c4d5479541203d701bca0-vnan",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 309.35,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 23
+      },
+      "patch_bytes": 6165,
+      "number": 89,
+      "source": "local",
+      "updated_at": "2026-10-21T08:23:30.552178+00:00"
+    },
+    {
+      "instance_id": "instance_element-hq__element-web-41dfec20bfe9b62cddbbbf621bef2e9aa9685157-vnan",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 148.93,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 21
+      },
+      "patch_bytes": 2664,
+      "number": 90,
+      "source": "local",
+      "updated_at": "2026-10-21T08:26:01.160443+00:00"
+    },
+    {
+      "instance_id": "instance_element-hq__element-web-44b98896a79ede48f5ad7ff22619a39d5f6ff03c-vnan",
+      "evaluation_status": "failed",
+      "reward": 0,
+      "seconds": 437.5,
+      "agent": {
+        "status": "step_limit",
+        "model_rounds": 30
+      },
+      "patch_bytes": 28625,
+      "number": 91,
+      "source": "local",
+      "updated_at": "2026-10-21T08:33:20.641977+00:00"
+    },
+    {
+      "instance_id": "instance_element-hq__element-web-459df4583e01e4744a52d45446e34183385442d6-vnan",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 461.81,
+      "agent": {
+        "status": "step_limit",
+        "model_rounds": 30
+      },
+      "patch_bytes": 22459,
+      "number": 92,
+      "source": "local",
+      "updated_at": "2026-10-21T08:41:04.606665+00:00"
+    },
+    {
+      "instance_id": "instance_element-hq__element-web-494d9de6f0a94ffb491e74744d2735bce02dc0ab-vnan",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 360.08,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 17
+      },
+      "patch_bytes": 4041,
+      "number": 93,
+      "source": "local",
+      "updated_at": "2026-10-21T08:47:06.889937+00:00"
+    },
+    {
+      "instance_id": "instance_element-hq__element-web-4c6b0d35add7ae8d58f71ea1711587e31081444b-vnan",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 75.9,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 15
+      },
+      "patch_bytes": 9525,
+      "number": 94,
+      "source": "local",
+      "updated_at": "2026-10-21T08:48:25.009671+00:00"
+    },
+    {
+      "instance_id": "instance_element-hq__element-web-4fec436883b601a3cac2d4a58067e597f737b817-vnan",
+      "evaluation_status": "failed",
+      "reward": 0,
+      "seconds": 404.19,
+      "agent": {
+        "status": "step_limit",
+        "model_rounds": 30
+      },
+      "patch_bytes": 22975,
+      "number": 95,
+      "source": "local",
+      "updated_at": "2026-10-21T08:55:11.431706+00:00"
+    },
+    {
+      "instance_id": "instance_element-hq__element-web-53a9b6447bd7e6110ee4a63e2ec0322c250f08d1-vnan",
+      "evaluation_status": "failed",
+      "reward": 0,
+      "seconds": 132.46,
+      "agent": {
+        "status": "step_limit",
+        "model_rounds": 30
+      },
+      "patch_bytes": 3763,
+      "number": 96,
+      "source": "local",
+      "updated_at": "2026-10-21T08:57:26.105937+00:00"
+    },
+    {
+      "instance_id": "instance_element-hq__element-web-53b42e321777a598aaf2bb3eab22d710569f83a8-vnan",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 236.37,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 27
+      },
+      "patch_bytes": 5520,
+      "number": 97,
+      "source": "local",
+      "updated_at": "2026-10-21T09:01:24.313133+00:00"
+    },
+    {
+      "instance_id": "instance_element-hq__element-web-56c7fc1948923b4b3f3507799e725ac16bcf8018-vnan",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 500.51,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 24
+      },
+      "patch_bytes": 10312,
+      "number": 98,
+      "source": "local",
+      "updated_at": "2026-10-21T09:09:47.168891+00:00"
+    },
+    {
+      "instance_id": "instance_element-hq__element-web-582a1b093fc0b77538052f45cbb9c7295f991b51-vnan",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 304.83,
+      "agent": {
+        "status": "step_limit",
+        "model_rounds": 30
+      },
+      "patch_bytes": 19584,
+      "number": 99,
+      "source": "local",
+      "updated_at": "2026-10-21T09:14:54.188017+00:00"
+    },
+    {
+      "instance_id": "instance_element-hq__element-web-5dfde12c1c1c0b6e48f17e3405468593e39d9492-vnan",
+      "evaluation_status": "failed",
+      "reward": 0,
+      "seconds": 302.83,
+      "agent": {
+        "status": "step_limit",
+        "model_rounds": 30
+      },
+      "patch_bytes": 13815,
+      "number": 100,
+      "source": "local",
+      "updated_at": "2026-10-21T09:20:00.122280+00:00"
+    },
+    {
+      "instance_id": "instance_element-hq__element-web-5e8488c2838ff4268f39db4a8cca7d74eecf5a7e-vnan",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 233.08,
+      "agent": {
+        "status": "step_limit",
+        "model_rounds": 30
+      },
+      "patch_bytes": 13392,
+      "number": 101,
+      "source": "local",
+      "updated_at": "2026-10-21T09:23:55.768658+00:00"
+    },
+    {
+      "instance_id": "instance_element-hq__element-web-6205c70462e0ce2e1e77afb3a70b55d0fdfe1b31-vnan",
+      "evaluation_status": "error",
+      "reward": null,
+      "seconds": 1256.43,
+      "agent": {
+        "status": "not_started"
+      },
+      "error": "RuntimeError: 第 102 题镜像下载失败：ghcr.io/scaleapi/swe-bench_pro-v2:instance_element-hq__element-web-6205c70462e0ce2e1e77afb3a70b55d0fdfe1b31-vnan\n镜像下载达到准备时间上限。",
+      "number": 102,
+      "source": "local",
+      "updated_at": "2026-10-21T09:44:54.328980+00:00"
+    },
+    {
+      "instance_id": "instance_element-hq__element-web-66d0b318bc6fee0d17b54c1781d6ab5d5d323135-vnan",
+      "evaluation_status": "failed",
+      "reward": 0,
+      "seconds": 207.24,
+      "agent": {
+        "status": "step_limit",
+        "model_rounds": 30
+      },
+      "patch_bytes": 19520,
+      "number": 103,
+      "source": "local",
+      "updated_at": "2026-10-21T09:48:23.753010+00:00"
+    },
+    {
+      "instance_id": "instance_element-hq__element-web-6961c256035bed0b7640a6e5907652c806968478-vnan",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 141.69,
+      "agent": {
+        "status": "step_limit",
+        "model_rounds": 30
+      },
+      "patch_bytes": 9829,
+      "number": 104,
+      "source": "local",
+      "updated_at": "2026-10-21T09:50:45.540224+00:00"
+    },
+    {
+      "instance_id": "instance_element-hq__element-web-71fe08ea0f159ccb707904d87f0a4aef205a167c-vnan",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 251.97,
+      "agent": {
+        "status": "step_limit",
+        "model_rounds": 30
+      },
+      "patch_bytes": 133017,
+      "number": 105,
+      "source": "local",
+      "updated_at": "2026-10-21T09:54:59.971843+00:00"
+    },
+    {
+      "instance_id": "instance_element-hq__element-web-72a8f8f03b1a01bb70ef8a5bb61759416991b32c-vnan",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 229.23,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 10
+      },
+      "patch_bytes": 1413,
+      "number": 106,
+      "source": "local",
+      "updated_at": "2026-10-21T09:58:51.668220+00:00"
+    },
+    {
+      "instance_id": "instance_element-hq__element-web-772df3021201d9c73835a626df8dcb6334ad9a3e-vnan",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 387.18,
+      "agent": {
+        "status": "step_limit",
+        "model_rounds": 30
+      },
+      "patch_bytes": 21052,
+      "number": 107,
+      "source": "local",
+      "updated_at": "2026-10-21T10:05:21.053868+00:00"
+    },
+    {
+      "instance_id": "instance_element-hq__element-web-776ffa47641c7ec6d142ab4a47691c30ebf83c2e",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 251.57,
+      "agent": {
+        "status": "step_limit",
+        "model_rounds": 30
+      },
+      "patch_bytes": 13749,
+      "number": 108,
+      "source": "local",
+      "updated_at": "2026-10-21T10:09:35.308835+00:00"
+    },
+    {
+      "instance_id": "instance_element-hq__element-web-7c63d52500e145d6fff6de41dd717f61ab88d02f-vnan",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 265.23,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 20
+      },
+      "patch_bytes": 9777,
+      "number": 109,
+      "source": "local",
+      "updated_at": "2026-10-21T10:14:02.491370+00:00"
+    },
+    {
+      "instance_id": "instance_element-hq__element-web-880428ab94c6ea98d3d18dcaeb17e8767adcb461-vnan",
+      "evaluation_status": "error",
+      "reward": null,
+      "seconds": 1276.17,
+      "agent": {
+        "status": "not_started"
+      },
+      "error": "RuntimeError: 第 110 题镜像下载失败：ghcr.io/scaleapi/swe-bench_pro-v2:instance_element-hq__element-web-880428ab94c6ea98d3d18dcaeb17e8767adcb461-vnan\n镜像下载达到准备时间上限。",
+      "number": 110,
+      "source": "local",
+      "updated_at": "2026-10-21T10:35:21.177196+00:00"
+    },
+    {
+      "instance_id": "instance_element-hq__element-web-8f3c8b35153d2227af45f32e46bd1e15bd60b71f-vnan",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 485.33,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 20
+      },
+      "patch_bytes": 18515,
+      "number": 111,
+      "source": "local",
+      "updated_at": "2026-10-21T10:43:29.477743+00:00"
+    },
+    {
+      "instance_id": "instance_element-hq__element-web-923ad4323b2006b2b180544429455ffe7d4a6cc3-vnan",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 216.18,
+      "agent": {
+        "status": "step_limit",
+        "model_rounds": 30
+      },
+      "patch_bytes": 6122,
+      "number": 112,
+      "source": "local",
+      "updated_at": "2026-10-21T10:47:05.793736+00:00"
+    },
+    {
+      "instance_id": "instance_element-hq__element-web-9a31cd0fa849da810b4fac6c6c015145e850b282-vnan",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 450.48,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 19
+      },
+      "patch_bytes": 14208,
+      "number": 113,
+      "source": "local",
+      "updated_at": "2026-10-21T10:54:40.022368+00:00"
+    },
+    {
+      "instance_id": "instance_element-hq__element-web-9bf77963ee5e036d54b2a3ca202fbf6378464a5e-vnan",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 335.32,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 16
+      },
+      "patch_bytes": 7291,
+      "number": 114,
+      "source": "local",
+      "updated_at": "2026-10-21T11:00:18.093383+00:00"
+    },
+    {
+      "instance_id": "instance_element-hq__element-web-a692fe21811f88d92e8f7047fc615e4f1f986b0f-vnan",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 213.03,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 16
+      },
+      "patch_bytes": 9946,
+      "number": 115,
+      "source": "local",
+      "updated_at": "2026-10-21T11:03:53.522333+00:00"
+    },
+    {
+      "instance_id": "instance_element-hq__element-web-ad26925bb6628260cfe0fcf90ec0a8cba381f4a4-vnan",
+      "evaluation_status": "failed",
+      "reward": 0,
+      "seconds": 254.73,
+      "agent": {
+        "status": "step_limit",
+        "model_rounds": 30
+      },
+      "patch_bytes": 31322,
+      "number": 116,
+      "source": "local",
+      "updated_at": "2026-10-21T11:08:10.341354+00:00"
+    },
+    {
+      "instance_id": "instance_element-hq__element-web-aeabf3b18896ac1eb7ae9757e66ce886120f8309-vnan",
+      "evaluation_status": "failed",
+      "reward": 0,
+      "seconds": 257.46,
+      "agent": {
+        "status": "step_limit",
+        "model_rounds": 30
+      },
+      "patch_bytes": 18307,
+      "number": 117,
+      "source": "local",
+      "updated_at": "2026-10-21T11:12:30.401724+00:00"
+    },
+    {
+      "instance_id": "instance_element-hq__element-web-aec454dd6feeb93000380523cbb0b3681c0275fd-vnan",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 311.48,
+      "agent": {
+        "status": "step_limit",
+        "model_rounds": 30
+      },
+      "patch_bytes": 19913,
+      "number": 118,
+      "source": "local",
+      "updated_at": "2026-10-21T11:17:45.300258+00:00"
+    },
+    {
+      "instance_id": "instance_element-hq__element-web-b007ea81b2ccd001b00f332bee65070aa7fc00f9-vnan",
+      "evaluation_status": "failed",
+      "reward": 0,
+      "seconds": 66.08,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 9
+      },
+      "patch_bytes": 2734,
+      "number": 119,
+      "source": "local",
+      "updated_at": "2026-10-21T11:18:55.530807+00:00"
+    }
+  ]
+}

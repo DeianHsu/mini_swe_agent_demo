@@ -97,3 +97,19 @@ docker exec -w /workspace mini-swe-learning bash -lc 'echo Hello Agent! > hello.
 ```
 
 结果默认保存在 `pro_v2_runs/full/`。完整参数可通过该模块的 `--help` 查看。
+
+可选择[南京大学的 GHCR 国内镜像服务](https://doc.nju.edu.cn/books/e1654/page/ghcr)续跑：
+
+```powershell
+& '.\.venv\Scripts\python.exe' -X utf8 -u -m mini_swe_agent_demo.docker_bash.run_pro_v2 --image-registry ghcr.nju.edu.cn --retry-errors
+```
+
+该选项优先复用已有本地镜像；需要下载时，将 `ghcr.io` 替换为 `ghcr.nju.edu.cn`，下载后添加官方名称的本地标签，继续使用原题目配置。下载地址会写入后续题目的记录，已有结果保持不变；国内源失败时不会自动回退到海外源。默认不传此参数仍使用官方源。
+
+国内源是否经过 VPN 取决于代理设置。要节省 VPN 流量，还需让 Docker 的镜像请求及代理客户端中的 `ghcr.nju.edu.cn` 使用直连（DIRECT）；全局代理或虚拟网卡（TUN）模式可能仍接管这些请求。
+
+### 在 GitHub Actions 中继续评测
+
+已提供启动一次后自动接续的云端流程：每批最多 200 题，默认 20 路并行，一台执行器只跑一道题。正常完成时连续运行最多三批；出现异常则保存进度并停止。它沿用本地已有评分，支持从上次云端产物续跑。镜像由云端执行器从官方 GHCR 下载，本机只需取回结果。
+
+配置密钥、选择批次和下载报告的方法见 [GitHub Actions 评测指南](docs/GitHub-Actions-评测指南.md)。工作流不会因推送或拉取请求自动启动，外部模型接口仍按使用量收费。
