@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       batch_size:
-        description: 本批最多题数（不重跑已完成评分的题目）
+        description: 本批最多题数（已通过题始终跳过）
         type: choice
         options: ['20', '50', '100', '200']
         default: '200'
@@ -21,6 +21,14 @@ on:
         description: 本批正常完成后自动启动下一批，最多连续三批
         type: boolean
         default: true
+      retry_failed:
+        description: 同时重测未通过题；本轮每题最多一次
+        type: boolean
+        default: true
+      campaign_id:
+        description: 自动接续使用；新一轮保留空白
+        type: string
+        default: ''
       batch_number:
         description: 自动接续使用；首次启动保留 1
         type: number
@@ -81,9 +89,14 @@ jobs:
         id: plan
         env:
           BATCH_SIZE: ${{ inputs.batch_size }}
+          RETRY_FAILED: ${{ inputs.retry_failed }}
+          CAMPAIGN_ID: ${{ inputs.campaign_id }}
         run: |
+          retry_args=()
+          if [[ "$RETRY_FAILED" == 'true' ]]; then retry_args+=(--retry-failed); fi
           python3 scripts/pro_v2_actions.py plan --tasks-dir benchmark-tasks/v2/tasks \
-            --resume-dir cloud-resume --limit "$BATCH_SIZE" --output cloud-plan
+            --resume-dir cloud-resume --limit "$BATCH_SIZE" --output cloud-plan \
+            --campaign-id "$CAMPAIGN_ID" "${retry_args[@]}"
       - uses: actions/upload-artifact@v7
         with:
           name: pro-v2-plan
@@ -97,7 +110,7 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 180
     strategy:
-      # 测试未通过仍然正常退出；模型服务或启动器故障会停止矩阵，控制费用。
+      # 单题临时错误正常保存；密钥/权限/模型配置或工作流故障才停止矩阵。
       fail-fast: true
       max-parallel: ${{ fromJSON(inputs.parallelism) }}
       matrix: ${{ fromJSON(needs.prepare.outputs.matrix) }}

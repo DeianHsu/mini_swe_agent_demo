@@ -132,11 +132,39 @@ def merge_records(config, base, incoming, all_ids):
     return sorted(records.values(), key=lambda row: row["number"])
 
 
-def select_numbers(all_ids, records, limit):
+def candidate_numbers(all_ids, records, retry_failed=False):
+    skipped = {"passed"} if retry_failed else VALID_RESULTS
+    completed = {row["instance_id"] for row in records if row["evaluation_status"] in skipped}
+    return [index for index, instance in enumerate(all_ids, start=1) if instance not in completed]
+
+
+def select_numbers(all_ids, records, limit, retry_failed=False):
     if not 1 <= limit <= 200:
         raise ValueError("每批题数必须在 1–200 之间。")
-    completed = {row["instance_id"] for row in records if row["evaluation_status"] in VALID_RESULTS}
-    return [index for index, instance in enumerate(all_ids, start=1) if instance not in completed][:limit]
+    return candidate_numbers(all_ids, records, retry_failed)[:limit]
+
+
+def make_campaign(all_ids, records, incoming, limit, retry_failed, campaign_id, run_id):
+    if not 1 <= limit <= 200:
+        raise ValueError("每批题数必须在 1–200 之间。")
+    if campaign_id:
+        matches = [item["campaign"] for item in incoming
+                   if item.get("campaign", {}).get("id") == campaign_id]
+        if not matches:
+            raise ValueError("缺少本轮固定队列，停止以免重复重测未通过题。")
+        previous = min(matches, key=lambda item: len(item["remaining_numbers"]))
+        queue = previous["remaining_numbers"]
+        retry_failed = previous["retry_failed"]
+        if (len(set(queue)) != len(queue)
+                or any(type(number) is not int or not 1 <= number <= len(all_ids) for number in queue)):
+            raise ValueError("本轮续跑队列题号无效。")
+        passed = {row["number"] for row in records if row["evaluation_status"] == "passed"}
+        queue = [number for number in queue if number not in passed]
+    else:
+        campaign_id = run_id
+        queue = candidate_numbers(all_ids, records, retry_failed)
+    return queue[:limit], {"id": campaign_id, "retry_failed": retry_failed,
+                           "remaining_numbers": queue[limit:]}
 
 
 def plan(args):
@@ -155,16 +183,23 @@ def plan(args):
     if revision != config["dataset_commit"]:
         raise ValueError("任务仓库提交与本地结果不一致。")
     all_ids = [task["instance_id"] for task in core.load_tasks(args.tasks_dir)]
-    records = merge_records(config, baseline, checkpoints(args.resume_dir), all_ids)
-    selected = select_numbers(all_ids, records, args.limit)
-    data = {"config": config, "all_instance_ids": all_ids, "records": records, "selected": selected}
+    incoming = list(checkpoints(args.resume_dir))
+    records = merge_records(config, baseline, incoming, all_ids)
+    selected, campaign = make_campaign(
+        all_ids, records, incoming, args.limit, args.retry_failed, args.campaign_id,
+        os.environ.get("GITHUB_RUN_ID", "local"),
+    )
+    data = {"config": config, "all_instance_ids": all_ids, "records": records,
+            "selected": selected, "campaign": campaign}
     core.write_json(args.output / "plan.json", data)
-    core.write_json(args.output / "checkpoint.json", {"config": config, "total": len(all_ids), "records": records})
+    core.write_json(args.output / "checkpoint.json", {"config": config, "total": len(all_ids),
+                                                     "records": records, "campaign": campaign})
     if os.environ.get("GITHUB_OUTPUT"):
         with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as handle:
             handle.write("matrix=" + json.dumps({"case": selected or [0]}, separators=(",", ":")) + "\n")
             handle.write(f"count={len(selected)}\n")
-    print(f"已有有效评分 {sum(row['evaluation_status'] in VALID_RESULTS for row in records)} 题，本批选择 {len(selected)} 题。")
+    print(f"已有有效评分 {sum(row['evaluation_status'] in VALID_RESULTS for row in records)} 题，"
+          f"本批选择 {len(selected)} 题，之后本轮还剩 {len(campaign['remaining_numbers'])} 题。")
 
 
 def selected_task(data, number):
@@ -202,11 +237,14 @@ def run_one(args):
     if agent_error:
         result.update(evaluation_status="error", reward=None,
                       error=result["agent"].get("error", "智能体进程异常，未完成有效评测。"))
+    error_name = result.get("agent", {}).get("error", "").partition(":")[0]
+    fatal_error = error_name in {"AuthenticationError", "PermissionDeniedError", "NotFoundError"}
     record = compact_result(result, args.number, "actions")
+    record["fatal_error"] = fatal_error
     core.write_json(args.output / "checkpoint.json", {"config": config, "total": len(data["all_instance_ids"]), "records": [record]})
     print(f"第 {args.number} 题：{record['evaluation_status']}；奖励：{record['reward']}")
-    # 评分未通过是评测数据；模型服务错误才让矩阵尽快停止，避免持续消耗费用。
-    return 2 if agent_error or result.get("agent", {}).get("provider_error") else 0
+    # 临时超时或单题错误保存后继续；密钥、权限、模型配置错误才停止矩阵。
+    return 2 if fatal_error else 0
 
 
 def archive_bytes(checkpoint, files):
@@ -268,6 +306,7 @@ def summarize(data, records):
         "error": counts["error"], "pending": total - len(records), "remaining_to_evaluate": total - valid,
         "valid_scored": valid, "pass_rate_scored": counts["passed"] / valid if valid else None,
         "known_passed_per_total": counts["passed"] / total,
+        "remaining_not_passed": total - counts["passed"],
     }
 
 
@@ -276,17 +315,19 @@ def batch_progress(data, records, run_id):
                and row.get("github_run_id") == run_id and row["number"] in data["selected"]]
     return {"batch_selected": len(data["selected"]), "batch_received": len(current),
             "batch_errors": sum(row["evaluation_status"] == "error" for row in current),
+            "batch_fatal_errors": sum(bool(row.get("fatal_error")) for row in current),
             "batch_missing": len(data["selected"]) - len(current)}
 
 
 def next_batch_inputs(summary, batch_number, batch_size, parallelism, run_id):
     if batch_number not in (1, 2, 3) or not 1 <= batch_size <= 200 or not 1 <= parallelism <= 20:
         raise ValueError("自动接续参数超出范围。")
-    if (batch_number == 3 or summary["remaining_to_evaluate"] == 0
-            or summary["batch_errors"] or summary["batch_missing"] or summary["batch_received"] == 0):
+    if (batch_number == 3 or summary["campaign_remaining"] == 0
+            or summary.get("batch_fatal_errors", 0) or summary["batch_missing"] or summary["batch_received"] == 0):
         return None
     return {"batch_size": str(batch_size), "parallelism": str(parallelism),
-            "resume_run_id": str(run_id), "auto_continue": True, "batch_number": batch_number + 1}
+            "resume_run_id": str(run_id), "auto_continue": True, "batch_number": batch_number + 1,
+            "retry_failed": summary["retry_failed"], "campaign_id": summary["campaign_id"]}
 
 
 def dispatch_next(args):
@@ -294,7 +335,7 @@ def dispatch_next(args):
     inputs = next_batch_inputs(summary, args.batch_number, args.batch_size, args.parallelism,
                                os.environ["GITHUB_RUN_ID"])
     if inputs is None:
-        print("不再自动接续：已全部完成、已到第三批，或本批存在异常/缺失记录。")
+        print("不再自动接续：本轮队列已完成、已到第三批，或存在致命错误/缺失记录。")
         return
     payload = {"ref": os.environ["GITHUB_REF_NAME"], "inputs": inputs}
     path = args.summary.parent / "next-batch.json"
@@ -317,7 +358,11 @@ def merge(args):
     records = merge_records(data["config"], base, checkpoints(args.resume_dir), data["all_instance_ids"])
     summary = summarize(data, records)
     summary.update(batch_progress(data, records, os.environ.get("GITHUB_RUN_ID")))
-    checkpoint = {"config": data["config"], "total": summary["total"], "records": records}
+    campaign = data["campaign"]
+    summary.update(campaign_id=campaign["id"], retry_failed=campaign["retry_failed"],
+                   campaign_remaining=len(campaign["remaining_numbers"]))
+    checkpoint = {"config": data["config"], "total": summary["total"], "records": records,
+                  "campaign": campaign}
     core.write_json(args.output / "checkpoint.json", checkpoint)
     core.write_json(args.output / "summary.json", summary)
     (args.output / "results.jsonl").write_text(
@@ -331,10 +376,13 @@ def merge(args):
         f"尚无结果 **{summary['pending']}**。\n\n"
         f"有效评分 {summary['valid_scored']} / {summary['total']}；"
         + (f"已评分样本通过率 **{summary['pass_rate_scored']:.2%}**。\n\n" if summary['pass_rate_scored'] is not None else "尚无有效评分。\n\n")
-        + f"仍需有效评分 **{summary['remaining_to_evaluate']}** 题（包括执行异常）。\n\n"
+        + f"尚未有效评分 **{summary['remaining_to_evaluate']}** 题；"
+        f"尚未通过 **{summary['remaining_not_passed']}** 题。本轮后续队列剩余 **{summary['campaign_remaining']}** 题。\n\n"
         "checkpoint.json 包含本地基线与历次云端的最新结果。启用自动接续时，正常完成后最多运行三批；"
-        "出现异常或缺失记录时停止。手动恢复选择 latest；不要用 Re-run all jobs 重跑已有计划。\n\n"
-        "未测题不判失败；样本通过率不代表全量成绩。单题补丁和限长日志保存在各 case 产物中；完整消息历史未上传。\n"
+        "单题临时错误不会取消其他题，密钥/权限/模型配置错误或缺失记录时停止。"
+        "本轮每题只尝试一次，重试失败的题不会挤占下一批未测题。手动恢复选择 latest；不要用 Re-run all jobs 重跑已有计划。\n\n"
+        "未测题不判失败；样本通过率不代表全量成绩。启用失败题重测后，累计结果含多次尝试，不能当作单次通过率。"
+        "单题补丁和限长日志保存在各 case 产物中；完整消息历史未上传。\n"
     )
     (args.output / "summary.md").write_text(text, encoding="utf-8")
     if os.environ.get("GITHUB_STEP_SUMMARY"):
@@ -348,12 +396,14 @@ def main():
     commands = parser.add_subparsers(dest="command", required=True)
     export = commands.add_parser("export")
     export.add_argument("--source", type=Path, default=ROOT / "pro_v2_runs/full")
-    export.add_argument("--output", type=Path, default=ROOT / "benchmarks/pro_v2/baseline.json")
+    export.add_argument("--output", type=Path, default=ROOT / "pro_v2_runs/local-export/checkpoint.json")
     planner = commands.add_parser("plan")
     planner.add_argument("--tasks-dir", type=Path, required=True)
     planner.add_argument("--baseline", type=Path, default=ROOT / "benchmarks/pro_v2/baseline.json")
     planner.add_argument("--resume-dir", type=Path)
     planner.add_argument("--limit", type=int, default=200)
+    planner.add_argument("--retry-failed", action="store_true")
+    planner.add_argument("--campaign-id", default="")
     planner.add_argument("--output", type=Path, default=Path("cloud-plan"))
     restoration = commands.add_parser("restore")
     restoration.add_argument("--selection", default="latest")

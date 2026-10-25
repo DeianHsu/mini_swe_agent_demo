@@ -35,14 +35,16 @@ class ActionsTests(unittest.TestCase):
     def fixture_plan(self):
         path = self.root / "plan.json"
         ci.core.write_json(path, {"config": self.config, "all_instance_ids": self.ids,
-                                  "records": [], "selected": [1]})
+                                  "records": [], "selected": [1],
+                                  "campaign": {"id": "start", "retry_failed": True, "remaining_numbers": [2, 3]}})
         return path
 
-    def test_real_baseline_skips_scored_and_retries_download_errors(self):
+    def test_merged_baseline_has_cloud_results_and_retries_only_nonpassed(self):
         baseline = ci.read_json(ci.ROOT / "benchmarks/pro_v2/baseline.json")
         # 基线无需本地大体积日志，也不依赖任务仓库仍在本机。
         scored = {row["number"] for row in baseline["records"] if row["evaluation_status"] in ci.VALID_RESULTS}
-        self.assertEqual(len(scored), 117)
+        self.assertEqual(len(scored), 197)
+        self.assertEqual(len(baseline["records"]), 212)
         all_ids = [None] * baseline["total"]
         for row in baseline["records"]:
             all_ids[row["number"] - 1] = row["instance_id"]
@@ -50,11 +52,32 @@ class ActionsTests(unittest.TestCase):
             if instance is None:
                 all_ids[index] = f"future-task-{index + 1}"
         selected = ci.select_numbers(all_ids, baseline["records"], 200)
-        self.assertEqual(selected[:3], [102, 110, 120])
         self.assertEqual(len(selected), 200)
         self.assertTrue(scored.isdisjoint(selected))
+        retry = ci.candidate_numbers(all_ids, baseline["records"], retry_failed=True)
+        passed = {row["number"] for row in baseline["records"] if row["evaluation_status"] == "passed"}
+        self.assertEqual(len(passed), 106)
+        self.assertEqual(len(retry), 536)
+        self.assertTrue(passed.isdisjoint(retry))
+        self.assertTrue({row['number'] for row in baseline['records']
+                         if row['evaluation_status'] in {'failed', 'error'}}.issubset(retry))
         with self.assertRaises(ValueError):
             ci.select_numbers(all_ids, [], 257)
+
+    def test_fixed_campaign_does_not_repeat_failed_or_error_cases_between_batches(self):
+        rows = [self.row(1), self.row(2, "failed"), self.row(3, "error")]
+        selected, campaign = ci.make_campaign(self.ids, rows, [], 1, True, "", "run-1")
+        self.assertEqual(selected, [2])
+        self.assertEqual(campaign["remaining_numbers"], [3])
+        checkpoint = {**self.checkpoint(rows), "campaign": campaign}
+        selected, campaign = ci.make_campaign(self.ids, rows, [checkpoint], 1, True, "run-1", "run-2")
+        self.assertEqual(selected, [3])
+        self.assertEqual(campaign["remaining_numbers"], [])
+        # 上一批失败题不会挤占新题；手动开始新一轮才重新加入。
+        selected, _ = ci.make_campaign(self.ids, rows, [], 200, True, "", "new-campaign")
+        self.assertEqual(selected, [2, 3])
+        with self.assertRaises(ValueError):
+            ci.make_campaign(self.ids, rows, [], 200, True, "missing-campaign", "run-3")
 
     def test_merge_reads_case_archives_and_takes_latest_result(self):
         base = self.checkpoint([self.row(1), self.row(2, "error")])
@@ -176,17 +199,21 @@ class ActionsTests(unittest.TestCase):
         self.assertEqual(summary["remaining_to_evaluate"], 2)
         self.assertEqual(summary["pending"], 1)
 
-    def test_next_batch_is_automatic_but_bounded_and_stops_on_errors(self):
+    def test_next_batch_continues_transient_errors_but_stops_fatal_errors_or_missing_records(self):
         healthy = {"remaining_to_evaluate": 325, "batch_received": 200,
-                   "batch_errors": 0, "batch_missing": 0}
+                   "batch_errors": 0, "batch_missing": 0, "batch_fatal_errors": 0,
+                   "campaign_remaining": 325, "campaign_id": "start", "retry_failed": True}
         second = ci.next_batch_inputs(healthy, 1, 200, 20, "123")
         self.assertEqual(second["batch_number"], 2)
         self.assertEqual(second["resume_run_id"], "123")
         self.assertEqual(second["parallelism"], "20")
         self.assertTrue(second["auto_continue"])
+        self.assertEqual(second["campaign_id"], "start")
+        self.assertTrue(second["retry_failed"])
         self.assertEqual(ci.next_batch_inputs(healthy, 2, 200, 20, "124")["batch_number"], 3)
         self.assertIsNone(ci.next_batch_inputs(healthy, 3, 200, 20, "125"))
-        for change in ({"batch_errors": 1}, {"batch_missing": 1}, {"remaining_to_evaluate": 0}):
+        self.assertIsNotNone(ci.next_batch_inputs({**healthy, "batch_errors": 1}, 1, 200, 20, "123"))
+        for change in ({"batch_fatal_errors": 1}, {"batch_missing": 1}, {"campaign_remaining": 0}):
             self.assertIsNone(ci.next_batch_inputs({**healthy, **change}, 1, 200, 20, "123"))
 
     def test_batch_progress_only_counts_this_runs_records(self):
@@ -201,7 +228,8 @@ class ActionsTests(unittest.TestCase):
     def test_dispatch_passes_current_checkpoint_to_next_run(self):
         summary = self.root / "summary.json"
         ci.core.write_json(summary, {"remaining_to_evaluate": 325, "batch_received": 200,
-                                     "batch_errors": 0, "batch_missing": 0})
+                                     "batch_errors": 0, "batch_missing": 0,
+                                     "campaign_remaining": 325, "campaign_id": "start", "retry_failed": True})
         args = argparse.Namespace(summary=summary, batch_number=1, batch_size=200, parallelism=20)
         environment = {"GITHUB_RUN_ID": "123", "GITHUB_REF_NAME": "master",
                        "GITHUB_REPOSITORY": "DeianHsu/mini_swe_agent_demo",
@@ -214,7 +242,7 @@ class ActionsTests(unittest.TestCase):
         self.assertEqual(payload["inputs"]["resume_run_id"], "123")
         self.assertEqual(payload["inputs"]["batch_number"], 2)
 
-    def test_normal_failure_continues_but_agent_error_stops_matrix(self):
+    def test_timeout_and_test_failure_continue_but_authentication_error_stops_matrix(self):
         class FakeImages:
             def __init__(self, *args, **kwargs):
                 pass
@@ -227,9 +255,14 @@ class ActionsTests(unittest.TestCase):
         args = argparse.Namespace(plan=plan, number=1, output=self.root / "run", tasks_dir=self.root)
         environment = {"DEEPSEEK_API_KEY": "offline-only", "DEEPSEEK_MODEL": self.config["model"],
                        "DEEPSEEK_BASE_URL": self.config["base_url"]}
-        for state, expected_code in (("finished", 0), ("error", 2)):
+        for state, error, expected_code in (("finished", "", 0),
+                                            ("error", "APITimeoutError: Request timed out.", 0),
+                                            ("error", "RuntimeError: case failed", 0),
+                                            ("error", "AuthenticationError: invalid key", 2),
+                                            ("error", "PermissionDeniedError: denied", 2),
+                                            ("error", "NotFoundError: model unavailable", 2)):
             result = {"instance_id": "task-1", "evaluation_status": "failed", "reward": 0,
-                      "agent": {"status": state, "error": "mock failure"}}
+                      "agent": {"status": state, "error": error}}
             with patch.dict(os.environ, environment), patch.object(ci.core, "ImageCache", FakeImages), \
                  patch.object(ci.core, "load_tasks", return_value=[{"instance_id": "task-1"}]), \
                  patch.object(ci.core, "run_case", return_value=result), \
@@ -237,6 +270,7 @@ class ActionsTests(unittest.TestCase):
                 self.assertEqual(ci.run_one(args), expected_code)
             row = ci.read_json(args.output / "checkpoint.json")["records"][0]
             self.assertEqual(row["evaluation_status"], "failed" if state == "finished" else "error")
+            self.assertEqual(row["fatal_error"], expected_code == 2)
 
 
 if __name__ == "__main__":

@@ -8,6 +8,8 @@ load_dotenv()
 client = OpenAI(
     api_key=os.getenv("DEEPSEEK_API_KEY"),
     base_url=os.getenv("DEEPSEEK_BASE_URL"),
+    timeout=120.0,
+    max_retries=2,
 )
 
 def use_llm(messages: list[dict]) -> str:
