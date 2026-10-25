@@ -72,6 +72,48 @@ def checkpoints(directory):
             yield json.loads(archive.read("checkpoint.json"))
 
 
+def restore(args):
+    args.output.mkdir(parents=True, exist_ok=True)
+    if args.selection == "none":
+        print("仅使用仓库内的本地基线。")
+        return
+    repo = os.environ["GITHUB_REPOSITORY"]
+    if args.selection == "latest":
+        def query(arguments):
+            return json.loads(subprocess.run(
+                ["gh", *arguments], capture_output=True, text=True, check=True,
+            ).stdout)
+
+        runs = query(["run", "list", "--repo", repo, "--workflow", "swe-bench-pro-v2.yml",
+                      "--branch", os.environ["GITHUB_REF_NAME"], "--status", "completed",
+                      "--limit", "20", "--json", "databaseId"])
+        run_id = None
+        for run in runs:
+            candidate = str(run["databaseId"])
+            prefix = f"repos/{repo}/actions/runs/{candidate}"
+            artifacts = query(["api", prefix + "/artifacts?per_page=100"])["artifacts"]
+            if any(not item["expired"] and item["name"].startswith("pro-v2-") for item in artifacts):
+                run_id = candidate
+                break
+            jobs = query(["api", prefix + "/jobs?per_page=100"])["jobs"]
+            if any(job["name"] == "prepare" and job["conclusion"] == "failure" for job in jobs):
+                print(f"跳过准备阶段失败、没有可用产物的运行：{candidate}")
+                continue
+            raise ValueError(f"运行 {candidate} 的结果产物不可用，请指定其他有效运行 ID，避免重复评测。")
+        if run_id is None:
+            if len(runs) == 20:
+                raise ValueError("最近 20 次运行均无可用记录，请指定更早的有效运行 ID。")
+            print("没有已有云端评测记录，使用本地基线。")
+            return
+    elif args.selection.isdigit():
+        run_id = args.selection
+    else:
+        raise ValueError("resume_run_id 必须是 latest、none 或数字运行 ID。")
+    print(f"接续运行：{run_id}")
+    subprocess.run(["gh", "run", "download", run_id, "--repo", repo,
+                    "--pattern", "pro-v2-*", "--dir", str(args.output)], check=True)
+
+
 def merge_records(config, base, incoming, all_ids):
     known = {instance: index for index, instance in enumerate(all_ids, start=1)}
     records = {}
@@ -313,6 +355,9 @@ def main():
     planner.add_argument("--resume-dir", type=Path)
     planner.add_argument("--limit", type=int, default=200)
     planner.add_argument("--output", type=Path, default=Path("cloud-plan"))
+    restoration = commands.add_parser("restore")
+    restoration.add_argument("--selection", default="latest")
+    restoration.add_argument("--output", type=Path, default=Path("cloud-resume"))
     dispatch = commands.add_parser("dispatch-next")
     dispatch.add_argument("--summary", type=Path, default=Path("cloud-summary/summary.json"))
     dispatch.add_argument("--batch-number", type=int, required=True)
@@ -335,7 +380,7 @@ def main():
         export_local(args.source, args.output)
     else:
         return {"plan": plan, "run": run_one, "pack": pack, "merge": merge,
-                "dispatch-next": dispatch_next}[args.command](args)
+                "dispatch-next": dispatch_next, "restore": restore}[args.command](args)
 
 
 if __name__ == "__main__":

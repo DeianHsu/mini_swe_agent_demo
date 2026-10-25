@@ -63,6 +63,36 @@ class ActionsTests(unittest.TestCase):
         records = ci.merge_records(self.config, base, ci.checkpoints(self.root), self.ids)
         self.assertEqual([row["evaluation_status"] for row in records], ["passed", "failed"])
 
+    def test_task_numbering_matches_windows_on_case_sensitive_paths(self):
+        names = ["instance_NodeBB__NodeBB-b", "instance_element__web-c", "instance_ansible__ansible-a"]
+        config = (
+            '[agent]\nnetwork_mode="no-network"\ntimeout_sec=3000\n'
+            '[verifier]\nnetwork_mode="public"\ntimeout_sec=3000\n'
+            '[environment]\ndocker_image="ghcr.io/example:test"\ncpus=1\nmemory_mb=4096\n'
+        )
+        class LinuxEntry:
+            def __init__(self, path):
+                self.path = path
+                self.name = path.name
+            def __lt__(self, other):
+                return self.name < other.name
+            def is_dir(self):
+                return True
+            def __truediv__(self, other):
+                return self.path / other
+            def resolve(self):
+                return self.path.resolve()
+
+        entries = []
+        for name in names:
+            path = self.root / name
+            path.mkdir()
+            (path / "task.toml").write_text(config, encoding="utf-8")
+            entries.append(LinuxEntry(path))
+        root = SimpleNamespace(iterdir=lambda: entries)
+        self.assertEqual([row["instance_id"] for row in ci.core.load_tasks(root)],
+                         [names[2], names[1], names[0]])
+
     def test_merge_rejects_different_model_or_unknown_task(self):
         other = self.checkpoint([self.row(1)])
         other["config"] = {**self.config, "model": "another-model"}
@@ -71,6 +101,37 @@ class ActionsTests(unittest.TestCase):
         other = self.checkpoint([{**self.row(1), "instance_id": "unknown-task"}])
         with self.assertRaises(ValueError):
             ci.merge_records(self.config, self.checkpoint([]), [other], self.ids)
+
+    def test_restore_skips_empty_prepare_failure_and_uses_earlier_results(self):
+        replies = [
+            [{"databaseId": 100}, {"databaseId": 99}],
+            {"artifacts": []},
+            {"jobs": [{"name": "prepare", "conclusion": "failure"}]},
+            {"artifacts": [{"name": "pro-v2-summary", "expired": False}]},
+        ]
+        output = self.root / "resume"
+        responses = [SimpleNamespace(stdout=json.dumps(item)) for item in replies] + [SimpleNamespace()]
+        with patch.dict(os.environ, {"GITHUB_REPOSITORY": "owner/repo", "GITHUB_REF_NAME": "master"}), \
+             patch.object(ci.subprocess, "run", side_effect=responses) as gh:
+            ci.restore(argparse.Namespace(selection="latest", output=output))
+        self.assertEqual(gh.call_args.args[0][:4], ["gh", "run", "download", "99"])
+
+    def test_restore_does_not_reset_scored_run_with_missing_artifacts(self):
+        replies = [[{"databaseId": 100}], {"artifacts": []},
+                   {"jobs": [{"name": "prepare", "conclusion": "success"}]}]
+        with patch.dict(os.environ, {"GITHUB_REPOSITORY": "owner/repo", "GITHUB_REF_NAME": "master"}), \
+             patch.object(ci.subprocess, "run", side_effect=[SimpleNamespace(stdout=json.dumps(x)) for x in replies]) as gh:
+            with self.assertRaises(ValueError):
+                ci.restore(argparse.Namespace(selection="latest", output=self.root / "resume"))
+        self.assertFalse(any(call.args[0][1:3] == ["run", "download"] for call in gh.call_args_list))
+
+    def test_restore_uses_baseline_when_only_prepare_failed(self):
+        replies = [[{"databaseId": 100}], {"artifacts": []},
+                   {"jobs": [{"name": "prepare", "conclusion": "failure"}]}]
+        with patch.dict(os.environ, {"GITHUB_REPOSITORY": "owner/repo", "GITHUB_REF_NAME": "master"}), \
+             patch.object(ci.subprocess, "run", side_effect=[SimpleNamespace(stdout=json.dumps(x)) for x in replies]) as gh:
+            ci.restore(argparse.Namespace(selection="latest", output=self.root / "resume"))
+        self.assertEqual(gh.call_count, 3)
 
     def test_archive_limit_and_secret_redaction(self):
         plan = self.fixture_plan()

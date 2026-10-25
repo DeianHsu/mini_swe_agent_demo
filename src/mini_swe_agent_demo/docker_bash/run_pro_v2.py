@@ -203,7 +203,8 @@ class ImageCache:
 
 def load_tasks(root, instances=None):
     tasks = []
-    for path in sorted(root.iterdir()):
+    # 显式忽略大小写，使 Windows 与 Linux 的题号保持一致。
+    for path in sorted(root.iterdir(), key=lambda path: path.name.casefold()):
         if not path.is_dir() or not (path / "task.toml").is_file():
             continue
         if instances and path.name not in instances:

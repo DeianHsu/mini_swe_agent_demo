@@ -76,29 +76,7 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           RESUME: ${{ inputs.resume_run_id }}
         run: |
-          mkdir -p cloud-resume
-          case "$RESUME" in
-            none) exit 0 ;;
-            latest)
-              run_id="$(gh run list --repo "$GITHUB_REPOSITORY" --workflow swe-bench-pro-v2.yml \
-                --branch "$GITHUB_REF_NAME" --status completed --limit 1 \
-                --json databaseId --jq '.[0].databaseId // empty')"
-              ;;
-            *)
-              if [[ ! "$RESUME" =~ ^[0-9]+$ ]]; then
-                echo '::error::resume_run_id 必须是 latest、none 或数字运行 ID。'
-                exit 1
-              fi
-              run_id="$RESUME"
-              ;;
-          esac
-          if [[ -n "$run_id" ]]; then
-            echo "接续运行：$run_id"
-            gh run download "$run_id" --repo "$GITHUB_REPOSITORY" \
-              --pattern 'pro-v2-*' --dir cloud-resume
-          else
-            echo '首次运行，使用仓库内的本地基线。'
-          fi
+          python3 scripts/pro_v2_actions.py restore --selection "$RESUME" --output cloud-resume
       - name: 生成本批任务矩阵
         id: plan
         env:
