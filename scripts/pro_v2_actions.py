@@ -40,7 +40,8 @@ def compact_result(result, number, source, updated_at=None):
     record = {
         key: result[key] for key in (
             "instance_id", "evaluation_status", "reward", "seconds", "agent",
-            "patch_bytes", "download_image", "error", "reason",
+            "patch_bytes", "download_image", "error", "reason", "verifier_shell",
+            "evaluation_method", "replay_source_run_id",
         ) if key in result
     }
     record.update(number=number, source=source, updated_at=updated_at or timestamp())
@@ -369,6 +370,7 @@ def merge(args):
     (args.output / "results.jsonl").write_text(
         "".join(json.dumps(row, ensure_ascii=False) + "\n" for row in records), encoding="utf-8",
     )
+    replay = data.get("evaluation_method") == "patch_replay"
     text = (
         "# SWE-bench Pro V2 测试结果\n\n"
         f"本批选择 {summary['batch_selected']} 题，收到 {summary['batch_received']} 条记录；"
@@ -379,10 +381,12 @@ def merge(args):
         + (f"已评分样本通过率 **{summary['pass_rate_scored']:.2%}**。\n\n" if summary['pass_rate_scored'] is not None else "尚无有效评分。\n\n")
         + f"尚未有效评分 **{summary['remaining_to_evaluate']}** 题；"
         f"尚未通过 **{summary['remaining_not_passed']}** 题。本轮后续队列剩余 **{summary['campaign_remaining']}** 题。\n\n"
-        "checkpoint.json 包含本地基线与历次云端的最新结果。启用自动接续时，正常完成后最多运行三批；"
+        "checkpoint.json 包含本地基线与历次云端的最新结果。"
+        + ("本批仅重放已有模型补丁，没有调用模型，不会自动启动后续全量评测。\n\n" if replay else
+        "启用自动接续时，正常完成后最多运行三批；"
         "单题临时错误不会取消其他题，密钥/权限/模型配置错误或缺失记录时停止。"
-        "本轮每题只尝试一次，重试失败的题不会挤占下一批未测题。手动恢复选择 latest；不要用 Re-run all jobs 重跑已有计划。\n\n"
-        "未测题不判失败；样本通过率不代表全量成绩。启用失败题重测后，累计结果含多次尝试，不能当作单次通过率。"
+        "本轮每题只尝试一次，重试失败的题不会挤占下一批未测题。手动恢复选择 latest；不要用 Re-run all jobs 重跑已有计划。\n\n")
+        + "未测题不判失败；样本通过率不代表全量成绩。启用失败题重测后，累计结果含多次尝试，不能当作单次通过率。"
         "单题补丁和限长日志保存在各 case 产物中；完整消息历史未上传。\n"
     )
     (args.output / "summary.md").write_text(text, encoding="utf-8")

@@ -50,6 +50,8 @@
 
 ## 下一批与断点续跑
 
+Go 仓库专项诊断已确认旧的 `bash -lc` 会丢失镜像 Go 路径。正式执行已改为 `bash -c`。Flipt/Vuls 的旧结果应先用单独的 **SWE-bench Pro V2 Go 补丁重评（不调用模型）** 工作流重新验证；该流程只重放原补丁，不调用模型，按用户要求手动启动。详见 [仓库异常排查](SWE-bench-Pro-V2-仓库异常排查-2026-10-25.md)。继续主评测时应明确填写独立重评运行的 ID，避免 `latest` 忽略独立工作流的结果。
+
 默认不需要手动启动第二、第三批。每批汇总完成后，若选中题目全部返回记录、没有密钥/权限/模型配置等致命错误、本轮队列仍有题目且当前未到第三批，汇总任务就自动启动下一批。下一批沿用固定队列，不把本轮刚刚失败或异常的题目重新塞回队列。
 
 只有汇总任务获得 `actions: write` 权限，使用 GitHub 自动提供的 `GITHUB_TOKEN` 派发下一批；不需要用户填写额外令牌。这是 GitHub 支持的 `workflow_dispatch` 触发方式。[官方说明](https://docs.github.com/en/actions/how-tos/write-workflows/choose-when-workflows-run/trigger-a-workflow)

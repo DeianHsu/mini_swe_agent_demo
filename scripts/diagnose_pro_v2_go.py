@@ -31,7 +31,11 @@ find . -maxdepth 3 -name go.mod -print | head -25
 """.strip()
 
 
-def read_case_archive(path, number):
+class MissingPatchError(ValueError):
+    pass
+
+
+def read_case_archive(path, number, expected_instance=None):
     """兼容 Actions 下载后的内层 ZIP，以及从网页下载的外层产物 ZIP。"""
     payload = Path(path).read_bytes()
     for _ in range(2):
@@ -40,9 +44,12 @@ def read_case_archive(path, number):
                 checkpoint = json.loads(archive.read("checkpoint.json"))
                 rows = checkpoint["records"]
                 if (len(rows) != 1 or rows[0]["number"] != number
-                        or not rows[0]["instance_id"].startswith(SAMPLES[number])
+                        or not rows[0]["instance_id"].startswith(tuple(SAMPLES.values()))
+                        or (expected_instance is not None and rows[0]["instance_id"] != expected_instance)
                         or checkpoint["config"]["dataset_commit"] != DATASET_COMMIT):
                     raise ValueError("产物与指定题号或固定数据集不匹配。")
+                if "model.patch" not in archive.namelist():
+                    raise MissingPatchError("原产物未保存 model.patch，无法原样重放；不重新调用模型或猜测补丁。")
                 return rows[0], archive.read("model.patch")
             nested = [name for name in archive.namelist() if name.endswith(".zip")]
             if len(nested) != 1:

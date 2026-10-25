@@ -14,7 +14,7 @@ def execute(command: str, *, container_name: str = "mini-swe-learning", workdir:
         workdir,
         container_name,
         "bash",
-        "-lc",
+        "-c",
         command,
     ]
 

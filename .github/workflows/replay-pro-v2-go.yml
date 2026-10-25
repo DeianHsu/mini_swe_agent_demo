@@ -1,0 +1,126 @@
+name: SWE-bench Pro V2 Go 补丁重评（不调用模型）
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: swe-bench-pro-v2-go-replay
+  cancel-in-progress: false
+
+jobs:
+  prepare:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    outputs:
+      matrix: ${{ steps.plan.outputs.matrix }}
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: actions/checkout@v7
+        with:
+          repository: scaleapi/SWE-bench_Pro-os
+          ref: 66f92766bba642462d4bbe5479e83f91f9211862
+          path: benchmark-tasks
+          sparse-checkout: v2/tasks
+          persist-credentials: false
+      - uses: actions/download-artifact@v8
+        with:
+          name: pro-v2-summary
+          run-id: 40177855906
+          github-token: ${{ github.token }}
+          path: replay-source
+      - name: 只选择两个 Go 仓库的 136 份已有补丁
+        id: plan
+        run: python3 -m scripts.replay_pro_v2_go prepare --tasks-dir benchmark-tasks/v2/tasks
+      - uses: actions/upload-artifact@v7
+        with:
+          name: pro-v2-replay-plan
+          path: cloud-plan/
+          retention-days: 7
+
+  replay:
+    needs: prepare
+    runs-on: ubuntu-24.04
+    timeout-minutes: 125
+    strategy:
+      fail-fast: false
+      max-parallel: 20
+      matrix: ${{ fromJSON(needs.prepare.outputs.matrix) }}
+    env:
+      CASE_NUMBER: ${{ matrix.case }}
+      PYTHONUNBUFFERED: '1'
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: actions/download-artifact@v8
+        id: plan
+        with:
+          name: pro-v2-replay-plan
+          path: cloud-plan
+      - uses: actions/checkout@v7
+        with:
+          repository: scaleapi/SWE-bench_Pro-os
+          ref: 66f92766bba642462d4bbe5479e83f91f9211862
+          path: benchmark-tasks
+          sparse-checkout: v2/tasks
+          persist-credentials: false
+      - name: 下载原模型补丁
+        uses: actions/download-artifact@v8
+        with:
+          name: pro-v2-case-${{ matrix.case }}-attempt-1
+          run-id: 40177855906
+          github-token: ${{ github.token }}
+          path: case-artifact
+      - name: 释放云端镜像空间
+        run: |
+          sudo rm -rf -- /usr/local/lib/android /usr/share/dotnet /opt/ghc
+          df -h /
+      - name: 在修复后的 Bash 环境中重新评分
+        timeout-minutes: 115
+        run: |
+          timeout --signal=TERM --kill-after=60s 110m \
+            python3 -m scripts.replay_pro_v2_go run --tasks-dir benchmark-tasks/v2/tasks \
+            --number "$CASE_NUMBER" --case-archive "case-artifact/case-$(printf '%04d' "$CASE_NUMBER").zip"
+      - name: 保存单题结果与原始验证日志
+        if: always() && steps.plan.outcome == 'success'
+        run: python3 scripts/pro_v2_actions.py pack --number "$CASE_NUMBER"
+      - uses: actions/upload-artifact@v7
+        if: always() && steps.plan.outcome == 'success'
+        with:
+          name: pro-v2-case-${{ matrix.case }}-attempt-${{ github.run_attempt }}
+          path: cloud-artifacts/case-*.zip
+          compression-level: 0
+          retention-days: 7
+          if-no-files-found: warn
+
+  summarize:
+    needs: [prepare, replay]
+    if: always() && needs.prepare.result == 'success'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: actions/download-artifact@v8
+        with:
+          name: pro-v2-replay-plan
+          path: cloud-plan
+      - uses: actions/download-artifact@v8
+        continue-on-error: true
+        with:
+          pattern: pro-v2-case-*
+          path: cloud-collected
+      - name: 合并重新评分结果（不启动后续全量测试）
+        run: python3 scripts/pro_v2_actions.py merge --resume-dir cloud-collected --output cloud-summary
+      - uses: actions/upload-artifact@v7
+        with:
+          name: pro-v2-summary
+          path: cloud-summary/
+          retention-days: 30

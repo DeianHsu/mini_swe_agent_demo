@@ -258,7 +258,7 @@ def run_worker(case_dir):
             try:
                 result = docker([
                     "exec", "-w", workdir, container_name,
-                    "timeout", "-k", "5", str(timeout), "bash", "-lc", command,
+                    "timeout", "-k", "5", str(timeout), "bash", "-c", command,
                 ], timeout=timeout + 15, check=False)
                 observation = (
                     f"Exit code:{result.returncode}\nSTDOUT:\n"
@@ -347,6 +347,57 @@ def grade_verifier(exit_code, reward, output):
     return "error", None
 
 
+def verify_patch(task, case_dir, verifier_name, *, workdir=None):
+    """在全新容器中验证 model.patch；生成补丁与重放补丁共用同一评分流程。"""
+    result = {"evaluation_status": "error", "reward": None, "verifier_shell": "bash -c"}
+    try:
+        resources = ["--cpus", task["cpus"], "--memory", f"{task['memory_mb']}m"]
+        docker([
+            "run", "-d", "--pull", "never", "--name", verifier_name, "--user", "root", *resources,
+            "--network", "bridge", "--entrypoint", "sleep", task["image"], "infinity",
+        ], timeout=task["setup_timeout"])
+        if workdir is None:
+            workdir = docker([
+                "exec", verifier_name, "bash", "-c",
+                "git -C /app rev-parse --show-toplevel 2>/dev/null || git -C /testbed rev-parse --show-toplevel",
+            ]).stdout.decode("utf-8").strip()
+        docker(["cp", str(Path(task["path"]) / "tests"), verifier_name + ":/"])
+        patch_file = case_dir / "model.patch"
+        if patch_file.stat().st_size:
+            docker(["cp", str(patch_file), verifier_name + ":/tmp/model.patch"])
+            applied = docker([
+                "exec", "-w", workdir, verifier_name,
+                "git", "apply", "--binary", "/tmp/model.patch",
+            ], check=False)
+            (case_dir / "patch_apply.log").write_bytes(applied.stdout + applied.stderr)
+            if applied.returncode:
+                result.update(evaluation_status="failed", reward=0, reason="patch_apply_failed")
+                return result
+        duration = int(task["verifier_timeout"])
+        # 保留镜像 PATH；bash -lc 会读取登录配置，导致部分 Go 镜像找不到 go。
+        verified = docker([
+            "exec", "-w", workdir, verifier_name, "bash", "-c",
+            f"mkdir -p /logs/verifier && timeout -k 30 {duration} bash /tests/test.sh",
+        ], timeout=duration + 60, check=False)
+        output = (verified.stdout + verified.stderr).decode("utf-8", errors="replace")
+        (case_dir / "verifier.log").write_bytes(verified.stdout + verified.stderr)
+        docker(["cp", verifier_name + ":/logs/verifier", str(case_dir)], check=False)
+        reward_path = case_dir / "verifier" / "reward.txt"
+        reward = reward_path.read_text(encoding="utf-8").strip() if reward_path.exists() else ""
+        status, value = grade_verifier(verified.returncode, reward, output)
+        result.update(evaluation_status=status, reward=value, verifier_exit_code=verified.returncode)
+        if status == "error":
+            result["error"] = "验证未正常完成，请查看 verifier.log 和 verifier/ 下的日志。"
+    except Exception as error:
+        result["error"] = f"{type(error).__name__}: {error}"
+    finally:
+        try:
+            docker(["rm", "-f", verifier_name], check=False)
+        except Exception as error:
+            print(f"  容器清理失败：{verifier_name}：{error}", flush=True)
+    return result
+
+
 def run_case(task, case_dir, prefix, args, images):
     case_dir.mkdir(parents=True)
     started = time.monotonic()
@@ -372,7 +423,7 @@ def run_case(task, case_dir, prefix, args, images):
             "--network", "none", "--entrypoint", "sleep", task["image"], "infinity",
         ], timeout=task["setup_timeout"])
         workdir = docker([
-            "exec", agent_name, "bash", "-lc",
+            "exec", agent_name, "bash", "-c",
             "git -C /app rev-parse --show-toplevel 2>/dev/null "
             "|| git -C /testbed rev-parse --show-toplevel",
         ]).stdout.decode("utf-8").strip()
@@ -391,7 +442,7 @@ def run_case(task, case_dir, prefix, args, images):
         docker(["stop", "--time", "1", agent_name])
         docker(["start", agent_name])
         patch = docker([
-            "exec", "-w", workdir, agent_name, "bash", "-lc",
+            "exec", "-w", workdir, agent_name, "bash", "-c",
             f"git add -A && git diff --cached --binary {base_head}",
         ]).stdout
         (case_dir / "model.patch").write_bytes(patch)
@@ -403,36 +454,7 @@ def run_case(task, case_dir, prefix, args, images):
             return result
 
         print("  在全新容器中应用补丁并运行官方验证脚本……", flush=True)
-        containers.append(verifier_name)
-        docker([
-            "run", "-d", "--pull", "never", "--name", verifier_name, "--user", "root", *resources,
-            "--network", "bridge", "--entrypoint", "sleep", task["image"], "infinity",
-        ], timeout=task["setup_timeout"])
-        docker(["cp", str(Path(task["path"]) / "tests"), verifier_name + ":/"])
-        if patch:
-            docker(["cp", str(case_dir / "model.patch"), verifier_name + ":/tmp/model.patch"])
-            applied = docker([
-                "exec", "-w", workdir, verifier_name,
-                "git", "apply", "--binary", "/tmp/model.patch",
-            ], check=False)
-            (case_dir / "patch_apply.log").write_bytes(applied.stdout + applied.stderr)
-            if applied.returncode:
-                result.update(evaluation_status="failed", reward=0, reason="patch_apply_failed")
-                return result
-        duration = int(task["verifier_timeout"])
-        verified = docker([
-            "exec", "-w", workdir, verifier_name, "bash", "-lc",
-            f"mkdir -p /logs/verifier && timeout -k 30 {duration} bash /tests/test.sh",
-        ], timeout=duration + 60, check=False)
-        output = (verified.stdout + verified.stderr).decode("utf-8", errors="replace")
-        (case_dir / "verifier.log").write_bytes(verified.stdout + verified.stderr)
-        docker(["cp", verifier_name + ":/logs/verifier", str(case_dir)], check=False)
-        reward_path = case_dir / "verifier" / "reward.txt"
-        reward = reward_path.read_text(encoding="utf-8").strip() if reward_path.exists() else ""
-        status, value = grade_verifier(verified.returncode, reward, output)
-        result.update(evaluation_status=status, reward=value, verifier_exit_code=verified.returncode)
-        if status == "error":
-            result["error"] = "验证未正常完成，请查看 verifier.log 和 verifier/ 下的日志。"
+        result.update(verify_patch(task, case_dir, verifier_name, workdir=workdir))
     except Exception as error:
         result["error"] = f"{type(error).__name__}: {error}"
     finally:

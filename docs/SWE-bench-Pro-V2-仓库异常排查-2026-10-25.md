@@ -29,7 +29,7 @@
 
 ## 已准备的专项诊断
 
-官方镜像的小型配置元数据确认：Flipt 第 135 题和 Vuls 第 213 题均把 `/usr/local/go/bin` 和 `/go/bin` 放入 `PATH`，并设有 `GOTOOLCHAIN=local`。当前正式启动器使用 `bash -lc`。登录式 Shell 的初始化可能改变镜像原有的 `PATH`，这是待验证的共同可疑点，目前没有据此修改正式启动器或成绩。
+官方镜像的小型配置元数据确认：Flipt 第 135 题和 Vuls 第 213 题均把 `/usr/local/go/bin` 和 `/go/bin` 放入 `PATH`，并设有 `GOTOOLCHAIN=local`。诊断前正式启动器使用 `bash -lc`，因此先对比登录式 Shell 是否改变镜像原有的 `PATH`；下述真实诊断已确认此问题。
 
 新增手动工作流 **SWE-bench Pro V2 Go 仓库诊断**（`.github/workflows/diagnose-pro-v2-go.yml`）。打开仓库 Actions，选择该名称，在 `master` 分支点击运行工作流（Run workflow）；没有额外参数，也不需要配置模型密钥。推送不会自动启动。
 
@@ -45,3 +45,28 @@
 参考补丁只用于验证环境的对照容器；整个流程没有模型调用，也不会把参考答案交给智能体。官方测试文件不修改。每次验证上限 900 秒、每容器 1 CPU 和 4 GiB 内存；超时只能说明诊断未完成，不能直接改判。输出保存在 `pro-v2-go-diagnosis-135-attempt-1` 和 `pro-v2-go-diagnosis-213-attempt-1` 产物中，包括四组的环境、补丁应用日志、原始标准输出/错误和解析结果。
 
 若参考补丁仅在 `oracle-plain` 下通过，且登录式 Bash 中找不到 Go，即有直接证据修复启动方式；若参考补丁在原流程通过而模型补丁不通过，再检查模型补丁。若参考补丁也都不通过，继续依据原始输出定位环境、编译或测试脚本问题。诊断成绩不导入 642 题的正式汇总，也不自动接续全量评测。
+
+## 真实诊断结果与修复
+
+[诊断运行 40185782809](https://github.com/DeianHsu/mini_swe_agent_demo/actions/runs/40185782809) 已完成，原始产物下载到 `pro_v2_runs/diagnosis/40185782809/`。
+
+| 样本 | 参考补丁 + 登录式 Bash | 参考补丁 + 非登录式 Bash | 原模型补丁 + 非登录式 Bash |
+| --- | --- | --- | --- |
+| Flipt 第 135 题 | 找不到 Go，失败 | 通过，解析到 16 个通过测试 | 未通过，解析到 14 个通过测试 |
+| Vuls 第 213 题 | 找不到 Go，失败 | 通过，24 个测试通过 | 通过，24 个测试通过 |
+
+两份环境日志均显示：`bash -lc` 把 `PATH` 改为 `/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin`，丢失 `/usr/local/go/bin` 和 `/go/bin`；原始输出为 `go: command not found`。`bash -c` 保留镜像原有路径，能调用 `/usr/local/go/bin/go`，两份参考补丁均通过。这确认旧启动方式存在环境故障；Vuls 第 213 题已经提供了模型补丁被误判的直接样本，但不能据此把其余题直接改判通过。
+
+Flipt 第 135 题环境恢复后仍有真实补丁问题：同时设置 CA 证书内容和路径时，没有返回互斥配置错误；`RedisCacheConfig.InsecureSkipTLS` 的 JSON 标签也未通过项目规范检查。该题仍应按官方验证结果判为未通过。
+
+已把 Docker Bash 工具、智能体执行命令、补丁导出和正式验证统一改为 `bash -c`，避免生成与验证使用不同的环境。生成补丁与重放已有补丁共用 `verify_patch()`，使用相同官方测试、1 CPU/4 GiB 限制及原验证超时，不修改官方测试内容。
+
+## 136 题已有补丁重评
+
+用户已确认准备重评流程，仍由用户手动启动。新工作流为 **SWE-bench Pro V2 Go 补丁重评（不调用模型）**，文件 `.github/workflows/replay-pro-v2-go.yml`。在 Actions 选择该名称，选择 `master` 分支并点击运行工作流（Run workflow），无需参数或模型密钥；推送本身不会运行。
+
+流程从原运行 `40177855906` 下载已保存的补丁，在修复后的正式验证环境中逐题重放，最多 20 路并行，范围仅为 Flipt 78 题和 Vuls 58 题。不会重新生成补丁，不使用参考补丁给模型计分，也不自动继续其他 336 道未测题。结束后 `pro-v2-summary` 合并原有成绩与本次重评，逐题记录 `evaluation_method=patch_replay`、`replay_source_run_id` 和 `verifier_shell`；原运行结果仍保留。
+
+已确认第 178 题的原补丁有 42,289,862 字节，原单题产物因大小限制省略了 `model.patch`，当前无法恢复。它会明确记录为 `error / missing_saved_patch`，不会当成已重评通过或自动重新调用模型。其余 135 题可继续重放；最终通过数量必须以实际验证结果为准。
+
+重评是独立工作流。以后继续全量测试时，需把 `resume_run_id` 明确填为本次重评的运行 ID；主评测的 `latest` 只查找主评测工作流，不能自动选到独立重评结果。如需继续原轮剩余 336 题，沿用 `campaign_id=40177855906`、`batch_number=2`，避免重新生成本轮已经处理过的失败题。
