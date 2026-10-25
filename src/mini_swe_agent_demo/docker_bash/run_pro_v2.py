@@ -16,6 +16,31 @@ from uuid import uuid4
 PROJECT_ROOT = Path(__file__).resolve().parents[3]
 DEFAULT_TASKS = PROJECT_ROOT.parent / "SWE-bench-Pro-V2" / "v2" / "tasks"
 DEFAULT_OUTPUT = PROJECT_ROOT / "pro_v2_runs" / "full"
+MAX_OBSERVATION_CHARS = 16000
+MAX_TOOL_HISTORY_CHARS = 256000
+OMITTED_OBSERVATION = "[更早的命令输出已省略；需要时请缩小范围重新读取。]"
+
+
+def limit_observation(text):
+    if len(text) <= MAX_OBSERVATION_CHARS:
+        return text
+    notice = f"\n[输出已截断；原始长度 {len(text)} 字符。请缩小命令范围继续读取。]\n"
+    available = MAX_OBSERVATION_CHARS - len(notice)
+    head = available // 2
+    return text[:head] + notice + text[-(available - head):]
+
+
+def trim_tool_history(history):
+    tools = [row for row in history if row.get("role") == "tool" and isinstance(row.get("content"), str)]
+    for row in tools:
+        row["content"] = limit_observation(row["content"])
+    total = sum(len(row["content"]) for row in tools)
+    for row in tools:
+        if total <= MAX_TOOL_HISTORY_CHARS:
+            break
+        if len(row["content"]) > len(OMITTED_OBSERVATION):
+            total -= len(row["content"]) - len(OMITTED_OBSERVATION)
+            row["content"] = OMITTED_OBSERVATION
 
 
 def write_json(path, data):
@@ -233,7 +258,9 @@ def run_worker(case_dir):
     """独立进程内调用现有智能体，让父进程能够限制整题运行时间。"""
     case = json.loads((case_dir / "case.json").read_text(encoding="utf-8"))
     history_ref = []
-    info = {"status": "error", "model_rounds": 0}
+    info = {"status": "error", "model_rounds": 0,
+            "observation_limit_chars": MAX_OBSERVATION_CHARS,
+            "tool_history_limit_chars": MAX_TOOL_HISTORY_CHARS}
     trace = case_dir / "trajectory.jsonl"
     try:
         from mini_swe_agent_demo.docker_bash import mini_agent as agent_module
@@ -247,6 +274,7 @@ def run_worker(case_dir):
         def model(task, history, workdir="/workspace"):
             nonlocal history_ref
             history_ref = history
+            trim_tool_history(history)
             info["model_rounds"] += 1
             print(f"  模型第 {info['model_rounds']}/{case['max_steps']} 轮", flush=True)
             message = original_model(task, history, workdir=workdir)
@@ -268,7 +296,12 @@ def run_worker(case_dir):
                 )
             except (subprocess.TimeoutExpired, OSError) as error:
                 observation = f"Error: process failed: {error}"
-            record("execution", {"command": command, "observation": observation})
+            original_chars = len(observation)
+            observation = limit_observation(observation)
+            if len(observation) < original_chars:
+                print(f"  命令输出已截断：{original_chars} → {len(observation)} 字符", flush=True)
+            record("execution", {"command": command, "observation": observation,
+                                 "original_chars": original_chars})
             return observation
 
         agent_module.model = model
@@ -278,6 +311,7 @@ def run_worker(case_dir):
             f"代码仓库位于 {case['workdir']}，操作环境是断网的 Linux Bash 容器。\n"
             "请使用容器中已有的工具和依赖，先复现问题，再修改源码并验证。\n"
             "保留已有测试文件，临时复现脚本放在 /tmp。\n"
+            "命令输出过长时只返回首尾片段；需要中间内容时请使用指定文件、搜索词或行号范围读取。\n"
             "保留代码修改，不创建 Git 提交。完成后回复 finish。\n\n"
             + instruction
         )
