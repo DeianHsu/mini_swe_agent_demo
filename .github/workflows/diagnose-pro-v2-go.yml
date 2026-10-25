@@ -1,0 +1,60 @@
+name: SWE-bench Pro V2 Go 仓库诊断
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: swe-bench-pro-v2-go-diagnosis
+  cancel-in-progress: false
+
+jobs:
+  diagnose:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 150
+    strategy:
+      fail-fast: false
+      max-parallel: 2
+      matrix:
+        case: [135, 213]
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: actions/checkout@v7
+        with:
+          repository: scaleapi/SWE-bench_Pro-os
+          ref: 66f92766bba642462d4bbe5479e83f91f9211862
+          path: benchmark-tasks
+          sparse-checkout: v2/tasks
+          persist-credentials: false
+      - name: 下载已有模型补丁（不调用模型）
+        uses: actions/download-artifact@v8
+        with:
+          name: pro-v2-case-${{ matrix.case }}-attempt-1
+          run-id: 40177855906
+          github-token: ${{ github.token }}
+          path: case-artifact
+      - name: 释放云端镜像空间
+        run: |
+          sudo rm -rf -- /usr/local/lib/android /usr/share/dotnet /opt/ghc
+          df -h /
+      - name: 对照参考补丁、模型补丁和两种 Bash 启动方式
+        env:
+          CASE_NUMBER: ${{ matrix.case }}
+          PYTHONUNBUFFERED: '1'
+        run: |
+          python3 scripts/diagnose_pro_v2_go.py --tasks-dir benchmark-tasks/v2/tasks \
+            --number "$CASE_NUMBER" --case-archive "case-artifact/case-$(printf '%04d' "$CASE_NUMBER").zip" \
+            --output go-diagnosis --phase-timeout 900
+      - name: 保存原始验证日志和环境信息
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: pro-v2-go-diagnosis-${{ matrix.case }}-attempt-${{ github.run_attempt }}
+          path: go-diagnosis/
+          retention-days: 14
+          if-no-files-found: warn
