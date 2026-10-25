@@ -219,7 +219,7 @@ class ActionsTests(unittest.TestCase):
         self.assertEqual(summary["remaining_to_evaluate"], 2)
         self.assertEqual(summary["pending"], 1)
 
-    def test_next_batch_continues_transient_errors_but_stops_fatal_errors_or_missing_records(self):
+    def test_next_batch_continues_past_three_batches_and_stops_fatal_errors(self):
         healthy = {"remaining_to_evaluate": 325, "batch_received": 200,
                    "batch_errors": 0, "batch_missing": 0, "batch_fatal_errors": 0,
                    "campaign_remaining": 325, "campaign_id": "start", "retry_failed": True}
@@ -231,10 +231,77 @@ class ActionsTests(unittest.TestCase):
         self.assertEqual(second["campaign_id"], "start")
         self.assertTrue(second["retry_failed"])
         self.assertEqual(ci.next_batch_inputs(healthy, 2, 200, 20, "124")["batch_number"], "3")
-        self.assertIsNone(ci.next_batch_inputs(healthy, 3, 200, 20, "125"))
+        self.assertEqual(ci.next_batch_inputs(healthy, 3, 200, 20, "125")["batch_number"], "4")
         self.assertIsNotNone(ci.next_batch_inputs({**healthy, "batch_errors": 1}, 1, 200, 20, "123"))
-        for change in ({"batch_fatal_errors": 1}, {"batch_missing": 1}, {"campaign_remaining": 0}):
+        self.assertIsNotNone(ci.next_batch_inputs({**healthy, "batch_missing": 1}, 1, 200, 20, "123"))
+        for change in ({"batch_fatal_errors": 1}, {"campaign_remaining": 0}):
             self.assertIsNone(ci.next_batch_inputs({**healthy, **change}, 1, 200, 20, "123"))
+
+    def test_error_is_retried_once_then_deferred_while_new_cases_continue(self):
+        rows = [{**self.row(1, "error", newer=True), "github_run_id": "run-1"}]
+        data = ci.read_json(self.fixture_plan())
+        campaign = ci.complete_campaign(data, rows, "run-1")
+        self.assertEqual(campaign["remaining_numbers"], [1, 2, 3])
+        self.assertEqual(campaign["error_retry_counts"], {"1": 1})
+        selected, second = ci.make_campaign(self.ids, rows, [{"campaign": campaign}],
+                                            2, True, "start", "run-2")
+        self.assertEqual(selected, [1, 2])
+        rows = [{**self.row(1, "error", newer=True), "github_run_id": "run-2"},
+                {**self.row(2, "failed", newer=True), "github_run_id": "run-2"}]
+        final = ci.complete_campaign({"selected": selected, "campaign": second}, rows, "run-2")
+        self.assertEqual(final["remaining_numbers"], [3])
+        self.assertEqual(final["deferred_errors"], [1])
+
+    def test_final_retry_skips_scored_cases_and_never_requeues_its_errors(self):
+        rows = [self.row(1), self.row(2, "failed"), self.row(3, "error")]
+        selected, campaign = ci.make_campaign(self.ids, rows, [], 200, True, "", "final", final_retry=True)
+        self.assertEqual(selected, [3])
+        self.assertFalse(campaign["retry_failed"])
+        rows[2] = {**rows[2], "github_run_id": "final"}
+        completed = ci.complete_campaign({"selected": selected, "campaign": campaign}, rows, "final")
+        self.assertEqual(completed["remaining_numbers"], [])
+        self.assertEqual(completed["deferred_errors"], [3])
+
+    def test_resume_prefers_completed_queue_even_when_errors_increased_its_length(self):
+        old = {"id": "start", "retry_failed": True, "remaining_numbers": [2, 3]}
+        completed = {**old, "remaining_numbers": [1, 2, 3], "updated_at": "2026-10-25T01:00:00+00:00",
+                     "error_retry_counts": {"1": 1}, "deferred_errors": []}
+        selected, campaign = ci.make_campaign(self.ids, [self.row(1, "error")],
+                                               [{"campaign": old}, {"campaign": completed}],
+                                               2, True, "start", "run-2")
+        self.assertEqual(selected, [1, 2])
+        self.assertEqual(campaign["remaining_numbers"], [3])
+
+    def test_legacy_campaign_recovers_errors_without_repeating_normal_failures(self):
+        old = {"id": "start", "retry_failed": True, "remaining_numbers": [3]}
+        selected, campaign = ci.make_campaign(self.ids, [self.row(1, "error"), self.row(2, "failed")],
+                                               [{"campaign": old}], 200, True, "start", "run-2")
+        self.assertEqual(selected, [1, 3])
+        self.assertEqual(campaign["error_retry_counts"], {"1": 1})
+
+    def test_legacy_missing_artifact_is_recovered_even_with_an_old_failed_record(self):
+        old = {"id": "start", "retry_failed": True, "remaining_numbers": [3]}
+        checkpoint = {"campaign": old, "planned_selected": [1, 2],
+                      "planned_record_times": {"1": self.row(1, "failed")["updated_at"]}}
+        rows = [self.row(1, "failed"), self.row(2, "failed", newer=True)]
+        selected, campaign = ci.make_campaign(self.ids, rows, [checkpoint], 200, True, "start", "run-2")
+        self.assertEqual(selected, [1, 3])
+        self.assertEqual(campaign["error_retry_counts"], {"1": 1})
+
+    def test_merge_records_missing_case_as_error_and_preserves_missing_count(self):
+        plan = self.fixture_plan()
+        data = ci.read_json(plan)
+        data["records"] = [self.row(1, "failed")]
+        ci.core.write_json(plan, data)
+        output = self.root / "summary"
+        with patch.dict(os.environ, {"GITHUB_RUN_ID": "run-1"}):
+            ci.merge(argparse.Namespace(plan=plan, resume_dir=self.root / "empty", output=output))
+        summary = ci.read_json(output / "summary.json")
+        checkpoint = ci.read_json(output / "checkpoint.json")
+        self.assertEqual(summary["batch_missing"], 1)
+        self.assertEqual(summary["valid_scored"], 0)
+        self.assertEqual(checkpoint["records"][0]["reason"], "missing_case_artifact")
+        self.assertEqual(checkpoint["campaign"]["remaining_numbers"], [1, 2, 3])
 
     def test_batch_progress_only_counts_this_runs_records(self):
         data = {"selected": [1, 2]}

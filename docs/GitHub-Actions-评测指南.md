@@ -1,12 +1,20 @@
 # 在 GitHub Actions 中继续 SWE-bench Pro V2 评测
 
+## 当前评测轮次（2026 年 10 月 25 日更新）
+
+当前 `campaign_id=40191159974`。首批运行 `40191159974` 已完成 200 题，累计有效评分 **437/642**：通过 385、未通过 52、执行异常 0、未测 205。自动后继运行 `40196704281` 已创建；继续跟进既有运行，不能重复派发。定时跟进已迁移到“接手对话中的计划”聊天，状态保存在本机 `pro_v2_runs/followup-40191159974.json`。
+
+最新接续策略按用户补充要求执行：普通 `failed` 算已完成；每批 `error` 或缺失记录优先顺延一次，再次异常暂存，不反复占用后续批次。正常队列清空后，由定时跟进读取日志并尝试修复，再启动一轮 `final_retry=true`、`retry_failed=false` 的最终补测，每题只做一次。最终补测不再重排自身异常。无法修复或最终补测仍异常则保存原因并结束，不修改官方测试或放宽判分。
+
+自动批号允许递增正整数，不再受三批限制。每批仍最多 200 题、20 路并行，每题 30 轮、命令 180 秒。以下旧轮次的成绩和恢复参数是历史记录，不能用于重新启动当前轮次。
+
 ## 方案
 
 使用公开仓库的标准 `ubuntu-24.04` x64 执行器。每台执行器只处理一道题，保持本地的 1 CPU、4 GiB 容器限制、30 轮模型上限及原有评分流程。运行后虚拟机销毁，镜像不进入构建产物或 Actions 缓存。[执行器规格](https://docs.github.com/en/actions/reference/runners/github-hosted-runners)
 
 | 项目 | 配置与原因 |
 | --- | --- |
-| 触发方式 | 首次手动启动，正常完成后自动接续，最多三批；推送、拉取请求均不触发 |
+| 触发方式 | 首次手动启动，之后按固定队列自动接续；推送、拉取请求均不触发 |
 | 每批题数 | 默认 200，可选 20、50、100、200；低于每个矩阵 256 个任务的上限 |
 | 并行执行器 | 默认 20，可选 4、8、12、16、20；账户或组织共享额度不足时由 GitHub 排队 |
 | 单题任务时限 | 执行步骤由 `timeout` 限制为 150 分钟，整个任务上限 180 分钟，低于标准任务 6 小时上限 |
@@ -42,7 +50,7 @@
 2. 在仓库的设置（Settings）→ 密钥和变量（Secrets and variables）→ Actions → 新建仓库密钥（New repository secret）中，添加 **`DEEPSEEK_API_KEY`**，填入现有模型服务密钥。不要把 `.env` 提交到公开仓库。
 3. 模型默认是 `deepseek-flash`，接口默认是 `https://api.deepseek.com`，与本地基线一致。通常无需配置额外变量；如配置 `DEEPSEEK_MODEL` 或 `DEEPSEEK_BASE_URL`，必须与基线匹配，否则会在解题前停止，避免混合不同实验。
 4. 在仓库的 Actions 页面，选择 **SWE-bench Pro V2 后续评测**，点击运行工作流（Run workflow）。
-5. 使用默认输入：`batch_size=200`、`parallelism=20`、`resume_run_id=latest`、`retry_failed=true`、`auto_continue=true`、`batch_number=1`，`campaign_id` 留空。之后由流程自动填写批号 2、3 和同一轮队列 ID。若缩小每批题数，三批可能无法覆盖全部剩余任务。
+5. 新一轮使用默认输入：`batch_size=200`、`parallelism=20`、`resume_run_id=latest`、`retry_failed=true`、`final_retry=false`、`auto_continue=true`、`batch_number=1`，`campaign_id` 留空。之后由流程递增批号并沿用同一轮队列 ID。当前已有运行时只跟进，不新建轮次。
 
 密钥配置页面：[仓库的 Actions 密钥设置](https://github.com/DeianHsu/mini_swe_agent_demo/settings/secrets/actions)。只需添加 `DEEPSEEK_API_KEY`，不需要另建 GitHub 个人访问令牌。
 
@@ -54,13 +62,13 @@ Go 仓库专项诊断已确认旧的 `bash -lc` 会丢失镜像 Go 路径，正�
 
 **当前只继续剩余 336 题：** 新建一次 **SWE-bench Pro V2 后续评测**，分支 `master`，填写 `resume_run_id=40187712903`、`campaign_id=40177855906`、`batch_number=2`；其余使用每批 200 题、20 路并行、`auto_continue=true`。既有队列已固定，`retry_failed` 保持默认也不会把本轮旧失败题塞回队列。第二批结束后按配置自动接续最后 136 题。
 
-默认不需要手动启动第二、第三批。每批汇总完成后，若选中题目全部返回记录、没有密钥/权限/模型配置等致命错误、本轮队列仍有题目且当前未到第三批，汇总任务就自动启动下一批。下一批沿用固定队列，不把本轮刚刚失败或异常的题目重新塞回队列。
+默认不需要手动启动后续批次。每批汇总完成后，若没有密钥/权限/模型配置等致命错误且本轮队列仍有题目，汇总任务就自动启动下一批。下一批优先处理尚未顺延过的异常或缺失题，然后处理原固定队列；普通未通过题不重新入队。
 
 只有汇总任务获得 `actions: write` 权限，使用 GitHub 自动提供的 `GITHUB_TOKEN` 派发下一批；不需要用户填写额外令牌。这是 GitHub 支持的 `workflow_dispatch` 触发方式。[官方说明](https://docs.github.com/en/actions/how-tos/write-workflows/choose-when-workflows-run/trigger-a-workflow)
 
-自动接续最多三批；遇到致命错误、缺失记录或整体任务失败时停止。临时超时和单题执行异常保存为 `error` 后继续其他题。人工恢复时新建 **Run workflow**，使用 `resume_run_id=latest`、`batch_number=1`，`campaign_id` 留空重新选择当前需要处理的题目。重新运行已有任务（Re-run）不会自动派发下一批。
+临时超时和单题执行异常保存为 `error` 后继续其他题；缺失产物也明确记录为 `error`，保留本批缺失计数，不能沿用历史评分冒充本次结果。每题顺延一次后仍异常则进入 `campaign.deferred_errors`。致命错误或主动取消时停止自动派发，由定时跟进排查；重新运行已有任务（Re-run）不会自动派发下一批。
 
-准备任务寻找同分支最近一次有可用产物的已结束运行，将最新结果与仓库基线合并。`passed` 始终跳过；`retry_failed=true` 时重测 `failed`、`error` 和未测题，关闭时跳过 `failed`。自动接续只处理固定队列中尚未尝试的题目。任务目录按忽略大小写的名称顺序排序，确保 Windows 与 Linux 题号一致。
+准备任务寻找同分支最近一次有可用产物的已结束运行，将最新结果与仓库基线合并。`passed` 始终跳过；新轮次 `retry_failed=true` 时选择历史 `failed`、`error` 和未测题，关闭时跳过 `failed`。自动接续沿用固定队列和有限异常重试计数。最终补测强制跳过普通 `failed`，无论 `retry_failed` 输入为何值。任务目录按忽略大小写的名称顺序排序，确保 Windows 与 Linux 题号一致。
 
 | `resume_run_id` | 含义 |
 | --- | --- |

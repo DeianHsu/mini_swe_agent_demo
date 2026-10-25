@@ -66,7 +66,14 @@ def checkpoints(directory):
     if not directory or not directory.exists():
         return
     for path in sorted(directory.rglob("checkpoint.json")):
-        yield read_json(path)
+        checkpoint = read_json(path)
+        plan_path = path.with_name("plan.json")
+        if plan_path.exists():
+            original = read_json(plan_path)
+            checkpoint["planned_selected"] = original["selected"]
+            checkpoint["planned_record_times"] = {str(row["number"]): row["updated_at"]
+                                                   for row in original["records"]}
+        yield checkpoint
     for path in sorted(directory.rglob("case-*.zip")):
         with zipfile.ZipFile(path) as archive:
             # 只读 JSON，不解压镜像、补丁或任意路径到执行器。
@@ -145,7 +152,7 @@ def select_numbers(all_ids, records, limit, retry_failed=False):
     return candidate_numbers(all_ids, records, retry_failed)[:limit]
 
 
-def make_campaign(all_ids, records, incoming, limit, retry_failed, campaign_id, run_id):
+def make_campaign(all_ids, records, incoming, limit, retry_failed, campaign_id, run_id, final_retry=False):
     if not 1 <= limit <= 200:
         raise ValueError("每批题数必须在 1–200 之间。")
     if campaign_id:
@@ -153,19 +160,61 @@ def make_campaign(all_ids, records, incoming, limit, retry_failed, campaign_id, 
                    if item.get("campaign", {}).get("id") == campaign_id]
         if not matches:
             raise ValueError("缺少本轮固定队列，停止以免重复重测未通过题。")
-        previous = min(matches, key=lambda item: len(item["remaining_numbers"]))
-        queue = previous["remaining_numbers"]
+        previous = max(matches, key=lambda item: (item.get("updated_at", ""), -len(item["remaining_numbers"])))
+        campaign = {**previous, "error_retry_counts": dict(previous.get("error_retry_counts", {})),
+                    "deferred_errors": list(previous.get("deferred_errors", []))}
+        queue = list(previous["remaining_numbers"])
         retry_failed = previous["retry_failed"]
         if (len(set(queue)) != len(queue)
                 or any(type(number) is not int or not 1 <= number <= len(all_ids) for number in queue)):
             raise ValueError("本轮续跑队列题号无效。")
         passed = {row["number"] for row in records if row["evaluation_status"] == "passed"}
         queue = [number for number in queue if number not in passed]
+        # 兼容旧运行：已出队却尚未有效评分的异常题先顺延一次。
+        if "error_retry_counts" not in previous and not previous.get("final_retry", False):
+            retries = [number for number in candidate_numbers(all_ids, records) if number not in queue]
+            latest = {row["number"]: row for row in records}
+            for item in incoming:
+                if item.get("campaign") != previous:
+                    continue
+                for number in item.get("planned_selected", []):
+                    row = latest.get(number)
+                    if (number not in queue and (row is None or row["updated_at"] ==
+                            item.get("planned_record_times", {}).get(str(number)))):
+                        retries.append(number)
+            retries = list(dict.fromkeys(retries))
+            campaign["error_retry_counts"].update({str(number): 1 for number in retries})
+            queue = retries + queue
     else:
         campaign_id = run_id
+        if final_retry:
+            retry_failed = False
         queue = candidate_numbers(all_ids, records, retry_failed)
-    return queue[:limit], {"id": campaign_id, "retry_failed": retry_failed,
-                           "remaining_numbers": queue[limit:]}
+        campaign = {"id": campaign_id, "retry_failed": retry_failed, "final_retry": final_retry,
+                    "error_retry_counts": {}, "deferred_errors": []}
+    campaign["remaining_numbers"] = queue[limit:]
+    return queue[:limit], campaign
+
+
+def complete_campaign(data, records, run_id):
+    previous = data["campaign"]
+    campaign = {**previous, "error_retry_counts": dict(previous.get("error_retry_counts", {}))}
+    current = {row["number"]: row for row in records if row.get("github_run_id") == run_id}
+    valid = {row["number"] for row in records if row["evaluation_status"] in VALID_RESULTS}
+    deferred = set(previous.get("deferred_errors", [])) - valid
+    retries = []
+    for number in data["selected"]:
+        row = current.get(number)
+        if row and row["evaluation_status"] in VALID_RESULTS:
+            continue
+        if not previous.get("final_retry", False) and campaign["error_retry_counts"].get(str(number), 0) < 1:
+            retries.append(number)
+            campaign["error_retry_counts"][str(number)] = 1
+        else:
+            deferred.add(number)
+    campaign.update(remaining_numbers=list(dict.fromkeys(retries + previous["remaining_numbers"])),
+                    deferred_errors=sorted(deferred), updated_at=timestamp())
+    return campaign
 
 
 def plan(args):
@@ -188,7 +237,7 @@ def plan(args):
     records = merge_records(config, baseline, incoming, all_ids)
     selected, campaign = make_campaign(
         all_ids, records, incoming, args.limit, args.retry_failed, args.campaign_id,
-        os.environ.get("GITHUB_RUN_ID", "local"),
+        os.environ.get("GITHUB_RUN_ID", "local"), getattr(args, "final_retry", False),
     )
     data = {"config": config, "all_instance_ids": all_ids, "records": records,
             "selected": selected, "campaign": campaign}
@@ -322,14 +371,14 @@ def batch_progress(data, records, run_id):
 
 
 def next_batch_inputs(summary, batch_number, batch_size, parallelism, run_id):
-    if batch_number not in (1, 2, 3) or not 1 <= batch_size <= 200 or not 1 <= parallelism <= 20:
+    if batch_number < 1 or not 1 <= batch_size <= 200 or not 1 <= parallelism <= 20:
         raise ValueError("自动接续参数超出范围。")
-    if (batch_number == 3 or summary["campaign_remaining"] == 0
-            or summary.get("batch_fatal_errors", 0) or summary["batch_missing"] or summary["batch_received"] == 0):
+    if summary["campaign_remaining"] == 0 or summary.get("batch_fatal_errors", 0):
         return None
     return {"batch_size": str(batch_size), "parallelism": str(parallelism),
             "resume_run_id": str(run_id), "auto_continue": True, "batch_number": str(batch_number + 1),
-            "retry_failed": summary["retry_failed"], "campaign_id": summary["campaign_id"]}
+            "retry_failed": summary["retry_failed"], "campaign_id": summary["campaign_id"],
+            "final_retry": summary.get("final_retry", False)}
 
 
 def dispatch_next(args):
@@ -337,7 +386,7 @@ def dispatch_next(args):
     inputs = next_batch_inputs(summary, args.batch_number, args.batch_size, args.parallelism,
                                os.environ["GITHUB_RUN_ID"])
     if inputs is None:
-        print("不再自动接续：本轮队列已完成、已到第三批，或存在致命错误/缺失记录。")
+        print("不再自动接续：本轮队列已完成或存在致命错误。")
         return
     payload = {"ref": os.environ["GITHUB_REF_NAME"], "inputs": inputs}
     path = args.summary.parent / "next-batch.json"
@@ -347,7 +396,7 @@ def dispatch_next(args):
         f"repos/{os.environ['GITHUB_REPOSITORY']}/actions/workflows/swe-bench-pro-v2.yml/dispatches",
         "--input", str(path),
     ], check=True)
-    message = f"已自动安排第 {inputs['batch_number']}/3 批；接续本次运行结果，最多 {args.parallelism} 路并行。"
+    message = f"已自动安排第 {inputs['batch_number']} 批；接续本次运行结果，最多 {args.parallelism} 路并行。"
     print(message)
     if os.environ.get("GITHUB_STEP_SUMMARY"):
         with open(os.environ["GITHUB_STEP_SUMMARY"], "a", encoding="utf-8") as handle:
@@ -358,11 +407,25 @@ def merge(args):
     data = read_json(args.plan)
     base = {"config": data["config"], "total": len(data["all_instance_ids"]), "records": data["records"]}
     records = merge_records(data["config"], base, checkpoints(args.resume_dir), data["all_instance_ids"])
+    run_id = os.environ.get("GITHUB_RUN_ID")
+    progress = batch_progress(data, records, run_id)
+    if run_id:
+        received = {row["number"] for row in records if row.get("github_run_id") == run_id}
+        missing = [number for number in data["selected"] if number not in received]
+        replacements = {number: compact_result({
+            "instance_id": data["all_instance_ids"][number - 1], "evaluation_status": "error", "reward": None,
+            "error": "本批缺失单题产物，尚未完成有效评分。", "reason": "missing_case_artifact",
+        }, number, "actions") for number in missing}
+        records = sorted([row for row in records if row["number"] not in replacements] + list(replacements.values()),
+                         key=lambda row: row["number"])
     summary = summarize(data, records)
-    summary.update(batch_progress(data, records, os.environ.get("GITHUB_RUN_ID")))
-    campaign = data["campaign"]
+    summary.update(progress)
+    replay = data.get("evaluation_method") == "patch_replay"
+    campaign = data["campaign"] if replay or not run_id else complete_campaign(data, records, run_id)
     summary.update(campaign_id=campaign["id"], retry_failed=campaign["retry_failed"],
-                   campaign_remaining=len(campaign["remaining_numbers"]))
+                   campaign_remaining=len(campaign["remaining_numbers"]),
+                   final_retry=campaign.get("final_retry", False),
+                   deferred_errors=len(campaign.get("deferred_errors", [])))
     checkpoint = {"config": data["config"], "total": summary["total"], "records": records,
                   "campaign": campaign}
     core.write_json(args.output / "checkpoint.json", checkpoint)
@@ -370,7 +433,6 @@ def merge(args):
     (args.output / "results.jsonl").write_text(
         "".join(json.dumps(row, ensure_ascii=False) + "\n" for row in records), encoding="utf-8",
     )
-    replay = data.get("evaluation_method") == "patch_replay"
     text = (
         "# SWE-bench Pro V2 测试结果\n\n"
         f"本批选择 {summary['batch_selected']} 题，收到 {summary['batch_received']} 条记录；"
@@ -383,9 +445,10 @@ def merge(args):
         f"尚未通过 **{summary['remaining_not_passed']}** 题。本轮后续队列剩余 **{summary['campaign_remaining']}** 题。\n\n"
         "checkpoint.json 包含本地基线与历次云端的最新结果。"
         + ("本批仅重放已有模型补丁，没有调用模型，不会自动启动后续全量评测。\n\n" if replay else
-        "启用自动接续时，正常完成后最多运行三批；"
-        "单题临时错误不会取消其他题，密钥/权限/模型配置错误或缺失记录时停止。"
-        "本轮每题只尝试一次，重试失败的题不会挤占下一批未测题。手动恢复选择 latest；不要用 Re-run all jobs 重跑已有计划。\n\n")
+        "启用自动接续时持续处理固定队列；普通未通过题算已完成。"
+        "单题异常或缺失产物优先顺延一次，再次异常暂存到末尾，由定时跟进尝试修复后启动最终补测；"
+        "最终补测不再重排自身异常。密钥/权限/模型配置错误停止自动派发。"
+        "手动恢复选择 latest；不要用 Re-run all jobs 重跑已有计划。\n\n")
         + "未测题不判失败；样本通过率不代表全量成绩。启用失败题重测后，累计结果含多次尝试，不能当作单次通过率。"
         "单题补丁和限长日志保存在各 case 产物中；完整消息历史未上传。\n"
     )
@@ -408,6 +471,7 @@ def main():
     planner.add_argument("--resume-dir", type=Path)
     planner.add_argument("--limit", type=int, default=200)
     planner.add_argument("--retry-failed", action="store_true")
+    planner.add_argument("--final-retry", action="store_true")
     planner.add_argument("--campaign-id", default="")
     planner.add_argument("--output", type=Path, default=Path("cloud-plan"))
     restoration = commands.add_parser("restore")
