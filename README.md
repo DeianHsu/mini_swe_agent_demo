@@ -90,6 +90,8 @@ docker exec -w /workspace mini-swe-learning bash -lc 'echo Hello Agent! > hello.
 
 ### SWE-bench Pro V2
 
+642 题已全部获得有效评分：**542 题通过、100 题未通过、0 题执行异常**。累计通过占比为 **84.42%**，包含历史重试与补丁重评，不能作为单次通过率。结果与执行记录见 [最终评测报告](docs/SWE-bench-Pro-V2-最终报告-2026-10-26.md)，逐题最新成绩保存在 `benchmarks/pro_v2/baseline.json`。
+
 评测入口需要 Git 和 [SWE-bench Pro 任务仓库](https://github.com/scaleapi/SWE-bench_Pro-os)。默认从本项目同级的 `SWE-bench-Pro-V2/v2/tasks/` 读取任务：
 
 ```powershell
@@ -110,6 +112,6 @@ docker exec -w /workspace mini-swe-learning bash -lc 'echo Hello Agent! > hello.
 
 ### 在 GitHub Actions 中继续评测
 
-已提供启动一次后自动接续的云端流程：每批最多 200 题，默认 20 路并行，一台执行器只跑一道题。正常完成时连续运行最多三批；出现异常则保存进度并停止。它沿用本地已有评分，支持从上次云端产物续跑。镜像由云端执行器从官方 GHCR 下载，本机只需取回结果。
+已提供按固定队列自动接续的云端流程：每批最多 200 题，默认 20 路并行，一台执行器只跑一道题；异常最多顺延一次，修复后的最终补测不再重排自身异常。它沿用已有评分，支持从上次云端产物续跑。当前评测已结束，定时跟进已关闭。镜像由云端执行器从官方 GHCR 下载，本机只需取回结果。
 
 配置密钥、选择批次和下载报告的方法见 [GitHub Actions 评测指南](docs/GitHub-Actions-评测指南.md)。工作流不会因推送或拉取请求自动启动，外部模型接口仍按使用量收费。

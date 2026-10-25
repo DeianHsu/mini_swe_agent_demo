@@ -39,12 +39,12 @@ class ActionsTests(unittest.TestCase):
                                   "campaign": {"id": "start", "retry_failed": True, "remaining_numbers": [2, 3]}})
         return path
 
-    def test_merged_baseline_has_cloud_results_and_retries_only_nonpassed(self):
+    def test_completed_baseline_skips_scored_cases_and_only_retries_failures_explicitly(self):
         baseline = ci.read_json(ci.ROOT / "benchmarks/pro_v2/baseline.json")
         # 基线无需本地大体积日志，也不依赖任务仓库仍在本机。
         scored = {row["number"] for row in baseline["records"] if row["evaluation_status"] in ci.VALID_RESULTS}
-        self.assertEqual(len(scored), 305)
-        self.assertEqual(len(baseline["records"]), 306)
+        self.assertEqual(len(scored), 642)
+        self.assertEqual(len(baseline["records"]), 642)
         all_ids = [None] * baseline["total"]
         for row in baseline["records"]:
             all_ids[row["number"] - 1] = row["instance_id"]
@@ -52,12 +52,12 @@ class ActionsTests(unittest.TestCase):
             if instance is None:
                 all_ids[index] = f"future-task-{index + 1}"
         selected = ci.select_numbers(all_ids, baseline["records"], 200)
-        self.assertEqual(len(selected), 200)
+        self.assertEqual(selected, [])
         self.assertTrue(scored.isdisjoint(selected))
         retry = ci.candidate_numbers(all_ids, baseline["records"], retry_failed=True)
         passed = {row["number"] for row in baseline["records"] if row["evaluation_status"] == "passed"}
-        self.assertEqual(len(passed), 237)
-        self.assertEqual(len(retry), 405)
+        self.assertEqual(len(passed), 542)
+        self.assertEqual(len(retry), 100)
         self.assertTrue(passed.isdisjoint(retry))
         self.assertTrue({row['number'] for row in baseline['records']
                          if row['evaluation_status'] in {'failed', 'error'}}.issubset(retry))
