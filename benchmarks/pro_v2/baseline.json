@@ -138,15 +138,19 @@
       "instance_id": "instance_ansible__ansible-1c06c46cc14324df35ac4f39a45fb3ccd602195d-v0f01c69f1e2528b935359cfe578530722bca2c59",
       "evaluation_status": "failed",
       "reward": 0,
-      "seconds": 314.86,
+      "seconds": 136.53,
       "agent": {
         "status": "step_limit",
         "model_rounds": 30
       },
-      "patch_bytes": 2847,
+      "patch_bytes": 4597,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_ansible__ansible-1c06c46cc14324df35ac4f39a45fb3ccd602195d-v0f01c69f1e2528b935359cfe578530722bca2c59",
       "number": 10,
-      "source": "local",
-      "updated_at": "2026-10-21T03:04:38.301313+00:00"
+      "source": "actions",
+      "updated_at": "2026-10-25T08:49:52.495122+00:00",
+      "github_run_id": "40177855906",
+      "github_run_attempt": "1",
+      "fatal_error": false
     },
     {
       "instance_id": "instance_ansible__ansible-1ee70fc272aff6bf3415357c6e13c5de5b928d9b-v1055803c3a812189a1133297f7f5468579283f86",
@@ -278,15 +282,19 @@
       "instance_id": "instance_ansible__ansible-40ade1f84b8bb10a63576b0ac320c13f57c87d34-v6382ea168a93d80a64aab1fbd8c4f02dc5ada5bf",
       "evaluation_status": "failed",
       "reward": 0,
-      "seconds": 216.49,
+      "seconds": 156.83,
       "agent": {
         "status": "step_limit",
         "model_rounds": 30
       },
-      "patch_bytes": 23766,
+      "patch_bytes": 24024,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_ansible__ansible-40ade1f84b8bb10a63576b0ac320c13f57c87d34-v6382ea168a93d80a64aab1fbd8c4f02dc5ada5bf",
       "number": 20,
-      "source": "local",
-      "updated_at": "2026-10-21T05:02:27.499810+00:00"
+      "source": "actions",
+      "updated_at": "2026-10-25T08:49:40.365157+00:00",
+      "github_run_id": "40177855906",
+      "github_run_attempt": "1",
+      "fatal_error": false
     },
     {
       "instance_id": "instance_ansible__ansible-415e08c2970757472314e515cb63a51ad825c45e-v7eee2454f617569fd6889f2211f75bc02a35f9f8",
@@ -306,15 +314,19 @@
       "instance_id": "instance_ansible__ansible-42355d181a11b51ebfc56f6f4b3d9c74e01cb13b-v1055803c3a812189a1133297f7f5468579283f86",
       "evaluation_status": "failed",
       "reward": 0,
-      "seconds": 145.12,
+      "seconds": 146.75,
       "agent": {
         "status": "step_limit",
         "model_rounds": 30
       },
-      "patch_bytes": 10301,
+      "patch_bytes": 13377,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_ansible__ansible-42355d181a11b51ebfc56f6f4b3d9c74e01cb13b-v1055803c3a812189a1133297f7f5468579283f86",
       "number": 22,
-      "source": "local",
-      "updated_at": "2026-10-21T05:06:58.076051+00:00"
+      "source": "actions",
+      "updated_at": "2026-10-25T08:49:18.122039+00:00",
+      "github_run_id": "40177855906",
+      "github_run_attempt": "1",
+      "fatal_error": false
     },
     {
       "instance_id": "instance_ansible__ansible-489156378c8e97374a75a544c7c9c2c0dd8146d1-v390e508d27db7a51eece36bb6d9698b63a5b638a",
@@ -486,31 +498,39 @@
     },
     {
       "instance_id": "instance_ansible__ansible-77658704217d5f166404fc67997203c25381cb6e-v390e508d27db7a51eece36bb6d9698b63a5b638a",
-      "evaluation_status": "failed",
-      "reward": 0,
-      "seconds": 247.66,
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 325.62,
       "agent": {
         "status": "finished",
-        "model_rounds": 15
+        "model_rounds": 20
       },
-      "patch_bytes": 9934,
+      "patch_bytes": 7734,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_ansible__ansible-77658704217d5f166404fc67997203c25381cb6e-v390e508d27db7a51eece36bb6d9698b63a5b638a",
       "number": 35,
-      "source": "local",
-      "updated_at": "2026-10-21T05:51:40.361653+00:00"
+      "source": "actions",
+      "updated_at": "2026-10-25T08:51:54.749193+00:00",
+      "github_run_id": "40177855906",
+      "github_run_attempt": "1",
+      "fatal_error": false
     },
     {
       "instance_id": "instance_ansible__ansible-7e1a347695c7987ae56ef1b6919156d9254010ad-v390e508d27db7a51eece36bb6d9698b63a5b638a",
-      "evaluation_status": "failed",
-      "reward": 0,
-      "seconds": 222.87,
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 281.7,
       "agent": {
-        "status": "step_limit",
-        "model_rounds": 30
+        "status": "finished",
+        "model_rounds": 24
       },
-      "patch_bytes": 20019,
+      "patch_bytes": 17957,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_ansible__ansible-7e1a347695c7987ae56ef1b6919156d9254010ad-v390e508d27db7a51eece36bb6d9698b63a5b638a",
       "number": 36,
-      "source": "local",
-      "updated_at": "2026-10-21T05:55:23.877131+00:00"
+      "source": "actions",
+      "updated_at": "2026-10-25T08:52:22.269676+00:00",
+      "github_run_id": "40177855906",
+      "github_run_attempt": "1",
+      "fatal_error": false
     },
     {
       "instance_id": "instance_ansible__ansible-8127abbc298cabf04aaa89a478fc5e5e3432a6fc-v30a923fb5c164d6cd18280c02422f75e611e8fb2",
@@ -584,17 +604,21 @@
     },
     {
       "instance_id": "instance_ansible__ansible-949c503f2ef4b2c5d668af0492a5c0db1ab86140-v0f01c69f1e2528b935359cfe578530722bca2c59",
-      "evaluation_status": "failed",
-      "reward": 0,
-      "seconds": 167.29,
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 219.99,
       "agent": {
         "status": "step_limit",
         "model_rounds": 30
       },
-      "patch_bytes": 10188,
+      "patch_bytes": 10144,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_ansible__ansible-949c503f2ef4b2c5d668af0492a5c0db1ab86140-v0f01c69f1e2528b935359cfe578530722bca2c59",
       "number": 42,
-      "source": "local",
-      "updated_at": "2026-10-21T06:12:15.689835+00:00"
+      "source": "actions",
+      "updated_at": "2026-10-25T08:50:15.864419+00:00",
+      "github_run_id": "40177855906",
+      "github_run_attempt": "1",
+      "fatal_error": false
     },
     {
       "instance_id": "instance_ansible__ansible-9759e0ca494de1fd5fc2df2c5d11c57adbe6007c-v1055803c3a812189a1133297f7f5468579283f86",
@@ -724,17 +748,21 @@
     },
     {
       "instance_id": "instance_ansible__ansible-b748edea457a4576847a10275678127895d2f02f-v1055803c3a812189a1133297f7f5468579283f86",
-      "evaluation_status": "failed",
-      "reward": 0,
-      "seconds": 89.37,
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 143.41,
       "agent": {
         "status": "step_limit",
         "model_rounds": 30
       },
-      "patch_bytes": 4914,
+      "patch_bytes": 6106,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_ansible__ansible-b748edea457a4576847a10275678127895d2f02f-v1055803c3a812189a1133297f7f5468579283f86",
       "number": 52,
-      "source": "local",
-      "updated_at": "2026-10-21T06:38:30.577484+00:00"
+      "source": "actions",
+      "updated_at": "2026-10-25T08:49:27.698066+00:00",
+      "github_run_id": "40177855906",
+      "github_run_attempt": "1",
+      "fatal_error": false
     },
     {
       "instance_id": "instance_ansible__ansible-be2c376ab87e3e872ca21697508f12c6909cf85a-vba6da65a0f3baefda7a058ebbd0a8dcafb8512f5",
@@ -794,17 +822,21 @@
     },
     {
       "instance_id": "instance_ansible__ansible-c1f2df47538b884a43320f53e787197793b105e8-v906c969b551b346ef54a2c0b41e04f632b7b73c2",
-      "evaluation_status": "failed",
-      "reward": 0,
-      "seconds": 199.59,
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 238.89,
       "agent": {
-        "status": "step_limit",
-        "model_rounds": 30
+        "status": "finished",
+        "model_rounds": 29
       },
-      "patch_bytes": 15969,
+      "patch_bytes": 15699,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_ansible__ansible-c1f2df47538b884a43320f53e787197793b105e8-v906c969b551b346ef54a2c0b41e04f632b7b73c2",
       "number": 57,
-      "source": "local",
-      "updated_at": "2026-10-21T06:49:59.785510+00:00"
+      "source": "actions",
+      "updated_at": "2026-10-25T08:52:02.417664+00:00",
+      "github_run_id": "40177855906",
+      "github_run_attempt": "1",
+      "fatal_error": false
     },
     {
       "instance_id": "instance_ansible__ansible-c616e54a6e23fa5616a1d56d243f69576164ef9b-v1055803c3a812189a1133297f7f5468579283f86",
@@ -836,31 +868,39 @@
     },
     {
       "instance_id": "instance_ansible__ansible-cd9c4eb5a6b2bfaf4a6709f001ce3d0c92c1eed2-v0f01c69f1e2528b935359cfe578530722bca2c59",
-      "evaluation_status": "failed",
-      "reward": 0,
-      "seconds": 54.4,
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 136.93,
       "agent": {
         "status": "finished",
-        "model_rounds": 10
+        "model_rounds": 11
       },
-      "patch_bytes": 2944,
+      "patch_bytes": 2022,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_ansible__ansible-cd9c4eb5a6b2bfaf4a6709f001ce3d0c92c1eed2-v0f01c69f1e2528b935359cfe578530722bca2c59",
       "number": 60,
-      "source": "local",
-      "updated_at": "2026-10-21T06:54:10.413080+00:00"
+      "source": "actions",
+      "updated_at": "2026-10-25T08:53:16.532033+00:00",
+      "github_run_id": "40177855906",
+      "github_run_attempt": "1",
+      "fatal_error": false
     },
     {
       "instance_id": "instance_ansible__ansible-d2f80991180337e2be23d6883064a67dcbaeb662-vba6da65a0f3baefda7a058ebbd0a8dcafb8512f5",
-      "evaluation_status": "failed",
-      "reward": 0,
-      "seconds": 156.06,
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 189.41,
       "agent": {
         "status": "finished",
-        "model_rounds": 25
+        "model_rounds": 27
       },
-      "patch_bytes": 10213,
+      "patch_bytes": 8813,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_ansible__ansible-d2f80991180337e2be23d6883064a67dcbaeb662-vba6da65a0f3baefda7a058ebbd0a8dcafb8512f5",
       "number": 61,
-      "source": "local",
-      "updated_at": "2026-10-21T06:56:47.141411+00:00"
+      "source": "actions",
+      "updated_at": "2026-10-25T08:50:28.205009+00:00",
+      "github_run_id": "40177855906",
+      "github_run_attempt": "1",
+      "fatal_error": false
     },
     {
       "instance_id": "instance_ansible__ansible-d30fc6c0b359f631130b0e979d9a78a7b3747d48-v1055803c3a812189a1133297f7f5468579283f86",
@@ -892,17 +932,21 @@
     },
     {
       "instance_id": "instance_ansible__ansible-d58e69c82d7edd0583dd8e78d76b075c33c3151e-v173091e2e36d38c978002990795f66cfc0af30ad",
-      "evaluation_status": "failed",
-      "reward": 0,
-      "seconds": 155.75,
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 145.81,
       "agent": {
         "status": "step_limit",
         "model_rounds": 30
       },
-      "patch_bytes": 20737,
+      "patch_bytes": 24569,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_ansible__ansible-d58e69c82d7edd0583dd8e78d76b075c33c3151e-v173091e2e36d38c978002990795f66cfc0af30ad",
       "number": 64,
-      "source": "local",
-      "updated_at": "2026-10-21T07:02:56.650380+00:00"
+      "source": "actions",
+      "updated_at": "2026-10-25T08:49:34.903973+00:00",
+      "github_run_id": "40177855906",
+      "github_run_attempt": "1",
+      "fatal_error": false
     },
     {
       "instance_id": "instance_ansible__ansible-d62496fe416623e88b90139dc7917080cb04ce70-v0f01c69f1e2528b935359cfe578530722bca2c59",
@@ -936,15 +980,19 @@
       "instance_id": "instance_ansible__ansible-d72025be751c894673ba85caa063d835a0ad3a8c-v390e508d27db7a51eece36bb6d9698b63a5b638a",
       "evaluation_status": "failed",
       "reward": 0,
-      "seconds": 253.13,
+      "seconds": 304.5,
       "agent": {
         "status": "step_limit",
         "model_rounds": 30
       },
-      "patch_bytes": 25483,
+      "patch_bytes": 0,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_ansible__ansible-d72025be751c894673ba85caa063d835a0ad3a8c-v390e508d27db7a51eece36bb6d9698b63a5b638a",
       "number": 67,
-      "source": "local",
-      "updated_at": "2026-10-21T07:11:29.439504+00:00"
+      "source": "actions",
+      "updated_at": "2026-10-25T08:51:37.148331+00:00",
+      "github_run_id": "40177855906",
+      "github_run_attempt": "1",
+      "fatal_error": false
     },
     {
       "instance_id": "instance_ansible__ansible-d9f1866249756efc264b00ff7497e92c11a9885f-v0f01c69f1e2528b935359cfe578530722bca2c59",
@@ -962,31 +1010,39 @@
     },
     {
       "instance_id": "instance_ansible__ansible-de01db08d00c8d2438e1ba5989c313ba16a145b0-vba6da65a0f3baefda7a058ebbd0a8dcafb8512f5",
-      "evaluation_status": "failed",
-      "reward": 0,
-      "seconds": 93.72,
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 126.43,
       "agent": {
         "status": "step_limit",
         "model_rounds": 30
       },
-      "patch_bytes": 8620,
+      "patch_bytes": 4863,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_ansible__ansible-de01db08d00c8d2438e1ba5989c313ba16a145b0-vba6da65a0f3baefda7a058ebbd0a8dcafb8512f5",
       "number": 69,
-      "source": "local",
-      "updated_at": "2026-10-21T07:14:13.225698+00:00"
+      "source": "actions",
+      "updated_at": "2026-10-25T08:48:24.554707+00:00",
+      "github_run_id": "40177855906",
+      "github_run_attempt": "1",
+      "fatal_error": false
     },
     {
       "instance_id": "instance_ansible__ansible-de5858f48dc9e1ce9117034e0d7e76806f420ca8-v1055803c3a812189a1133297f7f5468579283f86",
       "evaluation_status": "failed",
       "reward": 0,
-      "seconds": 167.63,
+      "seconds": 163.73,
       "agent": {
         "status": "step_limit",
         "model_rounds": 30
       },
-      "patch_bytes": 11510,
+      "patch_bytes": 11906,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_ansible__ansible-de5858f48dc9e1ce9117034e0d7e76806f420ca8-v1055803c3a812189a1133297f7f5468579283f86",
       "number": 70,
-      "source": "local",
-      "updated_at": "2026-10-21T07:17:01.364945+00:00"
+      "source": "actions",
+      "updated_at": "2026-10-25T08:52:15.241440+00:00",
+      "github_run_id": "40177855906",
+      "github_run_attempt": "1",
+      "fatal_error": false
     },
     {
       "instance_id": "instance_ansible__ansible-e0c91af45fa9af575d10fd3e724ebc59d2b2d6ac-v30a923fb5c164d6cd18280c02422f75e611e8fb2",
@@ -1062,15 +1118,19 @@
       "instance_id": "instance_ansible__ansible-ecea15c508f0e081525be036cf76bbb56dbcdd9d-vba6da65a0f3baefda7a058ebbd0a8dcafb8512f5",
       "evaluation_status": "failed",
       "reward": 0,
-      "seconds": 165.54,
+      "seconds": 255.47,
       "agent": {
         "status": "step_limit",
         "model_rounds": 30
       },
-      "patch_bytes": 12742,
+      "patch_bytes": 9573,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_ansible__ansible-ecea15c508f0e081525be036cf76bbb56dbcdd9d-vba6da65a0f3baefda7a058ebbd0a8dcafb8512f5",
       "number": 76,
-      "source": "local",
-      "updated_at": "2026-10-21T07:25:57.160276+00:00"
+      "source": "actions",
+      "updated_at": "2026-10-25T08:51:45.590225+00:00",
+      "github_run_id": "40177855906",
+      "github_run_attempt": "1",
+      "fatal_error": false
     },
     {
       "instance_id": "instance_ansible__ansible-ed6581e4db2f1bec5a772213c3e186081adc162d-v0f01c69f1e2528b935359cfe578530722bca2c59",
@@ -1116,17 +1176,21 @@
     },
     {
       "instance_id": "instance_ansible__ansible-f86c58e2d235d8b96029d102c71ee2dfafd57997-v0f01c69f1e2528b935359cfe578530722bca2c59",
-      "evaluation_status": "failed",
-      "reward": 0,
-      "seconds": 92.08,
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 133.0,
       "agent": {
         "status": "step_limit",
         "model_rounds": 30
       },
-      "patch_bytes": 6822,
+      "patch_bytes": 6432,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_ansible__ansible-f86c58e2d235d8b96029d102c71ee2dfafd57997-v0f01c69f1e2528b935359cfe578530722bca2c59",
       "number": 80,
-      "source": "local",
-      "updated_at": "2026-10-21T07:36:15.632959+00:00"
+      "source": "actions",
+      "updated_at": "2026-10-25T08:49:30.639749+00:00",
+      "github_run_id": "40177855906",
+      "github_run_attempt": "1",
+      "fatal_error": false
     },
     {
       "instance_id": "instance_ansible__ansible-f8ef34672b961a95ec7282643679492862c688ec-vba6da65a0f3baefda7a058ebbd0a8dcafb8512f5",
@@ -1172,17 +1236,21 @@
     },
     {
       "instance_id": "instance_element-hq__element-web-1216285ed2e82e62f8780b6702aa0f9abdda0b34-vnan",
-      "evaluation_status": "failed",
-      "reward": 0,
-      "seconds": 188.7,
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 184.91,
       "agent": {
-        "status": "step_limit",
-        "model_rounds": 30
+        "status": "finished",
+        "model_rounds": 17
       },
-      "patch_bytes": 3508,
+      "patch_bytes": 4128,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_element-hq__element-web-1216285ed2e82e62f8780b6702aa0f9abdda0b34-vnan",
       "number": 84,
-      "source": "local",
-      "updated_at": "2026-10-21T08:00:10.088670+00:00"
+      "source": "actions",
+      "updated_at": "2026-10-25T08:51:15.959301+00:00",
+      "github_run_id": "40177855906",
+      "github_run_attempt": "1",
+      "fatal_error": false
     },
     {
       "instance_id": "instance_element-hq__element-web-18c03daa865d3c5b10e52b669cd50be34c67b2e5-vnan",
@@ -1270,17 +1338,21 @@
     },
     {
       "instance_id": "instance_element-hq__element-web-44b98896a79ede48f5ad7ff22619a39d5f6ff03c-vnan",
-      "evaluation_status": "failed",
-      "reward": 0,
-      "seconds": 437.5,
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 307.2,
       "agent": {
         "status": "step_limit",
         "model_rounds": 30
       },
-      "patch_bytes": 28625,
+      "patch_bytes": 15073,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_element-hq__element-web-44b98896a79ede48f5ad7ff22619a39d5f6ff03c-vnan",
       "number": 91,
-      "source": "local",
-      "updated_at": "2026-10-21T08:33:20.641977+00:00"
+      "source": "actions",
+      "updated_at": "2026-10-25T08:52:23.732569+00:00",
+      "github_run_id": "40177855906",
+      "github_run_attempt": "1",
+      "fatal_error": false
     },
     {
       "instance_id": "instance_element-hq__element-web-459df4583e01e4744a52d45446e34183385442d6-vnan",
@@ -1328,29 +1400,37 @@
       "instance_id": "instance_element-hq__element-web-4fec436883b601a3cac2d4a58067e597f737b817-vnan",
       "evaluation_status": "failed",
       "reward": 0,
-      "seconds": 404.19,
+      "seconds": 273.37,
       "agent": {
         "status": "step_limit",
         "model_rounds": 30
       },
-      "patch_bytes": 22975,
+      "patch_bytes": 23252,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_element-hq__element-web-4fec436883b601a3cac2d4a58067e597f737b817-vnan",
       "number": 95,
-      "source": "local",
-      "updated_at": "2026-10-21T08:55:11.431706+00:00"
+      "source": "actions",
+      "updated_at": "2026-10-25T08:52:04.881207+00:00",
+      "github_run_id": "40177855906",
+      "github_run_attempt": "1",
+      "fatal_error": false
     },
     {
       "instance_id": "instance_element-hq__element-web-53a9b6447bd7e6110ee4a63e2ec0322c250f08d1-vnan",
-      "evaluation_status": "failed",
-      "reward": 0,
-      "seconds": 132.46,
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 382.53,
       "agent": {
         "status": "step_limit",
         "model_rounds": 30
       },
-      "patch_bytes": 3763,
+      "patch_bytes": 6259,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_element-hq__element-web-53a9b6447bd7e6110ee4a63e2ec0322c250f08d1-vnan",
       "number": 96,
-      "source": "local",
-      "updated_at": "2026-10-21T08:57:26.105937+00:00"
+      "source": "actions",
+      "updated_at": "2026-10-25T08:53:01.552302+00:00",
+      "github_run_id": "40177855906",
+      "github_run_attempt": "1",
+      "fatal_error": false
     },
     {
       "instance_id": "instance_element-hq__element-web-53b42e321777a598aaf2bb3eab22d710569f83a8-vnan",
@@ -1396,17 +1476,21 @@
     },
     {
       "instance_id": "instance_element-hq__element-web-5dfde12c1c1c0b6e48f17e3405468593e39d9492-vnan",
-      "evaluation_status": "failed",
-      "reward": 0,
-      "seconds": 302.83,
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 379.44,
       "agent": {
         "status": "step_limit",
         "model_rounds": 30
       },
-      "patch_bytes": 13815,
+      "patch_bytes": 11114,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_element-hq__element-web-5dfde12c1c1c0b6e48f17e3405468593e39d9492-vnan",
       "number": 100,
-      "source": "local",
-      "updated_at": "2026-10-21T09:20:00.122280+00:00"
+      "source": "actions",
+      "updated_at": "2026-10-25T08:57:20.704448+00:00",
+      "github_run_id": "40177855906",
+      "github_run_attempt": "1",
+      "fatal_error": false
     },
     {
       "instance_id": "instance_element-hq__element-web-5e8488c2838ff4268f39db4a8cca7d74eecf5a7e-vnan",
@@ -1443,15 +1527,19 @@
       "instance_id": "instance_element-hq__element-web-66d0b318bc6fee0d17b54c1781d6ab5d5d323135-vnan",
       "evaluation_status": "failed",
       "reward": 0,
-      "seconds": 207.24,
+      "seconds": 390.78,
       "agent": {
         "status": "step_limit",
         "model_rounds": 30
       },
-      "patch_bytes": 19520,
+      "patch_bytes": 18135,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_element-hq__element-web-66d0b318bc6fee0d17b54c1781d6ab5d5d323135-vnan",
       "number": 103,
-      "source": "local",
-      "updated_at": "2026-10-21T09:48:23.753010+00:00"
+      "source": "actions",
+      "updated_at": "2026-10-25T08:58:05.021589+00:00",
+      "github_run_id": "40177855906",
+      "github_run_attempt": "1",
+      "fatal_error": false
     },
     {
       "instance_id": "instance_element-hq__element-web-6961c256035bed0b7640a6e5907652c806968478-vnan",
@@ -1539,20 +1627,21 @@
     },
     {
       "instance_id": "instance_element-hq__element-web-880428ab94c6ea98d3d18dcaeb17e8767adcb461-vnan",
-      "evaluation_status": "failed",
-      "reward": 0,
-      "seconds": 310.3,
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 351.01,
       "agent": {
-        "status": "finished",
-        "model_rounds": 28
+        "status": "step_limit",
+        "model_rounds": 30
       },
-      "patch_bytes": 10954,
+      "patch_bytes": 14449,
       "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_element-hq__element-web-880428ab94c6ea98d3d18dcaeb17e8767adcb461-vnan",
       "number": 110,
       "source": "actions",
-      "updated_at": "2026-10-25T07:12:18.390501+00:00",
-      "github_run_id": "40170725066",
-      "github_run_attempt": "1"
+      "updated_at": "2026-10-25T08:57:48.371246+00:00",
+      "github_run_id": "40177855906",
+      "github_run_attempt": "1",
+      "fatal_error": false
     },
     {
       "instance_id": "instance_element-hq__element-web-8f3c8b35153d2227af45f32e46bd1e15bd60b71f-vnan",
@@ -1628,29 +1717,37 @@
       "instance_id": "instance_element-hq__element-web-ad26925bb6628260cfe0fcf90ec0a8cba381f4a4-vnan",
       "evaluation_status": "failed",
       "reward": 0,
-      "seconds": 254.73,
+      "seconds": 679.07,
       "agent": {
         "status": "step_limit",
         "model_rounds": 30
       },
-      "patch_bytes": 31322,
+      "patch_bytes": 25628,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_element-hq__element-web-ad26925bb6628260cfe0fcf90ec0a8cba381f4a4-vnan",
       "number": 116,
-      "source": "local",
-      "updated_at": "2026-10-21T11:08:10.341354+00:00"
+      "source": "actions",
+      "updated_at": "2026-10-25T09:02:59.900166+00:00",
+      "github_run_id": "40177855906",
+      "github_run_attempt": "1",
+      "fatal_error": false
     },
     {
       "instance_id": "instance_element-hq__element-web-aeabf3b18896ac1eb7ae9757e66ce886120f8309-vnan",
-      "evaluation_status": "failed",
-      "reward": 0,
-      "seconds": 257.46,
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 1002.5,
       "agent": {
         "status": "step_limit",
         "model_rounds": 30
       },
-      "patch_bytes": 18307,
+      "patch_bytes": 22651,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_element-hq__element-web-aeabf3b18896ac1eb7ae9757e66ce886120f8309-vnan",
       "number": 117,
-      "source": "local",
-      "updated_at": "2026-10-21T11:12:30.401724+00:00"
+      "source": "actions",
+      "updated_at": "2026-10-25T09:08:31.872094+00:00",
+      "github_run_id": "40177855906",
+      "github_run_attempt": "1",
+      "fatal_error": false
     },
     {
       "instance_id": "instance_element-hq__element-web-aec454dd6feeb93000380523cbb0b3681c0275fd-vnan",
@@ -1670,15 +1767,19 @@
       "instance_id": "instance_element-hq__element-web-b007ea81b2ccd001b00f332bee65070aa7fc00f9-vnan",
       "evaluation_status": "failed",
       "reward": 0,
-      "seconds": 66.08,
+      "seconds": 402.26,
       "agent": {
         "status": "finished",
-        "model_rounds": 9
+        "model_rounds": 17
       },
-      "patch_bytes": 2734,
+      "patch_bytes": 3657,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_element-hq__element-web-b007ea81b2ccd001b00f332bee65070aa7fc00f9-vnan",
       "number": 119,
-      "source": "local",
-      "updated_at": "2026-10-21T11:18:55.530807+00:00"
+      "source": "actions",
+      "updated_at": "2026-10-25T08:58:35.195158+00:00",
+      "github_run_id": "40177855906",
+      "github_run_attempt": "1",
+      "fatal_error": false
     },
     {
       "instance_id": "instance_element-hq__element-web-b7fea97bb68c6628a644580076f840109132f074-vnan",
@@ -1786,18 +1887,19 @@
       "instance_id": "instance_element-hq__element-web-dae13ac8522fc6d41e64d1ac6e3174486fdcce0c-vnan",
       "evaluation_status": "failed",
       "reward": 0,
-      "seconds": 204.4,
+      "seconds": 172.76,
       "agent": {
         "status": "step_limit",
         "model_rounds": 30
       },
-      "patch_bytes": 11165,
+      "patch_bytes": 15996,
       "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_element-hq__element-web-dae13ac8522fc6d41e64d1ac6e3174486fdcce0c-vnan",
       "number": 126,
       "source": "actions",
-      "updated_at": "2026-10-25T06:59:41.620715+00:00",
-      "github_run_id": "40170725066",
-      "github_run_attempt": "1"
+      "updated_at": "2026-10-25T08:55:00.612817+00:00",
+      "github_run_id": "40177855906",
+      "github_run_attempt": "1",
+      "fatal_error": false
     },
     {
       "instance_id": "instance_element-hq__element-web-ec0f940ef0e8e3b61078f145f34dc40d1938e6c5-vnan",
@@ -1922,1305 +2024,3385 @@
       "instance_id": "instance_element-hq__element-web-fe14847bb9bb07cab1b9c6c54335ff22ca5e516a-vnan",
       "evaluation_status": "failed",
       "reward": 0,
-      "seconds": 553.89,
+      "seconds": 335.27,
       "agent": {
         "status": "finished",
-        "model_rounds": 29
+        "model_rounds": 28
       },
-      "patch_bytes": 33470,
+      "patch_bytes": 15103,
       "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_element-hq__element-web-fe14847bb9bb07cab1b9c6c54335ff22ca5e516a-vnan",
       "number": 134,
       "source": "actions",
-      "updated_at": "2026-10-25T07:04:45.895919+00:00",
-      "github_run_id": "40170725066",
-      "github_run_attempt": "1"
+      "updated_at": "2026-10-25T08:58:29.336760+00:00",
+      "github_run_id": "40177855906",
+      "github_run_attempt": "1",
+      "fatal_error": false
     },
     {
       "instance_id": "instance_flipt-io__flipt-02e21636c58e86c51119b63e0fb5ca7b813b07b1",
       "evaluation_status": "failed",
       "reward": 0,
-      "seconds": 610.16,
+      "seconds": 344.91,
       "agent": {
         "status": "step_limit",
         "model_rounds": 30
       },
-      "patch_bytes": 5908,
+      "patch_bytes": 6256,
       "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_flipt-io__flipt-02e21636c58e86c51119b63e0fb5ca7b813b07b1",
+      "verifier_shell": "bash -c",
+      "evaluation_method": "patch_replay",
+      "replay_source_run_id": "40177855906",
       "number": 135,
       "source": "actions",
-      "updated_at": "2026-10-25T07:05:30.551705+00:00",
-      "github_run_id": "40170725066",
+      "updated_at": "2026-10-25T11:17:15.333927+00:00",
+      "github_run_id": "40187712903",
       "github_run_attempt": "1"
     },
     {
       "instance_id": "instance_flipt-io__flipt-05d7234fa582df632f70a7cd10194d61bd7043b9",
-      "evaluation_status": "failed",
-      "reward": 0,
-      "seconds": 629.25,
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 296.66,
       "agent": {
         "status": "step_limit",
         "model_rounds": 30
       },
-      "patch_bytes": 7871,
+      "patch_bytes": 10121,
       "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_flipt-io__flipt-05d7234fa582df632f70a7cd10194d61bd7043b9",
+      "verifier_shell": "bash -c",
+      "evaluation_method": "patch_replay",
+      "replay_source_run_id": "40177855906",
       "number": 136,
       "source": "actions",
-      "updated_at": "2026-10-25T07:11:28.737337+00:00",
-      "github_run_id": "40170725066",
+      "updated_at": "2026-10-25T11:16:06.755775+00:00",
+      "github_run_id": "40187712903",
       "github_run_attempt": "1"
     },
     {
       "instance_id": "instance_flipt-io__flipt-0b119520afca1cf25c470ff4288c464d4510b944",
-      "evaluation_status": "failed",
-      "reward": 0,
-      "seconds": 484.03,
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 180.84,
       "agent": {
         "status": "step_limit",
         "model_rounds": 30
       },
-      "patch_bytes": 17124,
+      "patch_bytes": 4696,
       "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_flipt-io__flipt-0b119520afca1cf25c470ff4288c464d4510b944",
+      "verifier_shell": "bash -c",
+      "evaluation_method": "patch_replay",
+      "replay_source_run_id": "40177855906",
       "number": 137,
       "source": "actions",
-      "updated_at": "2026-10-25T07:10:52.299982+00:00",
-      "github_run_id": "40170725066",
+      "updated_at": "2026-10-25T11:14:50.056852+00:00",
+      "github_run_id": "40187712903",
       "github_run_attempt": "1"
     },
     {
       "instance_id": "instance_flipt-io__flipt-0fd09def402258834b9d6c0eaa6d3b4ab93b4446",
       "evaluation_status": "failed",
       "reward": 0,
-      "seconds": 297.91,
-      "agent": {
-        "status": "finished",
-        "model_rounds": 25
-      },
-      "patch_bytes": 10403,
-      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_flipt-io__flipt-0fd09def402258834b9d6c0eaa6d3b4ab93b4446",
-      "number": 138,
-      "source": "actions",
-      "updated_at": "2026-10-25T07:11:13.152884+00:00",
-      "github_run_id": "40170725066",
-      "github_run_attempt": "1"
-    },
-    {
-      "instance_id": "instance_flipt-io__flipt-15b76cada1ef29cfa56b0fba36754be36243dded",
-      "evaluation_status": "failed",
-      "reward": 0,
-      "seconds": 549.52,
-      "agent": {
-        "status": "finished",
-        "model_rounds": 13
-      },
-      "patch_bytes": 2841,
-      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_flipt-io__flipt-15b76cada1ef29cfa56b0fba36754be36243dded",
-      "number": 139,
-      "source": "actions",
-      "updated_at": "2026-10-25T07:15:50.679764+00:00",
-      "github_run_id": "40170725066",
-      "github_run_attempt": "1"
-    },
-    {
-      "instance_id": "instance_flipt-io__flipt-1737085488ecdcd3299c8e61af45a8976d457b7e",
-      "evaluation_status": "failed",
-      "reward": 0,
-      "seconds": 458.41,
+      "seconds": 109.74,
       "agent": {
         "status": "step_limit",
         "model_rounds": 30
       },
-      "patch_bytes": 9165,
+      "patch_bytes": 49598,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_flipt-io__flipt-0fd09def402258834b9d6c0eaa6d3b4ab93b4446",
+      "verifier_shell": "bash -c",
+      "evaluation_method": "patch_replay",
+      "replay_source_run_id": "40177855906",
+      "number": 138,
+      "source": "actions",
+      "updated_at": "2026-10-25T11:13:47.902030+00:00",
+      "github_run_id": "40187712903",
+      "github_run_attempt": "1"
+    },
+    {
+      "instance_id": "instance_flipt-io__flipt-15b76cada1ef29cfa56b0fba36754be36243dded",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 174.89,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 19
+      },
+      "patch_bytes": 2841,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_flipt-io__flipt-15b76cada1ef29cfa56b0fba36754be36243dded",
+      "verifier_shell": "bash -c",
+      "evaluation_method": "patch_replay",
+      "replay_source_run_id": "40177855906",
+      "number": 139,
+      "source": "actions",
+      "updated_at": "2026-10-25T11:14:39.270345+00:00",
+      "github_run_id": "40187712903",
+      "github_run_attempt": "1"
+    },
+    {
+      "instance_id": "instance_flipt-io__flipt-1737085488ecdcd3299c8e61af45a8976d457b7e",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 173.57,
+      "agent": {
+        "status": "step_limit",
+        "model_rounds": 30
+      },
+      "patch_bytes": 13319,
       "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_flipt-io__flipt-1737085488ecdcd3299c8e61af45a8976d457b7e",
+      "verifier_shell": "bash -c",
+      "evaluation_method": "patch_replay",
+      "replay_source_run_id": "40177855906",
       "number": 140,
       "source": "actions",
-      "updated_at": "2026-10-25T07:14:05.646295+00:00",
-      "github_run_id": "40170725066",
+      "updated_at": "2026-10-25T11:14:02.685878+00:00",
+      "github_run_id": "40187712903",
       "github_run_attempt": "1"
     },
     {
       "instance_id": "instance_flipt-io__flipt-1dceb5edf3fa8f39495b939ef9cc0c3dd38fa17d",
-      "evaluation_status": "failed",
-      "reward": 0,
-      "seconds": 414.05,
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 134.31,
       "agent": {
         "status": "finished",
-        "model_rounds": 14
+        "model_rounds": 21
       },
-      "patch_bytes": 2749,
+      "patch_bytes": 2716,
       "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_flipt-io__flipt-1dceb5edf3fa8f39495b939ef9cc0c3dd38fa17d",
+      "verifier_shell": "bash -c",
+      "evaluation_method": "patch_replay",
+      "replay_source_run_id": "40177855906",
       "number": 141,
       "source": "actions",
-      "updated_at": "2026-10-25T07:13:46.002715+00:00",
-      "github_run_id": "40170725066",
+      "updated_at": "2026-10-25T11:14:04.896354+00:00",
+      "github_run_id": "40187712903",
       "github_run_attempt": "1"
     },
     {
       "instance_id": "instance_flipt-io__flipt-21a935ad7886cc50c46852be21b37f363a926af0",
-      "evaluation_status": "failed",
-      "reward": 0,
-      "seconds": 173.96,
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 87.29,
       "agent": {
         "status": "finished",
-        "model_rounds": 14
+        "model_rounds": 11
       },
-      "patch_bytes": 2552,
+      "patch_bytes": 2318,
       "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_flipt-io__flipt-21a935ad7886cc50c46852be21b37f363a926af0",
+      "verifier_shell": "bash -c",
+      "evaluation_method": "patch_replay",
+      "replay_source_run_id": "40177855906",
       "number": 142,
       "source": "actions",
-      "updated_at": "2026-10-25T07:10:39.217122+00:00",
-      "github_run_id": "40170725066",
+      "updated_at": "2026-10-25T11:13:31.075218+00:00",
+      "github_run_id": "40187712903",
       "github_run_attempt": "1"
     },
     {
       "instance_id": "instance_flipt-io__flipt-292fdaca9be39e6a921aaa8874c011d0fdd3e874",
       "evaluation_status": "failed",
       "reward": 0,
-      "seconds": 261.04,
+      "seconds": 105.14,
       "agent": {
         "status": "step_limit",
         "model_rounds": 30
       },
-      "patch_bytes": 1584,
+      "patch_bytes": 1145,
       "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_flipt-io__flipt-292fdaca9be39e6a921aaa8874c011d0fdd3e874",
+      "verifier_shell": "bash -c",
+      "evaluation_method": "patch_replay",
+      "replay_source_run_id": "40177855906",
       "number": 143,
       "source": "actions",
-      "updated_at": "2026-10-25T07:12:03.365698+00:00",
-      "github_run_id": "40170725066",
+      "updated_at": "2026-10-25T11:13:33.335967+00:00",
+      "github_run_id": "40187712903",
       "github_run_attempt": "1"
     },
     {
       "instance_id": "instance_flipt-io__flipt-29d3f9db40c83434d0e3cc082af8baec64c391a9",
-      "evaluation_status": "failed",
-      "reward": 0,
-      "seconds": 395.67,
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 163.31,
       "agent": {
         "status": "finished",
-        "model_rounds": 11
+        "model_rounds": 14
       },
-      "patch_bytes": 5725,
+      "patch_bytes": 5409,
       "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_flipt-io__flipt-29d3f9db40c83434d0e3cc082af8baec64c391a9",
+      "verifier_shell": "bash -c",
+      "evaluation_method": "patch_replay",
+      "replay_source_run_id": "40177855906",
       "number": 144,
       "source": "actions",
-      "updated_at": "2026-10-25T07:14:41.898863+00:00",
-      "github_run_id": "40170725066",
+      "updated_at": "2026-10-25T11:14:14.380833+00:00",
+      "github_run_id": "40187712903",
       "github_run_attempt": "1"
     },
     {
       "instance_id": "instance_flipt-io__flipt-2ca5dfb3513e4e786d2b037075617cccc286d5c3",
       "evaluation_status": "failed",
       "reward": 0,
-      "seconds": 190.8,
+      "seconds": 294.05,
       "agent": {
         "status": "step_limit",
         "model_rounds": 30
       },
-      "patch_bytes": 0,
+      "patch_bytes": 7166,
       "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_flipt-io__flipt-2ca5dfb3513e4e786d2b037075617cccc286d5c3",
+      "verifier_shell": "bash -c",
+      "evaluation_method": "patch_replay",
+      "replay_source_run_id": "40177855906",
       "number": 145,
       "source": "actions",
-      "updated_at": "2026-10-25T07:11:29.329423+00:00",
-      "github_run_id": "40170725066",
+      "updated_at": "2026-10-25T11:16:34.927491+00:00",
+      "github_run_id": "40187712903",
       "github_run_attempt": "1"
     },
     {
       "instance_id": "instance_flipt-io__flipt-2ce8a0331e8a8f63f2c1b555db8277ffe5aa2e63",
-      "evaluation_status": "failed",
-      "reward": 0,
-      "seconds": 467.83,
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 214.26,
       "agent": {
         "status": "finished",
-        "model_rounds": 14
+        "model_rounds": 10
       },
-      "patch_bytes": 6870,
+      "patch_bytes": 3029,
       "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_flipt-io__flipt-2ce8a0331e8a8f63f2c1b555db8277ffe5aa2e63",
+      "verifier_shell": "bash -c",
+      "evaluation_method": "patch_replay",
+      "replay_source_run_id": "40177855906",
       "number": 146,
       "source": "actions",
-      "updated_at": "2026-10-25T07:17:30.832637+00:00",
-      "github_run_id": "40170725066",
+      "updated_at": "2026-10-25T11:15:23.081001+00:00",
+      "github_run_id": "40187712903",
       "github_run_attempt": "1"
     },
     {
       "instance_id": "instance_flipt-io__flipt-2eac0df47b5ecc8bb05002d80383ceb08ab3620a",
-      "evaluation_status": "failed",
-      "reward": 0,
-      "seconds": 500.05,
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 227.11,
       "agent": {
         "status": "finished",
         "model_rounds": 19
       },
-      "patch_bytes": 6975,
+      "patch_bytes": 8489,
       "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_flipt-io__flipt-2eac0df47b5ecc8bb05002d80383ceb08ab3620a",
+      "verifier_shell": "bash -c",
+      "evaluation_method": "patch_replay",
+      "replay_source_run_id": "40177855906",
       "number": 147,
       "source": "actions",
-      "updated_at": "2026-10-25T07:20:08.168815+00:00",
-      "github_run_id": "40170725066",
+      "updated_at": "2026-10-25T11:15:17.521360+00:00",
+      "github_run_id": "40187712903",
       "github_run_attempt": "1"
     },
     {
       "instance_id": "instance_flipt-io__flipt-381b90f718435c4694380b5fcd0d5cf8e3b5a25a",
-      "evaluation_status": "failed",
-      "reward": 0,
-      "seconds": 510.31,
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 193.06,
       "agent": {
-        "status": "finished",
-        "model_rounds": 24
+        "status": "step_limit",
+        "model_rounds": 30
       },
-      "patch_bytes": 5562,
+      "patch_bytes": 10734,
       "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_flipt-io__flipt-381b90f718435c4694380b5fcd0d5cf8e3b5a25a",
+      "verifier_shell": "bash -c",
+      "evaluation_method": "patch_replay",
+      "replay_source_run_id": "40177855906",
       "number": 148,
       "source": "actions",
-      "updated_at": "2026-10-25T07:20:08.625264+00:00",
-      "github_run_id": "40170725066",
+      "updated_at": "2026-10-25T11:15:03.947280+00:00",
+      "github_run_id": "40187712903",
       "github_run_attempt": "1"
     },
     {
       "instance_id": "instance_flipt-io__flipt-3b2c25ee8a3ac247c3fad13ad8d64ace34ec8ee7",
-      "evaluation_status": "failed",
-      "reward": 0,
-      "seconds": 728.57,
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 243.7,
       "agent": {
         "status": "finished",
-        "model_rounds": 30
+        "model_rounds": 21
       },
-      "patch_bytes": 15610,
+      "patch_bytes": 11936,
       "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_flipt-io__flipt-3b2c25ee8a3ac247c3fad13ad8d64ace34ec8ee7",
+      "verifier_shell": "bash -c",
+      "evaluation_method": "patch_replay",
+      "replay_source_run_id": "40177855906",
       "number": 149,
       "source": "actions",
-      "updated_at": "2026-10-25T07:24:42.489088+00:00",
-      "github_run_id": "40170725066",
+      "updated_at": "2026-10-25T11:16:02.396121+00:00",
+      "github_run_id": "40187712903",
       "github_run_attempt": "1"
     },
     {
       "instance_id": "instance_flipt-io__flipt-3d5a345f94c2adc8a0eaa102c189c08ad4c0f8e8",
       "evaluation_status": "failed",
       "reward": 0,
-      "seconds": 167.67,
+      "seconds": 347.47,
       "agent": {
         "status": "step_limit",
         "model_rounds": 30
       },
-      "patch_bytes": 24312,
+      "patch_bytes": 19854,
       "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_flipt-io__flipt-3d5a345f94c2adc8a0eaa102c189c08ad4c0f8e8",
+      "verifier_shell": "bash -c",
+      "evaluation_method": "patch_replay",
+      "replay_source_run_id": "40177855906",
       "number": 150,
       "source": "actions",
-      "updated_at": "2026-10-25T07:17:22.734018+00:00",
-      "github_run_id": "40170725066",
+      "updated_at": "2026-10-25T11:17:30.318826+00:00",
+      "github_run_id": "40187712903",
       "github_run_attempt": "1"
     },
     {
       "instance_id": "instance_flipt-io__flipt-406f9396ad65696d58865b3a6283109cd4eaf40e",
-      "evaluation_status": "failed",
-      "reward": 0,
-      "seconds": 153.27,
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 107.69,
       "agent": {
         "status": "finished",
-        "model_rounds": 13
+        "model_rounds": 17
       },
-      "patch_bytes": 10684,
+      "patch_bytes": 10990,
       "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_flipt-io__flipt-406f9396ad65696d58865b3a6283109cd4eaf40e",
+      "verifier_shell": "bash -c",
+      "evaluation_method": "patch_replay",
+      "replay_source_run_id": "40177855906",
       "number": 151,
       "source": "actions",
-      "updated_at": "2026-10-25T07:16:07.674246+00:00",
-      "github_run_id": "40170725066",
+      "updated_at": "2026-10-25T11:13:48.969601+00:00",
+      "github_run_id": "40187712903",
       "github_run_attempt": "1"
     },
     {
       "instance_id": "instance_flipt-io__flipt-492cc0b158200089dceede3b1aba0ed28df3fb1d",
-      "evaluation_status": "failed",
-      "reward": 0,
-      "seconds": 315.4,
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 146.26,
       "agent": {
         "status": "finished",
-        "model_rounds": 30
+        "model_rounds": 15
       },
-      "patch_bytes": 5450,
+      "patch_bytes": 4074,
       "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_flipt-io__flipt-492cc0b158200089dceede3b1aba0ed28df3fb1d",
+      "verifier_shell": "bash -c",
+      "evaluation_method": "patch_replay",
+      "replay_source_run_id": "40177855906",
       "number": 152,
       "source": "actions",
-      "updated_at": "2026-10-25T07:18:56.594490+00:00",
-      "github_run_id": "40170725066",
+      "updated_at": "2026-10-25T11:14:19.570110+00:00",
+      "github_run_id": "40187712903",
       "github_run_attempt": "1"
     },
     {
       "instance_id": "instance_flipt-io__flipt-507170da0f7f4da330f6732bffdf11c4df7fc192",
       "evaluation_status": "failed",
       "reward": 0,
-      "seconds": 409.87,
+      "seconds": 935.67,
       "agent": {
         "status": "step_limit",
         "model_rounds": 30
       },
-      "patch_bytes": 4494,
+      "patch_bytes": 10078,
       "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_flipt-io__flipt-507170da0f7f4da330f6732bffdf11c4df7fc192",
+      "verifier_shell": "bash -c",
+      "evaluation_method": "patch_replay",
+      "replay_source_run_id": "40177855906",
       "number": 153,
       "source": "actions",
-      "updated_at": "2026-10-25T07:20:45.660252+00:00",
-      "github_run_id": "40170725066",
+      "updated_at": "2026-10-25T11:26:34.972009+00:00",
+      "github_run_id": "40187712903",
       "github_run_attempt": "1"
     },
     {
       "instance_id": "instance_flipt-io__flipt-518ec324b66a07fdd95464a5e9ca5fe7681ad8f9",
-      "evaluation_status": "failed",
-      "reward": 0,
-      "seconds": 229.16,
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 89.72,
       "agent": {
         "status": "finished",
-        "model_rounds": 14
+        "model_rounds": 22
       },
-      "patch_bytes": 4269,
+      "patch_bytes": 1867,
       "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_flipt-io__flipt-518ec324b66a07fdd95464a5e9ca5fe7681ad8f9",
+      "verifier_shell": "bash -c",
+      "evaluation_method": "patch_replay",
+      "replay_source_run_id": "40177855906",
       "number": 154,
       "source": "actions",
-      "updated_at": "2026-10-25T07:18:07.403651+00:00",
-      "github_run_id": "40170725066",
+      "updated_at": "2026-10-25T11:13:37.753307+00:00",
+      "github_run_id": "40187712903",
       "github_run_attempt": "1"
     },
     {
       "instance_id": "instance_flipt-io__flipt-524f277313606f8cd29b299617d6565c01642e15",
       "evaluation_status": "failed",
       "reward": 0,
-      "seconds": 318.59,
+      "seconds": 206.85,
       "agent": {
         "status": "step_limit",
         "model_rounds": 30
       },
-      "patch_bytes": 7905,
+      "patch_bytes": 6787,
       "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_flipt-io__flipt-524f277313606f8cd29b299617d6565c01642e15",
+      "verifier_shell": "bash -c",
+      "evaluation_method": "patch_replay",
+      "replay_source_run_id": "40177855906",
       "number": 155,
       "source": "actions",
-      "updated_at": "2026-10-25T07:21:07.254447+00:00",
-      "github_run_id": "40170725066",
+      "updated_at": "2026-10-25T11:18:11.665402+00:00",
+      "github_run_id": "40187712903",
       "github_run_attempt": "1"
     },
     {
       "instance_id": "instance_flipt-io__flipt-56a620b8fc9ef7a0819b47709aa541cdfdbba00b",
-      "evaluation_status": "failed",
-      "reward": 0,
-      "seconds": 411.86,
-      "agent": {
-        "status": "step_limit",
-        "model_rounds": 30
-      },
-      "patch_bytes": 41029,
-      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_flipt-io__flipt-56a620b8fc9ef7a0819b47709aa541cdfdbba00b",
-      "number": 156,
-      "source": "actions",
-      "updated_at": "2026-10-25T07:22:38.164383+00:00",
-      "github_run_id": "40170725066",
-      "github_run_attempt": "1"
-    },
-    {
-      "instance_id": "instance_flipt-io__flipt-5aef5a14890aa145c22d864a834694bae3a6f112",
-      "evaluation_status": "failed",
-      "reward": 0,
-      "seconds": 233.93,
-      "agent": {
-        "status": "step_limit",
-        "model_rounds": 30
-      },
-      "patch_bytes": 9743,
-      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_flipt-io__flipt-5aef5a14890aa145c22d864a834694bae3a6f112",
-      "number": 157,
-      "source": "actions",
-      "updated_at": "2026-10-25T07:20:45.741327+00:00",
-      "github_run_id": "40170725066",
-      "github_run_attempt": "1"
-    },
-    {
-      "instance_id": "instance_flipt-io__flipt-5af0757e96dec4962a076376d1bedc79de0d4249",
-      "evaluation_status": "failed",
-      "reward": 0,
-      "seconds": 283.6,
-      "agent": {
-        "status": "finished",
-        "model_rounds": 18
-      },
-      "patch_bytes": 4864,
-      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_flipt-io__flipt-5af0757e96dec4962a076376d1bedc79de0d4249",
-      "number": 158,
-      "source": "actions",
-      "updated_at": "2026-10-25T07:21:21.425189+00:00",
-      "github_run_id": "40170725066",
-      "github_run_attempt": "1"
-    },
-    {
-      "instance_id": "instance_flipt-io__flipt-5c7037ececb0bead0a8eb56054e224bcd7ac5922",
-      "evaluation_status": "failed",
-      "reward": 0,
-      "seconds": 201.43,
-      "agent": {
-        "status": "finished",
-        "model_rounds": 12
-      },
-      "patch_bytes": 2494,
-      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_flipt-io__flipt-5c7037ececb0bead0a8eb56054e224bcd7ac5922",
-      "number": 159,
-      "source": "actions",
-      "updated_at": "2026-10-25T07:21:09.294797+00:00",
-      "github_run_id": "40170725066",
-      "github_run_attempt": "1"
-    },
-    {
-      "instance_id": "instance_flipt-io__flipt-5ffba3406a7993d97ced4cc13658bee66150fcca",
-      "evaluation_status": "failed",
-      "reward": 0,
-      "seconds": 188.15,
-      "agent": {
-        "status": "finished",
-        "model_rounds": 11
-      },
-      "patch_bytes": 2061,
-      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_flipt-io__flipt-5ffba3406a7993d97ced4cc13658bee66150fcca",
-      "number": 160,
-      "source": "actions",
-      "updated_at": "2026-10-25T07:20:23.328739+00:00",
-      "github_run_id": "40170725066",
-      "github_run_attempt": "1"
-    },
-    {
-      "instance_id": "instance_flipt-io__flipt-690672523398c2b6f6e4562f0bf9868664ab894f",
-      "evaluation_status": "failed",
-      "reward": 0,
-      "seconds": 565.97,
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 181.25,
       "agent": {
         "status": "finished",
         "model_rounds": 23
       },
-      "patch_bytes": 16133,
+      "patch_bytes": 9069,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_flipt-io__flipt-56a620b8fc9ef7a0819b47709aa541cdfdbba00b",
+      "verifier_shell": "bash -c",
+      "evaluation_method": "patch_replay",
+      "replay_source_run_id": "40177855906",
+      "number": 156,
+      "source": "actions",
+      "updated_at": "2026-10-25T11:18:07.231820+00:00",
+      "github_run_id": "40187712903",
+      "github_run_attempt": "1"
+    },
+    {
+      "instance_id": "instance_flipt-io__flipt-5aef5a14890aa145c22d864a834694bae3a6f112",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 169.05,
+      "agent": {
+        "status": "step_limit",
+        "model_rounds": 30
+      },
+      "patch_bytes": 13168,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_flipt-io__flipt-5aef5a14890aa145c22d864a834694bae3a6f112",
+      "verifier_shell": "bash -c",
+      "evaluation_method": "patch_replay",
+      "replay_source_run_id": "40177855906",
+      "number": 157,
+      "source": "actions",
+      "updated_at": "2026-10-25T11:17:55.449157+00:00",
+      "github_run_id": "40187712903",
+      "github_run_attempt": "1"
+    },
+    {
+      "instance_id": "instance_flipt-io__flipt-5af0757e96dec4962a076376d1bedc79de0d4249",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 133.39,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 20
+      },
+      "patch_bytes": 5156,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_flipt-io__flipt-5af0757e96dec4962a076376d1bedc79de0d4249",
+      "verifier_shell": "bash -c",
+      "evaluation_method": "patch_replay",
+      "replay_source_run_id": "40177855906",
+      "number": 158,
+      "source": "actions",
+      "updated_at": "2026-10-25T11:17:11.642078+00:00",
+      "github_run_id": "40187712903",
+      "github_run_attempt": "1"
+    },
+    {
+      "instance_id": "instance_flipt-io__flipt-5c7037ececb0bead0a8eb56054e224bcd7ac5922",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 90.42,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 10
+      },
+      "patch_bytes": 2217,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_flipt-io__flipt-5c7037ececb0bead0a8eb56054e224bcd7ac5922",
+      "verifier_shell": "bash -c",
+      "evaluation_method": "patch_replay",
+      "replay_source_run_id": "40177855906",
+      "number": 159,
+      "source": "actions",
+      "updated_at": "2026-10-25T11:16:52.509367+00:00",
+      "github_run_id": "40187712903",
+      "github_run_attempt": "1"
+    },
+    {
+      "instance_id": "instance_flipt-io__flipt-5ffba3406a7993d97ced4cc13658bee66150fcca",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 91.3,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 16
+      },
+      "patch_bytes": 3854,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_flipt-io__flipt-5ffba3406a7993d97ced4cc13658bee66150fcca",
+      "verifier_shell": "bash -c",
+      "evaluation_method": "patch_replay",
+      "replay_source_run_id": "40177855906",
+      "number": 160,
+      "source": "actions",
+      "updated_at": "2026-10-25T11:20:33.717071+00:00",
+      "github_run_id": "40187712903",
+      "github_run_attempt": "1"
+    },
+    {
+      "instance_id": "instance_flipt-io__flipt-690672523398c2b6f6e4562f0bf9868664ab894f",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 348.58,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 14
+      },
+      "patch_bytes": 15047,
       "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_flipt-io__flipt-690672523398c2b6f6e4562f0bf9868664ab894f",
+      "verifier_shell": "bash -c",
+      "evaluation_method": "patch_replay",
+      "replay_source_run_id": "40177855906",
       "number": 161,
       "source": "actions",
-      "updated_at": "2026-10-25T07:28:28.253079+00:00",
-      "github_run_id": "40170725066",
+      "updated_at": "2026-10-25T11:22:19.132022+00:00",
+      "github_run_id": "40187712903",
       "github_run_attempt": "1"
     },
     {
       "instance_id": "instance_flipt-io__flipt-6fe76d024ee0c50ddb09c86f4ae0bd4c208fd65f",
-      "evaluation_status": "failed",
-      "reward": 0,
-      "seconds": 268.44,
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 110.21,
       "agent": {
         "status": "finished",
-        "model_rounds": 18
+        "model_rounds": 14
       },
-      "patch_bytes": 5911,
+      "patch_bytes": 5912,
       "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_flipt-io__flipt-6fe76d024ee0c50ddb09c86f4ae0bd4c208fd65f",
+      "verifier_shell": "bash -c",
+      "evaluation_method": "patch_replay",
+      "replay_source_run_id": "40177855906",
       "number": 162,
       "source": "actions",
-      "updated_at": "2026-10-25T07:23:02.328549+00:00",
-      "github_run_id": "40170725066",
+      "updated_at": "2026-10-25T11:17:13.085891+00:00",
+      "github_run_id": "40187712903",
       "github_run_attempt": "1"
     },
     {
       "instance_id": "instance_flipt-io__flipt-7161f7b876773a911afdd804b281e52681cb7321",
       "evaluation_status": "failed",
       "reward": 0,
-      "seconds": 368.49,
+      "seconds": 141.84,
       "agent": {
         "status": "step_limit",
         "model_rounds": 30
       },
-      "patch_bytes": 12760,
+      "patch_bytes": 14160,
       "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_flipt-io__flipt-7161f7b876773a911afdd804b281e52681cb7321",
+      "verifier_shell": "bash -c",
+      "evaluation_method": "patch_replay",
+      "replay_source_run_id": "40177855906",
       "number": 163,
       "source": "actions",
-      "updated_at": "2026-10-25T07:26:26.996582+00:00",
-      "github_run_id": "40170725066",
+      "updated_at": "2026-10-25T11:18:10.546461+00:00",
+      "github_run_id": "40187712903",
       "github_run_attempt": "1"
     },
     {
       "instance_id": "instance_flipt-io__flipt-72d06db14d58692bfb4d07b1aa745a37b35956f3",
-      "evaluation_status": "failed",
-      "reward": 0,
-      "seconds": 433.19,
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 178.33,
       "agent": {
         "status": "finished",
-        "model_rounds": 12
+        "model_rounds": 10
       },
-      "patch_bytes": 6770,
+      "patch_bytes": 2282,
       "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_flipt-io__flipt-72d06db14d58692bfb4d07b1aa745a37b35956f3",
+      "verifier_shell": "bash -c",
+      "evaluation_method": "patch_replay",
+      "replay_source_run_id": "40177855906",
       "number": 164,
       "source": "actions",
-      "updated_at": "2026-10-25T07:28:11.863719+00:00",
-      "github_run_id": "40170725066",
+      "updated_at": "2026-10-25T11:19:44.413466+00:00",
+      "github_run_id": "40187712903",
       "github_run_attempt": "1"
     },
     {
       "instance_id": "instance_flipt-io__flipt-756f00f79ba8abf9fe53f3c6c818123b42eb7355",
-      "evaluation_status": "failed",
-      "reward": 0,
-      "seconds": 238.7,
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 108.46,
       "agent": {
-        "status": "step_limit",
-        "model_rounds": 30
+        "status": "finished",
+        "model_rounds": 28
       },
-      "patch_bytes": 14210,
+      "patch_bytes": 13858,
       "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_flipt-io__flipt-756f00f79ba8abf9fe53f3c6c818123b42eb7355",
+      "verifier_shell": "bash -c",
+      "evaluation_method": "patch_replay",
+      "replay_source_run_id": "40177855906",
       "number": 165,
       "source": "actions",
-      "updated_at": "2026-10-25T07:26:20.205111+00:00",
-      "github_run_id": "40170725066",
+      "updated_at": "2026-10-25T11:17:57.620578+00:00",
+      "github_run_id": "40187712903",
       "github_run_attempt": "1"
     },
     {
       "instance_id": "instance_flipt-io__flipt-84806a178447e766380cc66b14dee9c6eeb534f4",
-      "evaluation_status": "failed",
-      "reward": 0,
-      "seconds": 564.52,
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 142.86,
       "agent": {
-        "status": "step_limit",
+        "status": "finished",
         "model_rounds": 30
       },
-      "patch_bytes": 14755,
+      "patch_bytes": 18236,
       "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_flipt-io__flipt-84806a178447e766380cc66b14dee9c6eeb534f4",
+      "verifier_shell": "bash -c",
+      "evaluation_method": "patch_replay",
+      "replay_source_run_id": "40177855906",
       "number": 166,
       "source": "actions",
-      "updated_at": "2026-10-25T07:31:26.736106+00:00",
-      "github_run_id": "40170725066",
+      "updated_at": "2026-10-25T11:18:34.799267+00:00",
+      "github_run_id": "40187712903",
       "github_run_attempt": "1"
     },
     {
       "instance_id": "instance_flipt-io__flipt-86906cbfc3a5d3629a583f98e6301142f5f14bdb-v6bea0cc3a6fc532d7da914314f2944fc1cd04dee",
-      "evaluation_status": "failed",
-      "reward": 0,
-      "seconds": 414.53,
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 151.25,
       "agent": {
         "status": "finished",
         "model_rounds": 20
       },
-      "patch_bytes": 2463,
+      "patch_bytes": 3619,
       "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_flipt-io__flipt-86906cbfc3a5d3629a583f98e6301142f5f14bdb-v6bea0cc3a6fc532d7da914314f2944fc1cd04dee",
+      "verifier_shell": "bash -c",
+      "evaluation_method": "patch_replay",
+      "replay_source_run_id": "40177855906",
       "number": 167,
       "source": "actions",
-      "updated_at": "2026-10-25T07:29:30.460946+00:00",
-      "github_run_id": "40170725066",
+      "updated_at": "2026-10-25T11:19:09.985439+00:00",
+      "github_run_id": "40187712903",
       "github_run_attempt": "1"
     },
     {
       "instance_id": "instance_flipt-io__flipt-8bd3604dc54b681f1f0f7dd52cbc70b3024184b6",
-      "evaluation_status": "failed",
-      "reward": 0,
-      "seconds": 770.39,
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 349.68,
       "agent": {
         "status": "finished",
-        "model_rounds": 22
+        "model_rounds": 28
       },
-      "patch_bytes": 6352,
+      "patch_bytes": 7153,
       "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_flipt-io__flipt-8bd3604dc54b681f1f0f7dd52cbc70b3024184b6",
+      "verifier_shell": "bash -c",
+      "evaluation_method": "patch_replay",
+      "replay_source_run_id": "40177855906",
       "number": 168,
       "source": "actions",
-      "updated_at": "2026-10-25T07:35:37.899332+00:00",
-      "github_run_id": "40170725066",
+      "updated_at": "2026-10-25T11:22:18.722564+00:00",
+      "github_run_id": "40187712903",
       "github_run_attempt": "1"
     },
     {
       "instance_id": "instance_flipt-io__flipt-967855b429f749c28c112b8cb1b15bc79157f973",
       "evaluation_status": "failed",
       "reward": 0,
-      "seconds": 155.76,
+      "seconds": 114.18,
       "agent": {
         "status": "step_limit",
         "model_rounds": 30
       },
-      "patch_bytes": 134159,
+      "patch_bytes": 130189,
       "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_flipt-io__flipt-967855b429f749c28c112b8cb1b15bc79157f973",
+      "verifier_shell": "bash -c",
+      "evaluation_method": "patch_replay",
+      "replay_source_run_id": "40177855906",
       "number": 169,
       "source": "actions",
-      "updated_at": "2026-10-25T07:25:04.065915+00:00",
-      "github_run_id": "40170725066",
+      "updated_at": "2026-10-25T11:19:36.969327+00:00",
+      "github_run_id": "40187712903",
       "github_run_attempt": "1"
     },
     {
       "instance_id": "instance_flipt-io__flipt-9d25c18b79bc7829a6fb08ec9e8793d5d17e2868",
-      "evaluation_status": "failed",
-      "reward": 0,
-      "seconds": 268.8,
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 334.98,
       "agent": {
         "status": "step_limit",
         "model_rounds": 30
       },
-      "patch_bytes": 170839,
+      "patch_bytes": 179738,
       "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_flipt-io__flipt-9d25c18b79bc7829a6fb08ec9e8793d5d17e2868",
+      "verifier_shell": "bash -c",
+      "evaluation_method": "patch_replay",
+      "replay_source_run_id": "40177855906",
       "number": 170,
       "source": "actions",
-      "updated_at": "2026-10-25T07:26:46.611594+00:00",
-      "github_run_id": "40170725066",
+      "updated_at": "2026-10-25T11:23:17.076769+00:00",
+      "github_run_id": "40187712903",
       "github_run_attempt": "1"
     },
     {
       "instance_id": "instance_flipt-io__flipt-9f8127f225a86245fa35dca4885c2daef824ee55",
       "evaluation_status": "failed",
       "reward": 0,
-      "seconds": 243.11,
+      "seconds": 180.96,
       "agent": {
         "status": "step_limit",
         "model_rounds": 30
       },
-      "patch_bytes": 19982,
+      "patch_bytes": 15935,
       "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_flipt-io__flipt-9f8127f225a86245fa35dca4885c2daef824ee55",
+      "verifier_shell": "bash -c",
+      "evaluation_method": "patch_replay",
+      "replay_source_run_id": "40177855906",
       "number": 171,
       "source": "actions",
-      "updated_at": "2026-10-25T07:26:38.600944+00:00",
-      "github_run_id": "40170725066",
+      "updated_at": "2026-10-25T11:20:40.143610+00:00",
+      "github_run_id": "40187712903",
       "github_run_attempt": "1"
     },
     {
       "instance_id": "instance_flipt-io__flipt-a0cbc0cb65ae601270bdbe3f5313e2dfd49c80e4",
-      "evaluation_status": "failed",
-      "reward": 0,
-      "seconds": 500.4,
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 297.64,
       "agent": {
-        "status": "finished",
-        "model_rounds": 29
+        "status": "step_limit",
+        "model_rounds": 30
       },
-      "patch_bytes": 6291,
+      "patch_bytes": 85066,
       "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_flipt-io__flipt-a0cbc0cb65ae601270bdbe3f5313e2dfd49c80e4",
+      "verifier_shell": "bash -c",
+      "evaluation_method": "patch_replay",
+      "replay_source_run_id": "40177855906",
       "number": 172,
       "source": "actions",
-      "updated_at": "2026-10-25T07:31:43.092480+00:00",
-      "github_run_id": "40170725066",
+      "updated_at": "2026-10-25T11:23:24.308988+00:00",
+      "github_run_id": "40187712903",
       "github_run_attempt": "1"
     },
     {
       "instance_id": "instance_flipt-io__flipt-a42d38a1bb1df267c53d9d4a706cf34825ae3da9",
-      "evaluation_status": "failed",
-      "reward": 0,
-      "seconds": 226.26,
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 83.11,
       "agent": {
         "status": "finished",
-        "model_rounds": 18
+        "model_rounds": 13
       },
-      "patch_bytes": 2677,
+      "patch_bytes": 1939,
       "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_flipt-io__flipt-a42d38a1bb1df267c53d9d4a706cf34825ae3da9",
+      "verifier_shell": "bash -c",
+      "evaluation_method": "patch_replay",
+      "replay_source_run_id": "40177855906",
       "number": 173,
       "source": "actions",
-      "updated_at": "2026-10-25T07:28:29.117554+00:00",
-      "github_run_id": "40170725066",
+      "updated_at": "2026-10-25T11:20:39.966398+00:00",
+      "github_run_id": "40187712903",
       "github_run_attempt": "1"
     },
     {
       "instance_id": "instance_flipt-io__flipt-abaa5953795afb9c621605bb18cb32ac48b4508c",
-      "evaluation_status": "failed",
-      "reward": 0,
-      "seconds": 372.17,
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 118.85,
       "agent": {
-        "status": "step_limit",
-        "model_rounds": 30
+        "status": "finished",
+        "model_rounds": 22
       },
-      "patch_bytes": 4918,
+      "patch_bytes": 4121,
       "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_flipt-io__flipt-abaa5953795afb9c621605bb18cb32ac48b4508c",
+      "verifier_shell": "bash -c",
+      "evaluation_method": "patch_replay",
+      "replay_source_run_id": "40177855906",
       "number": 174,
       "source": "actions",
-      "updated_at": "2026-10-25T07:31:02.070829+00:00",
-      "github_run_id": "40170725066",
+      "updated_at": "2026-10-25T11:20:58.098170+00:00",
+      "github_run_id": "40187712903",
       "github_run_attempt": "1"
     },
     {
       "instance_id": "instance_flipt-io__flipt-aebaecd026f752b187f11328b0d464761b15d2ab",
-      "evaluation_status": "failed",
-      "reward": 0,
-      "seconds": 756.48,
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 210.91,
       "agent": {
-        "status": "finished",
-        "model_rounds": 28
+        "status": "step_limit",
+        "model_rounds": 30
       },
-      "patch_bytes": 6645,
+      "patch_bytes": 85291,
       "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_flipt-io__flipt-aebaecd026f752b187f11328b0d464761b15d2ab",
+      "verifier_shell": "bash -c",
+      "evaluation_method": "patch_replay",
+      "replay_source_run_id": "40177855906",
       "number": 175,
       "source": "actions",
-      "updated_at": "2026-10-25T07:38:54.446757+00:00",
-      "github_run_id": "40170725066",
+      "updated_at": "2026-10-25T11:22:38.395304+00:00",
+      "github_run_id": "40187712903",
       "github_run_attempt": "1"
     },
     {
       "instance_id": "instance_flipt-io__flipt-af7a0be46d15f0b63f16a868d13f3b48a838e7ce",
-      "evaluation_status": "failed",
-      "reward": 0,
-      "seconds": 293.53,
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 107.16,
       "agent": {
         "status": "finished",
-        "model_rounds": 29
+        "model_rounds": 22
       },
-      "patch_bytes": 9552,
+      "patch_bytes": 12458,
       "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_flipt-io__flipt-af7a0be46d15f0b63f16a868d13f3b48a838e7ce",
+      "verifier_shell": "bash -c",
+      "evaluation_method": "patch_replay",
+      "replay_source_run_id": "40177855906",
       "number": 176,
       "source": "actions",
-      "updated_at": "2026-10-25T07:32:25.300252+00:00",
-      "github_run_id": "40170725066",
+      "updated_at": "2026-10-25T11:21:07.795625+00:00",
+      "github_run_id": "40187712903",
       "github_run_attempt": "1"
     },
     {
       "instance_id": "instance_flipt-io__flipt-b2170346dc37cf42fda1386cd630f24821ad2ac5",
-      "evaluation_status": "failed",
-      "reward": 0,
-      "seconds": 398.29,
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 144.27,
       "agent": {
         "status": "finished",
         "model_rounds": 15
       },
-      "patch_bytes": 3521,
+      "patch_bytes": 694,
       "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_flipt-io__flipt-b2170346dc37cf42fda1386cd630f24821ad2ac5",
+      "verifier_shell": "bash -c",
+      "evaluation_method": "patch_replay",
+      "replay_source_run_id": "40177855906",
       "number": 177,
       "source": "actions",
-      "updated_at": "2026-10-25T07:33:34.040954+00:00",
-      "github_run_id": "40170725066",
+      "updated_at": "2026-10-25T11:21:59.900083+00:00",
+      "github_run_id": "40187712903",
       "github_run_attempt": "1"
     },
     {
       "instance_id": "instance_flipt-io__flipt-b22f5f02e40b225b6b93fff472914973422e97c6",
-      "evaluation_status": "failed",
-      "reward": 0,
-      "seconds": 476.43,
+      "evaluation_status": "error",
+      "reward": null,
       "agent": {
         "status": "step_limit",
         "model_rounds": 30
       },
-      "patch_bytes": 13565,
-      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_flipt-io__flipt-b22f5f02e40b225b6b93fff472914973422e97c6",
+      "error": "原产物未保存 model.patch，无法原样重放；不重新调用模型或猜测补丁。",
+      "reason": "missing_saved_patch",
+      "evaluation_method": "patch_replay",
+      "replay_source_run_id": "40177855906",
       "number": 178,
       "source": "actions",
-      "updated_at": "2026-10-25T07:35:53.532621+00:00",
-      "github_run_id": "40170725066",
+      "updated_at": "2026-10-25T11:19:01.064920+00:00",
+      "github_run_id": "40187712903",
       "github_run_attempt": "1"
     },
     {
       "instance_id": "instance_flipt-io__flipt-b2393f07d893024ab1e47ea2081e0289e1f9d56f",
-      "evaluation_status": "failed",
-      "reward": 0,
-      "seconds": 705.64,
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 331.16,
       "agent": {
         "status": "step_limit",
         "model_rounds": 30
       },
-      "patch_bytes": 19094,
+      "patch_bytes": 21574,
       "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_flipt-io__flipt-b2393f07d893024ab1e47ea2081e0289e1f9d56f",
+      "verifier_shell": "bash -c",
+      "evaluation_method": "patch_replay",
+      "replay_source_run_id": "40177855906",
       "number": 179,
       "source": "actions",
-      "updated_at": "2026-10-25T07:40:17.322819+00:00",
-      "github_run_id": "40170725066",
+      "updated_at": "2026-10-25T11:24:51.578479+00:00",
+      "github_run_id": "40187712903",
       "github_run_attempt": "1"
     },
     {
       "instance_id": "instance_flipt-io__flipt-b2cd6a6dd73ca91b519015fd5924fde8d17f3f06",
-      "evaluation_status": "failed",
-      "reward": 0,
-      "seconds": 191.02,
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 84.58,
       "agent": {
         "status": "finished",
-        "model_rounds": 19
+        "model_rounds": 24
       },
-      "patch_bytes": 9366,
+      "patch_bytes": 10468,
       "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_flipt-io__flipt-b2cd6a6dd73ca91b519015fd5924fde8d17f3f06",
+      "verifier_shell": "bash -c",
+      "evaluation_method": "patch_replay",
+      "replay_source_run_id": "40177855906",
       "number": 180,
       "source": "actions",
-      "updated_at": "2026-10-25T07:31:37.573182+00:00",
-      "github_run_id": "40170725066",
+      "updated_at": "2026-10-25T11:20:29.017742+00:00",
+      "github_run_id": "40187712903",
       "github_run_attempt": "1"
     },
     {
       "instance_id": "instance_flipt-io__flipt-b3cd920bbb25e01fdb2dab66a5a913363bc62f6c",
-      "evaluation_status": "failed",
-      "reward": 0,
-      "seconds": 695.49,
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 189.43,
       "agent": {
         "status": "finished",
-        "model_rounds": 25
+        "model_rounds": 21
       },
-      "patch_bytes": 9048,
+      "patch_bytes": 4191,
       "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_flipt-io__flipt-b3cd920bbb25e01fdb2dab66a5a913363bc62f6c",
+      "verifier_shell": "bash -c",
+      "evaluation_method": "patch_replay",
+      "replay_source_run_id": "40177855906",
       "number": 181,
       "source": "actions",
-      "updated_at": "2026-10-25T07:39:30.540610+00:00",
-      "github_run_id": "40170725066",
+      "updated_at": "2026-10-25T11:22:47.691185+00:00",
+      "github_run_id": "40187712903",
       "github_run_attempt": "1"
     },
     {
       "instance_id": "instance_flipt-io__flipt-b433bd05ce405837804693bebd5f4b88d87133c8",
       "evaluation_status": "failed",
       "reward": 0,
-      "seconds": 277.02,
+      "seconds": 108.85,
       "agent": {
         "status": "step_limit",
         "model_rounds": 30
       },
-      "patch_bytes": 11645,
+      "patch_bytes": 10906,
       "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_flipt-io__flipt-b433bd05ce405837804693bebd5f4b88d87133c8",
+      "verifier_shell": "bash -c",
+      "evaluation_method": "patch_replay",
+      "replay_source_run_id": "40177855906",
       "number": 182,
       "source": "actions",
-      "updated_at": "2026-10-25T07:34:51.112814+00:00",
-      "github_run_id": "40170725066",
+      "updated_at": "2026-10-25T11:21:51.397795+00:00",
+      "github_run_id": "40187712903",
       "github_run_attempt": "1"
     },
     {
       "instance_id": "instance_flipt-io__flipt-b4bb5e13006a729bc0eed8fe6ea18cff54acdacb",
-      "evaluation_status": "failed",
-      "reward": 0,
-      "seconds": 554.46,
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 478.18,
       "agent": {
         "status": "step_limit",
         "model_rounds": 30
       },
-      "patch_bytes": 12638,
+      "patch_bytes": 12022,
       "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_flipt-io__flipt-b4bb5e13006a729bc0eed8fe6ea18cff54acdacb",
+      "verifier_shell": "bash -c",
+      "evaluation_method": "patch_replay",
+      "replay_source_run_id": "40177855906",
       "number": 183,
       "source": "actions",
-      "updated_at": "2026-10-25T07:39:30.552656+00:00",
-      "github_run_id": "40170725066",
+      "updated_at": "2026-10-25T11:28:24.270867+00:00",
+      "github_run_id": "40187712903",
       "github_run_attempt": "1"
     },
     {
       "instance_id": "instance_flipt-io__flipt-b68b8960b8a08540d5198d78c665a7eb0bea4008",
-      "evaluation_status": "failed",
-      "reward": 0,
-      "seconds": 571.03,
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 181.23,
       "agent": {
         "status": "finished",
-        "model_rounds": 19
+        "model_rounds": 17
       },
-      "patch_bytes": 6871,
+      "patch_bytes": 4524,
       "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_flipt-io__flipt-b68b8960b8a08540d5198d78c665a7eb0bea4008",
+      "verifier_shell": "bash -c",
+      "evaluation_method": "patch_replay",
+      "replay_source_run_id": "40177855906",
       "number": 184,
       "source": "actions",
-      "updated_at": "2026-10-25T07:39:09.701836+00:00",
-      "github_run_id": "40170725066",
+      "updated_at": "2026-10-25T11:23:43.573634+00:00",
+      "github_run_id": "40187712903",
       "github_run_attempt": "1"
     },
     {
       "instance_id": "instance_flipt-io__flipt-b6cef5cdc0daff3ee99e5974ed60a1dc6b4b0d67",
-      "evaluation_status": "failed",
-      "reward": 0,
-      "seconds": 310.4,
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 114.5,
       "agent": {
         "status": "finished",
-        "model_rounds": 24
+        "model_rounds": 20
       },
-      "patch_bytes": 3787,
+      "patch_bytes": 9697,
       "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_flipt-io__flipt-b6cef5cdc0daff3ee99e5974ed60a1dc6b4b0d67",
+      "verifier_shell": "bash -c",
+      "evaluation_method": "patch_replay",
+      "replay_source_run_id": "40177855906",
       "number": 185,
       "source": "actions",
-      "updated_at": "2026-10-25T07:35:47.423257+00:00",
-      "github_run_id": "40170725066",
+      "updated_at": "2026-10-25T11:23:15.124949+00:00",
+      "github_run_id": "40187712903",
       "github_run_attempt": "1"
     },
     {
       "instance_id": "instance_flipt-io__flipt-c12967bc73fdf02054cf3ef8498c05e25f0a18c0",
-      "evaluation_status": "failed",
-      "reward": 0,
-      "seconds": 450.71,
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 157.94,
       "agent": {
         "status": "finished",
-        "model_rounds": 29
+        "model_rounds": 16
       },
-      "patch_bytes": 8475,
+      "patch_bytes": 2155,
       "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_flipt-io__flipt-c12967bc73fdf02054cf3ef8498c05e25f0a18c0",
+      "verifier_shell": "bash -c",
+      "evaluation_method": "patch_replay",
+      "replay_source_run_id": "40177855906",
       "number": 186,
       "source": "actions",
-      "updated_at": "2026-10-25T07:41:34.590512+00:00",
-      "github_run_id": "40170725066",
+      "updated_at": "2026-10-25T11:23:43.026767+00:00",
+      "github_run_id": "40187712903",
       "github_run_attempt": "1"
     },
     {
       "instance_id": "instance_flipt-io__flipt-c154dd1a3590954dfd3b901555fc6267f646a289",
-      "evaluation_status": "failed",
-      "reward": 0,
-      "seconds": 196.23,
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 80.63,
       "agent": {
         "status": "finished",
         "model_rounds": 12
       },
-      "patch_bytes": 1260,
+      "patch_bytes": 1228,
       "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_flipt-io__flipt-c154dd1a3590954dfd3b901555fc6267f646a289",
+      "verifier_shell": "bash -c",
+      "evaluation_method": "patch_replay",
+      "replay_source_run_id": "40177855906",
       "number": 187,
       "source": "actions",
-      "updated_at": "2026-10-25T07:36:38.696902+00:00",
-      "github_run_id": "40170725066",
+      "updated_at": "2026-10-25T11:24:38.604198+00:00",
+      "github_run_id": "40187712903",
       "github_run_attempt": "1"
     },
     {
       "instance_id": "instance_flipt-io__flipt-c1728053367c753688f114ec26e703c8fdeda125",
       "evaluation_status": "failed",
       "reward": 0,
-      "seconds": 125.91,
+      "seconds": 79.48,
       "agent": {
         "status": "step_limit",
         "model_rounds": 30
       },
-      "patch_bytes": 4384,
+      "patch_bytes": 0,
       "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_flipt-io__flipt-c1728053367c753688f114ec26e703c8fdeda125",
+      "verifier_shell": "bash -c",
+      "evaluation_method": "patch_replay",
+      "replay_source_run_id": "40177855906",
       "number": 188,
       "source": "actions",
-      "updated_at": "2026-10-25T07:35:38.623507+00:00",
-      "github_run_id": "40170725066",
+      "updated_at": "2026-10-25T11:23:50.252285+00:00",
+      "github_run_id": "40187712903",
       "github_run_attempt": "1"
     },
     {
       "instance_id": "instance_flipt-io__flipt-c188284ff0c094a4ee281afebebd849555ebee59",
       "evaluation_status": "failed",
       "reward": 0,
-      "seconds": 427.72,
+      "seconds": 149.19,
       "agent": {
         "status": "step_limit",
         "model_rounds": 30
       },
-      "patch_bytes": 18877,
+      "patch_bytes": 13120,
       "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_flipt-io__flipt-c188284ff0c094a4ee281afebebd849555ebee59",
+      "verifier_shell": "bash -c",
+      "evaluation_method": "patch_replay",
+      "replay_source_run_id": "40177855906",
       "number": 189,
       "source": "actions",
-      "updated_at": "2026-10-25T07:41:30.371982+00:00",
-      "github_run_id": "40170725066",
+      "updated_at": "2026-10-25T11:24:04.268544+00:00",
+      "github_run_id": "40187712903",
       "github_run_attempt": "1"
     },
     {
       "instance_id": "instance_flipt-io__flipt-c1fd7a81ef9f23e742501bfb26d914eb683262aa",
-      "evaluation_status": "failed",
-      "reward": 0,
-      "seconds": 499.51,
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 201.5,
       "agent": {
         "status": "finished",
-        "model_rounds": 28
+        "model_rounds": 30
       },
-      "patch_bytes": 9478,
+      "patch_bytes": 13962,
       "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_flipt-io__flipt-c1fd7a81ef9f23e742501bfb26d914eb683262aa",
+      "verifier_shell": "bash -c",
+      "evaluation_method": "patch_replay",
+      "replay_source_run_id": "40177855906",
       "number": 190,
       "source": "actions",
-      "updated_at": "2026-10-25T07:43:25.527171+00:00",
-      "github_run_id": "40170725066",
+      "updated_at": "2026-10-25T11:25:43.546263+00:00",
+      "github_run_id": "40187712903",
       "github_run_attempt": "1"
     },
     {
       "instance_id": "instance_flipt-io__flipt-c6a7b1fd933e763b1675281b30077e161fa115a1",
-      "evaluation_status": "failed",
-      "reward": 0,
-      "seconds": 330.43,
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 144.36,
       "agent": {
         "status": "finished",
-        "model_rounds": 21
+        "model_rounds": 16
       },
-      "patch_bytes": 8138,
+      "patch_bytes": 5145,
       "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_flipt-io__flipt-c6a7b1fd933e763b1675281b30077e161fa115a1",
+      "verifier_shell": "bash -c",
+      "evaluation_method": "patch_replay",
+      "replay_source_run_id": "40177855906",
       "number": 191,
       "source": "actions",
-      "updated_at": "2026-10-25T07:40:24.492795+00:00",
-      "github_run_id": "40170725066",
+      "updated_at": "2026-10-25T11:24:15.275637+00:00",
+      "github_run_id": "40187712903",
       "github_run_attempt": "1"
     },
     {
       "instance_id": "instance_flipt-io__flipt-c8d71ad7ea98d97546f01cce4ccb451dbcf37d3b",
-      "evaluation_status": "failed",
-      "reward": 0,
-      "seconds": 385.7,
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 174.25,
       "agent": {
         "status": "step_limit",
         "model_rounds": 30
       },
-      "patch_bytes": 15723,
+      "patch_bytes": 16310,
       "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_flipt-io__flipt-c8d71ad7ea98d97546f01cce4ccb451dbcf37d3b",
+      "verifier_shell": "bash -c",
+      "evaluation_method": "patch_replay",
+      "replay_source_run_id": "40177855906",
       "number": 192,
       "source": "actions",
-      "updated_at": "2026-10-25T07:44:02.427994+00:00",
-      "github_run_id": "40170725066",
+      "updated_at": "2026-10-25T11:26:00.439642+00:00",
+      "github_run_id": "40187712903",
       "github_run_attempt": "1"
     },
     {
       "instance_id": "instance_flipt-io__flipt-cd18e54a0371fa222304742c6312e9ac37ea86c1",
       "evaluation_status": "failed",
       "reward": 0,
-      "seconds": 332.83,
+      "seconds": 159.7,
       "agent": {
         "status": "step_limit",
         "model_rounds": 30
       },
-      "patch_bytes": 4576,
+      "patch_bytes": 8252,
       "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_flipt-io__flipt-cd18e54a0371fa222304742c6312e9ac37ea86c1",
+      "verifier_shell": "bash -c",
+      "evaluation_method": "patch_replay",
+      "replay_source_run_id": "40177855906",
       "number": 193,
       "source": "actions",
-      "updated_at": "2026-10-25T07:43:04.305127+00:00",
-      "github_run_id": "40170725066",
+      "updated_at": "2026-10-25T11:26:23.006186+00:00",
+      "github_run_id": "40187712903",
       "github_run_attempt": "1"
     },
     {
       "instance_id": "instance_flipt-io__flipt-cd2f3b0a9d4d8b8a6d3d56afab65851ecdc408e8",
       "evaluation_status": "failed",
       "reward": 0,
-      "seconds": 252.05,
+      "seconds": 150.33,
       "agent": {
         "status": "finished",
-        "model_rounds": 22
+        "model_rounds": 27
       },
-      "patch_bytes": 8299,
+      "patch_bytes": 6776,
       "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_flipt-io__flipt-cd2f3b0a9d4d8b8a6d3d56afab65851ecdc408e8",
+      "verifier_shell": "bash -c",
+      "evaluation_method": "patch_replay",
+      "replay_source_run_id": "40177855906",
       "number": 194,
       "source": "actions",
-      "updated_at": "2026-10-25T07:41:52.550811+00:00",
-      "github_run_id": "40170725066",
+      "updated_at": "2026-10-25T11:26:08.885794+00:00",
+      "github_run_id": "40187712903",
       "github_run_attempt": "1"
     },
     {
       "instance_id": "instance_flipt-io__flipt-cf06f4ebfab7fa21eed3e5838592e8e44566957f",
-      "evaluation_status": "failed",
-      "reward": 0,
-      "seconds": 145.33,
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 110.96,
       "agent": {
         "status": "step_limit",
         "model_rounds": 30
       },
-      "patch_bytes": 3992,
+      "patch_bytes": 115555,
       "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_flipt-io__flipt-cf06f4ebfab7fa21eed3e5838592e8e44566957f",
+      "verifier_shell": "bash -c",
+      "evaluation_method": "patch_replay",
+      "replay_source_run_id": "40177855906",
       "number": 195,
       "source": "actions",
-      "updated_at": "2026-10-25T07:40:47.588112+00:00",
-      "github_run_id": "40170725066",
+      "updated_at": "2026-10-25T11:26:17.887980+00:00",
+      "github_run_id": "40187712903",
       "github_run_attempt": "1"
     },
     {
       "instance_id": "instance_flipt-io__flipt-d966559200183b713cdf3ea5007a7e0ba86a5afb",
-      "evaluation_status": "failed",
-      "reward": 0,
-      "seconds": 404.82,
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 289.36,
       "agent": {
         "status": "finished",
-        "model_rounds": 16
+        "model_rounds": 21
       },
-      "patch_bytes": 4586,
+      "patch_bytes": 5706,
       "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_flipt-io__flipt-d966559200183b713cdf3ea5007a7e0ba86a5afb",
+      "verifier_shell": "bash -c",
+      "evaluation_method": "patch_replay",
+      "replay_source_run_id": "40177855906",
       "number": 196,
       "source": "actions",
-      "updated_at": "2026-10-25T07:44:36.439203+00:00",
-      "github_run_id": "40170725066",
+      "updated_at": "2026-10-25T11:28:27.249376+00:00",
+      "github_run_id": "40187712903",
       "github_run_attempt": "1"
     },
     {
       "instance_id": "instance_flipt-io__flipt-dae029cba7cdb98dfb1a6b416c00d324241e6063",
-      "evaluation_status": "error",
-      "reward": null,
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 376.51,
       "agent": {
-        "status": "unknown"
+        "status": "step_limit",
+        "model_rounds": 30
       },
-      "error": "评测步骤中断或未能完成；请查看工作流日志。",
+      "patch_bytes": 14619,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_flipt-io__flipt-dae029cba7cdb98dfb1a6b416c00d324241e6063",
+      "verifier_shell": "bash -c",
+      "evaluation_method": "patch_replay",
+      "replay_source_run_id": "40177855906",
       "number": 197,
       "source": "actions",
-      "updated_at": "2026-10-25T07:46:11.416012+00:00",
-      "github_run_id": "40170725066",
+      "updated_at": "2026-10-25T11:30:55.256493+00:00",
+      "github_run_id": "40187712903",
       "github_run_attempt": "1"
     },
     {
       "instance_id": "instance_flipt-io__flipt-db1c3b100e231c62f0c90c2ab037614f20a2a63b",
-      "evaluation_status": "error",
-      "reward": null,
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 388.69,
       "agent": {
-        "status": "unknown"
+        "status": "step_limit",
+        "model_rounds": 30
       },
-      "error": "评测步骤中断或未能完成；请查看工作流日志。",
+      "patch_bytes": 7000,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_flipt-io__flipt-db1c3b100e231c62f0c90c2ab037614f20a2a63b",
+      "verifier_shell": "bash -c",
+      "evaluation_method": "patch_replay",
+      "replay_source_run_id": "40177855906",
       "number": 198,
       "source": "actions",
-      "updated_at": "2026-10-25T07:45:42.254675+00:00",
-      "github_run_id": "40170725066",
+      "updated_at": "2026-10-25T11:30:50.819366+00:00",
+      "github_run_id": "40187712903",
       "github_run_attempt": "1"
     },
     {
       "instance_id": "instance_flipt-io__flipt-dbe263961b187e1c5d7fe34c65b000985a2da5a0",
-      "evaluation_status": "error",
-      "reward": null,
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 259.48,
       "agent": {
-        "status": "unknown"
+        "status": "finished",
+        "model_rounds": 20
       },
-      "error": "评测步骤中断或未能完成；请查看工作流日志。",
+      "patch_bytes": 9720,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_flipt-io__flipt-dbe263961b187e1c5d7fe34c65b000985a2da5a0",
+      "verifier_shell": "bash -c",
+      "evaluation_method": "patch_replay",
+      "replay_source_run_id": "40177855906",
       "number": 199,
       "source": "actions",
-      "updated_at": "2026-10-25T07:46:42.575613+00:00",
-      "github_run_id": "40170725066",
+      "updated_at": "2026-10-25T11:28:35.209595+00:00",
+      "github_run_id": "40187712903",
       "github_run_attempt": "1"
     },
     {
       "instance_id": "instance_flipt-io__flipt-e2bd19dafa7166c96b082fb2a59eb54b4be0d778",
-      "evaluation_status": "error",
-      "reward": null,
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 171.84,
       "agent": {
-        "status": "unknown"
+        "status": "finished",
+        "model_rounds": 27
       },
-      "error": "评测步骤中断或未能完成；请查看工作流日志。",
+      "patch_bytes": 17472,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_flipt-io__flipt-e2bd19dafa7166c96b082fb2a59eb54b4be0d778",
+      "verifier_shell": "bash -c",
+      "evaluation_method": "patch_replay",
+      "replay_source_run_id": "40177855906",
       "number": 200,
       "source": "actions",
-      "updated_at": "2026-10-25T07:45:42.247084+00:00",
-      "github_run_id": "40170725066",
+      "updated_at": "2026-10-25T11:26:59.384616+00:00",
+      "github_run_id": "40187712903",
       "github_run_attempt": "1"
     },
     {
       "instance_id": "instance_flipt-io__flipt-e50808c03e4b9d25a6a78af9c61a3b1616ea356b",
-      "evaluation_status": "error",
-      "reward": null,
+      "evaluation_status": "failed",
+      "reward": 0,
+      "seconds": 208.17,
       "agent": {
-        "status": "unknown"
+        "status": "step_limit",
+        "model_rounds": 30
       },
-      "error": "评测步骤中断或未能完成；请查看工作流日志。",
+      "patch_bytes": 23939,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_flipt-io__flipt-e50808c03e4b9d25a6a78af9c61a3b1616ea356b",
+      "verifier_shell": "bash -c",
+      "evaluation_method": "patch_replay",
+      "replay_source_run_id": "40177855906",
       "number": 201,
       "source": "actions",
-      "updated_at": "2026-10-25T07:46:02.864208+00:00",
-      "github_run_id": "40170725066",
+      "updated_at": "2026-10-25T11:27:57.767483+00:00",
+      "github_run_id": "40187712903",
       "github_run_attempt": "1"
     },
     {
       "instance_id": "instance_flipt-io__flipt-e594593dae52badf80ffd27878d2275c7f0b20e9",
-      "evaluation_status": "error",
-      "reward": null,
+      "evaluation_status": "failed",
+      "reward": 0,
+      "seconds": 184.06,
       "agent": {
-        "status": "unknown"
+        "status": "step_limit",
+        "model_rounds": 30
       },
-      "error": "评测步骤中断或未能完成；请查看工作流日志。",
+      "patch_bytes": 11028,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_flipt-io__flipt-e594593dae52badf80ffd27878d2275c7f0b20e9",
+      "verifier_shell": "bash -c",
+      "evaluation_method": "patch_replay",
+      "replay_source_run_id": "40177855906",
       "number": 202,
       "source": "actions",
-      "updated_at": "2026-10-25T07:46:05.137379+00:00",
-      "github_run_id": "40170725066",
+      "updated_at": "2026-10-25T11:28:07.653597+00:00",
+      "github_run_id": "40187712903",
       "github_run_attempt": "1"
     },
     {
       "instance_id": "instance_flipt-io__flipt-e5fe37c379e1eec2dd3492c5737c0be761050b26",
-      "evaluation_status": "error",
-      "reward": null,
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 239.22,
       "agent": {
-        "status": "unknown"
+        "status": "step_limit",
+        "model_rounds": 30
       },
-      "error": "评测步骤中断或未能完成；请查看工作流日志。",
+      "patch_bytes": 31970,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_flipt-io__flipt-e5fe37c379e1eec2dd3492c5737c0be761050b26",
+      "verifier_shell": "bash -c",
+      "evaluation_method": "patch_replay",
+      "replay_source_run_id": "40177855906",
       "number": 203,
       "source": "actions",
-      "updated_at": "2026-10-25T07:46:51.761326+00:00",
-      "github_run_id": "40170725066",
+      "updated_at": "2026-10-25T11:29:18.609286+00:00",
+      "github_run_id": "40187712903",
       "github_run_attempt": "1"
     },
     {
       "instance_id": "instance_flipt-io__flipt-e88e93990e3ec1e7697754b423decc510d5dd5fe",
-      "evaluation_status": "error",
-      "reward": null,
-      "seconds": 157.72,
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 147.92,
       "agent": {
-        "status": "error",
-        "model_rounds": 10,
-        "error": "APITimeoutError: Request timed out.",
-        "provider_error": true
+        "status": "finished",
+        "model_rounds": 25
       },
-      "patch_bytes": 3510,
+      "patch_bytes": 22780,
       "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_flipt-io__flipt-e88e93990e3ec1e7697754b423decc510d5dd5fe",
-      "error": "APITimeoutError: Request timed out.",
+      "verifier_shell": "bash -c",
+      "evaluation_method": "patch_replay",
+      "replay_source_run_id": "40177855906",
       "number": 204,
       "source": "actions",
-      "updated_at": "2026-10-25T07:45:23.402625+00:00",
-      "github_run_id": "40170725066",
+      "updated_at": "2026-10-25T11:28:23.496156+00:00",
+      "github_run_id": "40187712903",
       "github_run_attempt": "1"
     },
     {
       "instance_id": "instance_flipt-io__flipt-e91615cf07966da41756017a7d571f9fc0fdbe80",
-      "evaluation_status": "error",
-      "reward": null,
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 101.71,
       "agent": {
-        "status": "unknown"
+        "status": "step_limit",
+        "model_rounds": 30
       },
-      "error": "评测步骤中断或未能完成；请查看工作流日志。",
+      "patch_bytes": 20463,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_flipt-io__flipt-e91615cf07966da41756017a7d571f9fc0fdbe80",
+      "verifier_shell": "bash -c",
+      "evaluation_method": "patch_replay",
+      "replay_source_run_id": "40177855906",
       "number": 205,
       "source": "actions",
-      "updated_at": "2026-10-25T07:45:40.106468+00:00",
-      "github_run_id": "40170725066",
+      "updated_at": "2026-10-25T11:26:41.395392+00:00",
+      "github_run_id": "40187712903",
       "github_run_attempt": "1"
     },
     {
       "instance_id": "instance_flipt-io__flipt-ea9a2663b176da329b3f574da2ce2a664fc5b4a1",
-      "evaluation_status": "error",
-      "reward": null,
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 412.96,
       "agent": {
-        "status": "unknown"
+        "status": "finished",
+        "model_rounds": 23
       },
-      "error": "评测步骤中断或未能完成；请查看工作流日志。",
+      "patch_bytes": 9545,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_flipt-io__flipt-ea9a2663b176da329b3f574da2ce2a664fc5b4a1",
+      "verifier_shell": "bash -c",
+      "evaluation_method": "patch_replay",
+      "replay_source_run_id": "40177855906",
       "number": 206,
       "source": "actions",
-      "updated_at": "2026-10-25T07:46:48.124995+00:00",
-      "github_run_id": "40170725066",
+      "updated_at": "2026-10-25T11:32:09.028847+00:00",
+      "github_run_id": "40187712903",
       "github_run_attempt": "1"
     },
     {
       "instance_id": "instance_flipt-io__flipt-ebb3f84c74d61eee4d8c6875140b990eee62e146",
-      "evaluation_status": "failed",
-      "reward": 0,
-      "seconds": 177.81,
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 109.19,
       "agent": {
-        "status": "finished",
-        "model_rounds": 19
+        "status": "step_limit",
+        "model_rounds": 30
       },
-      "patch_bytes": 2871,
+      "patch_bytes": 10544,
       "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_flipt-io__flipt-ebb3f84c74d61eee4d8c6875140b990eee62e146",
+      "verifier_shell": "bash -c",
+      "evaluation_method": "patch_replay",
+      "replay_source_run_id": "40177855906",
       "number": 207,
       "source": "actions",
-      "updated_at": "2026-10-25T07:46:35.145556+00:00",
-      "github_run_id": "40170725066",
+      "updated_at": "2026-10-25T11:28:17.530784+00:00",
+      "github_run_id": "40187712903",
       "github_run_attempt": "1"
     },
     {
       "instance_id": "instance_flipt-io__flipt-ee02b164f6728d3227c42671028c67a4afd36918",
-      "evaluation_status": "error",
-      "reward": null,
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 70.19,
       "agent": {
-        "status": "unknown"
+        "status": "finished",
+        "model_rounds": 15
       },
-      "error": "评测步骤中断或未能完成；请查看工作流日志。",
+      "patch_bytes": 9666,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_flipt-io__flipt-ee02b164f6728d3227c42671028c67a4afd36918",
+      "verifier_shell": "bash -c",
+      "evaluation_method": "patch_replay",
+      "replay_source_run_id": "40177855906",
       "number": 208,
       "source": "actions",
-      "updated_at": "2026-10-25T07:45:55.961009+00:00",
-      "github_run_id": "40170725066",
+      "updated_at": "2026-10-25T11:27:40.229322+00:00",
+      "github_run_id": "40187712903",
       "github_run_attempt": "1"
     },
     {
       "instance_id": "instance_flipt-io__flipt-f1bc91a1b999656dbdb2495ccb57bf2105b84920",
-      "evaluation_status": "error",
-      "reward": null,
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 124.62,
       "agent": {
-        "status": "unknown"
+        "status": "step_limit",
+        "model_rounds": 30
       },
-      "error": "评测步骤中断或未能完成；请查看工作流日志。",
+      "patch_bytes": 87532,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_flipt-io__flipt-f1bc91a1b999656dbdb2495ccb57bf2105b84920",
+      "verifier_shell": "bash -c",
+      "evaluation_method": "patch_replay",
+      "replay_source_run_id": "40177855906",
       "number": 209,
       "source": "actions",
-      "updated_at": "2026-10-25T07:45:51.593942+00:00",
-      "github_run_id": "40170725066",
+      "updated_at": "2026-10-25T11:30:04.100981+00:00",
+      "github_run_id": "40187712903",
       "github_run_attempt": "1"
     },
     {
       "instance_id": "instance_flipt-io__flipt-f36bd61fb1cee4669de1f00e59da462bfeae8765",
-      "evaluation_status": "error",
-      "reward": null,
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 137.29,
       "agent": {
-        "status": "unknown"
+        "status": "finished",
+        "model_rounds": 18
       },
-      "error": "评测步骤中断或未能完成；请查看工作流日志。",
+      "patch_bytes": 7149,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_flipt-io__flipt-f36bd61fb1cee4669de1f00e59da462bfeae8765",
+      "verifier_shell": "bash -c",
+      "evaluation_method": "patch_replay",
+      "replay_source_run_id": "40177855906",
       "number": 210,
       "source": "actions",
-      "updated_at": "2026-10-25T07:46:18.020612+00:00",
-      "github_run_id": "40170725066",
+      "updated_at": "2026-10-25T11:29:04.884619+00:00",
+      "github_run_id": "40187712903",
       "github_run_attempt": "1"
     },
     {
       "instance_id": "instance_flipt-io__flipt-f743945d599b178293e89e784b3b2374b1026430",
-      "evaluation_status": "error",
-      "reward": null,
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 286.47,
       "agent": {
-        "status": "unknown"
+        "status": "finished",
+        "model_rounds": 27
       },
-      "error": "评测步骤中断或未能完成；请查看工作流日志。",
+      "patch_bytes": 11526,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_flipt-io__flipt-f743945d599b178293e89e784b3b2374b1026430",
+      "verifier_shell": "bash -c",
+      "evaluation_method": "patch_replay",
+      "replay_source_run_id": "40177855906",
       "number": 211,
       "source": "actions",
-      "updated_at": "2026-10-25T07:46:51.578674+00:00",
-      "github_run_id": "40170725066",
+      "updated_at": "2026-10-25T11:33:19.957892+00:00",
+      "github_run_id": "40187712903",
       "github_run_attempt": "1"
     },
     {
       "instance_id": "instance_flipt-io__flipt-f808b4dd6e36b9dc8b011eb26b196f4e2cc64c41",
-      "evaluation_status": "error",
-      "reward": null,
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 152.57,
       "agent": {
-        "status": "unknown"
+        "status": "step_limit",
+        "model_rounds": 30
       },
-      "error": "评测步骤中断或未能完成；请查看工作流日志。",
+      "patch_bytes": 17539,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_flipt-io__flipt-f808b4dd6e36b9dc8b011eb26b196f4e2cc64c41",
+      "verifier_shell": "bash -c",
+      "evaluation_method": "patch_replay",
+      "replay_source_run_id": "40177855906",
       "number": 212,
       "source": "actions",
-      "updated_at": "2026-10-25T07:46:10.712113+00:00",
-      "github_run_id": "40170725066",
+      "updated_at": "2026-10-25T11:30:26.339482+00:00",
+      "github_run_id": "40187712903",
       "github_run_attempt": "1"
+    },
+    {
+      "instance_id": "instance_future-architect__vuls-01441351c3407abfc21c48a38e28828e1b504e0c",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 85.14,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 13
+      },
+      "patch_bytes": 3865,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_future-architect__vuls-01441351c3407abfc21c48a38e28828e1b504e0c",
+      "verifier_shell": "bash -c",
+      "evaluation_method": "patch_replay",
+      "replay_source_run_id": "40177855906",
+      "number": 213,
+      "source": "actions",
+      "updated_at": "2026-10-25T11:28:52.093504+00:00",
+      "github_run_id": "40187712903",
+      "github_run_attempt": "1"
+    },
+    {
+      "instance_id": "instance_future-architect__vuls-030b2e03525d68d74cb749959aac2d7f3fc0effa",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 390.59,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 29
+      },
+      "patch_bytes": 7860,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_future-architect__vuls-030b2e03525d68d74cb749959aac2d7f3fc0effa",
+      "verifier_shell": "bash -c",
+      "evaluation_method": "patch_replay",
+      "replay_source_run_id": "40177855906",
+      "number": 214,
+      "source": "actions",
+      "updated_at": "2026-10-25T11:34:59.235448+00:00",
+      "github_run_id": "40187712903",
+      "github_run_attempt": "1"
+    },
+    {
+      "instance_id": "instance_future-architect__vuls-0ec945d0510cdebf92cdd8999f94610772689f14",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 545.24,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 22
+      },
+      "patch_bytes": 6483,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_future-architect__vuls-0ec945d0510cdebf92cdd8999f94610772689f14",
+      "verifier_shell": "bash -c",
+      "evaluation_method": "patch_replay",
+      "replay_source_run_id": "40177855906",
+      "number": 215,
+      "source": "actions",
+      "updated_at": "2026-10-25T11:38:01.396388+00:00",
+      "github_run_id": "40187712903",
+      "github_run_attempt": "1"
+    },
+    {
+      "instance_id": "instance_future-architect__vuls-17ae386d1e185ba742eea4668ca77642e22b54c4",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 168.49,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 20
+      },
+      "patch_bytes": 4988,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_future-architect__vuls-17ae386d1e185ba742eea4668ca77642e22b54c4",
+      "verifier_shell": "bash -c",
+      "evaluation_method": "patch_replay",
+      "replay_source_run_id": "40177855906",
+      "number": 216,
+      "source": "actions",
+      "updated_at": "2026-10-25T11:30:41.799766+00:00",
+      "github_run_id": "40187712903",
+      "github_run_attempt": "1"
+    },
+    {
+      "instance_id": "instance_future-architect__vuls-1832b4ee3a20177ad313d806983127cb6e53f5cf",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 124.68,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 18
+      },
+      "patch_bytes": 10670,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_future-architect__vuls-1832b4ee3a20177ad313d806983127cb6e53f5cf",
+      "verifier_shell": "bash -c",
+      "evaluation_method": "patch_replay",
+      "replay_source_run_id": "40177855906",
+      "number": 217,
+      "source": "actions",
+      "updated_at": "2026-10-25T11:31:46.292125+00:00",
+      "github_run_id": "40187712903",
+      "github_run_attempt": "1"
+    },
+    {
+      "instance_id": "instance_future-architect__vuls-2923cbc645fbc7a37d50398eb2ab8febda8c3264",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 184.86,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 15
+      },
+      "patch_bytes": 2605,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_future-architect__vuls-2923cbc645fbc7a37d50398eb2ab8febda8c3264",
+      "verifier_shell": "bash -c",
+      "evaluation_method": "patch_replay",
+      "replay_source_run_id": "40177855906",
+      "number": 218,
+      "source": "actions",
+      "updated_at": "2026-10-25T11:32:42.141802+00:00",
+      "github_run_id": "40187712903",
+      "github_run_attempt": "1"
+    },
+    {
+      "instance_id": "instance_future-architect__vuls-2c84be80b65d022c262956cd26fc79d8bb2f7010",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 449.96,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 27
+      },
+      "patch_bytes": 3125,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_future-architect__vuls-2c84be80b65d022c262956cd26fc79d8bb2f7010",
+      "verifier_shell": "bash -c",
+      "evaluation_method": "patch_replay",
+      "replay_source_run_id": "40177855906",
+      "number": 219,
+      "source": "actions",
+      "updated_at": "2026-10-25T11:37:12.142296+00:00",
+      "github_run_id": "40187712903",
+      "github_run_attempt": "1"
+    },
+    {
+      "instance_id": "instance_future-architect__vuls-36456cb151894964ba1683ce7da5c35ada789970",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 91.12,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 10
+      },
+      "patch_bytes": 522,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_future-architect__vuls-36456cb151894964ba1683ce7da5c35ada789970",
+      "verifier_shell": "bash -c",
+      "evaluation_method": "patch_replay",
+      "replay_source_run_id": "40177855906",
+      "number": 220,
+      "source": "actions",
+      "updated_at": "2026-10-25T11:31:05.105576+00:00",
+      "github_run_id": "40187712903",
+      "github_run_attempt": "1"
+    },
+    {
+      "instance_id": "instance_future-architect__vuls-3c1489e588dacea455ccf4c352a3b1006902e2d4",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 215.63,
+      "agent": {
+        "status": "step_limit",
+        "model_rounds": 30
+      },
+      "patch_bytes": 19246,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_future-architect__vuls-3c1489e588dacea455ccf4c352a3b1006902e2d4",
+      "verifier_shell": "bash -c",
+      "evaluation_method": "patch_replay",
+      "replay_source_run_id": "40177855906",
+      "number": 221,
+      "source": "actions",
+      "updated_at": "2026-10-25T11:33:42.636902+00:00",
+      "github_run_id": "40187712903",
+      "github_run_attempt": "1"
+    },
+    {
+      "instance_id": "instance_future-architect__vuls-3f8de0268376e1f0fa6d9d61abb0d9d3d580ea7d",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 172.34,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 17
+      },
+      "patch_bytes": 24291,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_future-architect__vuls-3f8de0268376e1f0fa6d9d61abb0d9d3d580ea7d",
+      "verifier_shell": "bash -c",
+      "evaluation_method": "patch_replay",
+      "replay_source_run_id": "40177855906",
+      "number": 222,
+      "source": "actions",
+      "updated_at": "2026-10-25T11:32:26.331481+00:00",
+      "github_run_id": "40187712903",
+      "github_run_attempt": "1"
+    },
+    {
+      "instance_id": "instance_future-architect__vuls-436341a4a522dc83eb8bddd1164b764c8dd6bc45",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 527.42,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 27
+      },
+      "patch_bytes": 10786,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_future-architect__vuls-436341a4a522dc83eb8bddd1164b764c8dd6bc45",
+      "verifier_shell": "bash -c",
+      "evaluation_method": "patch_replay",
+      "replay_source_run_id": "40177855906",
+      "number": 223,
+      "source": "actions",
+      "updated_at": "2026-10-25T11:39:00.894463+00:00",
+      "github_run_id": "40187712903",
+      "github_run_attempt": "1"
+    },
+    {
+      "instance_id": "instance_future-architect__vuls-457a3a9627fb9a0800d0aecf1d4713fb634a9011",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 164.24,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 21
+      },
+      "patch_bytes": 3923,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_future-architect__vuls-457a3a9627fb9a0800d0aecf1d4713fb634a9011",
+      "verifier_shell": "bash -c",
+      "evaluation_method": "patch_replay",
+      "replay_source_run_id": "40177855906",
+      "number": 224,
+      "source": "actions",
+      "updated_at": "2026-10-25T11:32:55.354645+00:00",
+      "github_run_id": "40187712903",
+      "github_run_attempt": "1"
+    },
+    {
+      "instance_id": "instance_future-architect__vuls-4b680b996061044e93ef5977a081661665d3360a",
+      "evaluation_status": "failed",
+      "reward": 0,
+      "seconds": 204.49,
+      "agent": {
+        "status": "step_limit",
+        "model_rounds": 30
+      },
+      "patch_bytes": 2550,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_future-architect__vuls-4b680b996061044e93ef5977a081661665d3360a",
+      "verifier_shell": "bash -c",
+      "evaluation_method": "patch_replay",
+      "replay_source_run_id": "40177855906",
+      "number": 225,
+      "source": "actions",
+      "updated_at": "2026-10-25T11:33:13.880326+00:00",
+      "github_run_id": "40187712903",
+      "github_run_attempt": "1"
+    },
+    {
+      "instance_id": "instance_future-architect__vuls-4c04acbd9ea5b073efe999e33381fa9f399d6f27",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 186.7,
+      "agent": {
+        "status": "step_limit",
+        "model_rounds": 30
+      },
+      "patch_bytes": 10034,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_future-architect__vuls-4c04acbd9ea5b073efe999e33381fa9f399d6f27",
+      "verifier_shell": "bash -c",
+      "evaluation_method": "patch_replay",
+      "replay_source_run_id": "40177855906",
+      "number": 226,
+      "source": "actions",
+      "updated_at": "2026-10-25T11:33:43.429725+00:00",
+      "github_run_id": "40187712903",
+      "github_run_attempt": "1"
+    },
+    {
+      "instance_id": "instance_future-architect__vuls-50580f6e98eeb36f53f27222f7f4fdfea0b21e8d",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 215.85,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 25
+      },
+      "patch_bytes": 9387,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_future-architect__vuls-50580f6e98eeb36f53f27222f7f4fdfea0b21e8d",
+      "verifier_shell": "bash -c",
+      "evaluation_method": "patch_replay",
+      "replay_source_run_id": "40177855906",
+      "number": 227,
+      "source": "actions",
+      "updated_at": "2026-10-25T11:34:54.228872+00:00",
+      "github_run_id": "40187712903",
+      "github_run_attempt": "1"
+    },
+    {
+      "instance_id": "instance_future-architect__vuls-54e73c2f5466ef5daec3fb30922b9ac654e4ed25",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 128.35,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 21
+      },
+      "patch_bytes": 13374,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_future-architect__vuls-54e73c2f5466ef5daec3fb30922b9ac654e4ed25",
+      "verifier_shell": "bash -c",
+      "evaluation_method": "patch_replay",
+      "replay_source_run_id": "40177855906",
+      "number": 228,
+      "source": "actions",
+      "updated_at": "2026-10-25T11:33:55.750261+00:00",
+      "github_run_id": "40187712903",
+      "github_run_attempt": "1"
+    },
+    {
+      "instance_id": "instance_future-architect__vuls-5af1a227339e46c7abf3f2815e4c636a0c01098e",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 462.95,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 28
+      },
+      "patch_bytes": 7540,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_future-architect__vuls-5af1a227339e46c7abf3f2815e4c636a0c01098e",
+      "verifier_shell": "bash -c",
+      "evaluation_method": "patch_replay",
+      "replay_source_run_id": "40177855906",
+      "number": 229,
+      "source": "actions",
+      "updated_at": "2026-10-25T11:40:07.131928+00:00",
+      "github_run_id": "40187712903",
+      "github_run_attempt": "1"
+    },
+    {
+      "instance_id": "instance_future-architect__vuls-61c39637f2f3809e1b5dad05f0c57c799dce1587",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 569.79,
+      "agent": {
+        "status": "step_limit",
+        "model_rounds": 30
+      },
+      "patch_bytes": 6661,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_future-architect__vuls-61c39637f2f3809e1b5dad05f0c57c799dce1587",
+      "verifier_shell": "bash -c",
+      "evaluation_method": "patch_replay",
+      "replay_source_run_id": "40177855906",
+      "number": 230,
+      "source": "actions",
+      "updated_at": "2026-10-25T11:41:56.309777+00:00",
+      "github_run_id": "40187712903",
+      "github_run_attempt": "1"
+    },
+    {
+      "instance_id": "instance_future-architect__vuls-6682232b5c8a9d08c0e9f15bd90d41bff3875adc",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 232.77,
+      "agent": {
+        "status": "step_limit",
+        "model_rounds": 30
+      },
+      "patch_bytes": 13883,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_future-architect__vuls-6682232b5c8a9d08c0e9f15bd90d41bff3875adc",
+      "verifier_shell": "bash -c",
+      "evaluation_method": "patch_replay",
+      "replay_source_run_id": "40177855906",
+      "number": 231,
+      "source": "actions",
+      "updated_at": "2026-10-25T11:36:28.826984+00:00",
+      "github_run_id": "40187712903",
+      "github_run_attempt": "1"
+    },
+    {
+      "instance_id": "instance_future-architect__vuls-6eff6a9329a65cc412e79b8f82444dfa3d0f0b5a",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 167.61,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 20
+      },
+      "patch_bytes": 13355,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_future-architect__vuls-6eff6a9329a65cc412e79b8f82444dfa3d0f0b5a",
+      "verifier_shell": "bash -c",
+      "evaluation_method": "patch_replay",
+      "replay_source_run_id": "40177855906",
+      "number": 232,
+      "source": "actions",
+      "updated_at": "2026-10-25T11:35:32.413765+00:00",
+      "github_run_id": "40187712903",
+      "github_run_attempt": "1"
+    },
+    {
+      "instance_id": "instance_future-architect__vuls-78b52d6a7f480bd610b692de9bf0c86f57332f23",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 265.33,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 21
+      },
+      "patch_bytes": 4818,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_future-architect__vuls-78b52d6a7f480bd610b692de9bf0c86f57332f23",
+      "verifier_shell": "bash -c",
+      "evaluation_method": "patch_replay",
+      "replay_source_run_id": "40177855906",
+      "number": 233,
+      "source": "actions",
+      "updated_at": "2026-10-25T11:37:03.897444+00:00",
+      "github_run_id": "40187712903",
+      "github_run_attempt": "1"
+    },
+    {
+      "instance_id": "instance_future-architect__vuls-7e91f5ef7e5712b1a3d7d5066ad6607e9debc21c",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 120.47,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 20
+      },
+      "patch_bytes": 1894,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_future-architect__vuls-7e91f5ef7e5712b1a3d7d5066ad6607e9debc21c",
+      "verifier_shell": "bash -c",
+      "evaluation_method": "patch_replay",
+      "replay_source_run_id": "40177855906",
+      "number": 234,
+      "source": "actions",
+      "updated_at": "2026-10-25T11:34:54.821069+00:00",
+      "github_run_id": "40187712903",
+      "github_run_attempt": "1"
+    },
+    {
+      "instance_id": "instance_future-architect__vuls-7eb77f5b5127c847481bcf600b4dca2b7a85cf3e",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 169.89,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 15
+      },
+      "patch_bytes": 2424,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_future-architect__vuls-7eb77f5b5127c847481bcf600b4dca2b7a85cf3e",
+      "verifier_shell": "bash -c",
+      "evaluation_method": "patch_replay",
+      "replay_source_run_id": "40177855906",
+      "number": 235,
+      "source": "actions",
+      "updated_at": "2026-10-25T11:36:17.361889+00:00",
+      "github_run_id": "40187712903",
+      "github_run_attempt": "1"
+    },
+    {
+      "instance_id": "instance_future-architect__vuls-83bcca6e669ba2e4102f26c4a2b52f78c7861f1a",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 209.33,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 24
+      },
+      "patch_bytes": 7052,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_future-architect__vuls-83bcca6e669ba2e4102f26c4a2b52f78c7861f1a",
+      "verifier_shell": "bash -c",
+      "evaluation_method": "patch_replay",
+      "replay_source_run_id": "40177855906",
+      "number": 236,
+      "source": "actions",
+      "updated_at": "2026-10-25T11:37:30.092770+00:00",
+      "github_run_id": "40187712903",
+      "github_run_attempt": "1"
+    },
+    {
+      "instance_id": "instance_future-architect__vuls-8659668177f1feb65963db7a967347a79c5f9c40",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 105.02,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 21
+      },
+      "patch_bytes": 7759,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_future-architect__vuls-8659668177f1feb65963db7a967347a79c5f9c40",
+      "verifier_shell": "bash -c",
+      "evaluation_method": "patch_replay",
+      "replay_source_run_id": "40177855906",
+      "number": 237,
+      "source": "actions",
+      "updated_at": "2026-10-25T11:35:27.503545+00:00",
+      "github_run_id": "40187712903",
+      "github_run_attempt": "1"
+    },
+    {
+      "instance_id": "instance_future-architect__vuls-86b60e1478e44d28b1aff6b9ac7e95ceb05bc5fc",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 98.25,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 19
+      },
+      "patch_bytes": 4178,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_future-architect__vuls-86b60e1478e44d28b1aff6b9ac7e95ceb05bc5fc",
+      "verifier_shell": "bash -c",
+      "evaluation_method": "patch_replay",
+      "replay_source_run_id": "40177855906",
+      "number": 238,
+      "source": "actions",
+      "updated_at": "2026-10-25T11:35:28.287576+00:00",
+      "github_run_id": "40187712903",
+      "github_run_attempt": "1"
+    },
+    {
+      "instance_id": "instance_future-architect__vuls-878c25bf5a9c9fd88ac32eb843f5636834d5712d",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 131.23,
+      "agent": {
+        "status": "step_limit",
+        "model_rounds": 30
+      },
+      "patch_bytes": 32682,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_future-architect__vuls-878c25bf5a9c9fd88ac32eb843f5636834d5712d",
+      "verifier_shell": "bash -c",
+      "evaluation_method": "patch_replay",
+      "replay_source_run_id": "40177855906",
+      "number": 239,
+      "source": "actions",
+      "updated_at": "2026-10-25T11:36:55.054940+00:00",
+      "github_run_id": "40187712903",
+      "github_run_attempt": "1"
+    },
+    {
+      "instance_id": "instance_future-architect__vuls-8d5ea98e50cf616847f4e5a2df300395d1f719e9",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 118.23,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 9
+      },
+      "patch_bytes": 2176,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_future-architect__vuls-8d5ea98e50cf616847f4e5a2df300395d1f719e9",
+      "verifier_shell": "bash -c",
+      "evaluation_method": "patch_replay",
+      "replay_source_run_id": "40177855906",
+      "number": 240,
+      "source": "actions",
+      "updated_at": "2026-10-25T11:37:08.120196+00:00",
+      "github_run_id": "40187712903",
+      "github_run_attempt": "1"
+    },
+    {
+      "instance_id": "instance_future-architect__vuls-999529a05b202b0fd29c6fca5039a4c47a3766bb",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 155.03,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 19
+      },
+      "patch_bytes": 14152,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_future-architect__vuls-999529a05b202b0fd29c6fca5039a4c47a3766bb",
+      "verifier_shell": "bash -c",
+      "evaluation_method": "patch_replay",
+      "replay_source_run_id": "40177855906",
+      "number": 241,
+      "source": "actions",
+      "updated_at": "2026-10-25T11:37:58.403114+00:00",
+      "github_run_id": "40187712903",
+      "github_run_attempt": "1"
+    },
+    {
+      "instance_id": "instance_future-architect__vuls-9a32a94806b54141b7ff12503c48da680ebcf199",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 181.59,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 15
+      },
+      "patch_bytes": 1322,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_future-architect__vuls-9a32a94806b54141b7ff12503c48da680ebcf199",
+      "verifier_shell": "bash -c",
+      "evaluation_method": "patch_replay",
+      "replay_source_run_id": "40177855906",
+      "number": 242,
+      "source": "actions",
+      "updated_at": "2026-10-25T11:38:34.290578+00:00",
+      "github_run_id": "40187712903",
+      "github_run_attempt": "1"
+    },
+    {
+      "instance_id": "instance_future-architect__vuls-9aa0d87a21bede91c2b45c32187456bb69455e92",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 81.29,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 19
+      },
+      "patch_bytes": 4071,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_future-architect__vuls-9aa0d87a21bede91c2b45c32187456bb69455e92",
+      "verifier_shell": "bash -c",
+      "evaluation_method": "patch_replay",
+      "replay_source_run_id": "40177855906",
+      "number": 243,
+      "source": "actions",
+      "updated_at": "2026-10-25T11:37:12.028402+00:00",
+      "github_run_id": "40187712903",
+      "github_run_attempt": "1"
+    },
+    {
+      "instance_id": "instance_future-architect__vuls-a76302c11174ca081f656c63a000ffa746e350af",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 149.09,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 14
+      },
+      "patch_bytes": 571,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_future-architect__vuls-a76302c11174ca081f656c63a000ffa746e350af",
+      "verifier_shell": "bash -c",
+      "evaluation_method": "patch_replay",
+      "replay_source_run_id": "40177855906",
+      "number": 244,
+      "source": "actions",
+      "updated_at": "2026-10-25T11:39:12.109065+00:00",
+      "github_run_id": "40187712903",
+      "github_run_attempt": "1"
+    },
+    {
+      "instance_id": "instance_future-architect__vuls-aaea15e516ece43978cf98e09e52080478b1d39f",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 126.52,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 10
+      },
+      "patch_bytes": 2072,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_future-architect__vuls-aaea15e516ece43978cf98e09e52080478b1d39f",
+      "verifier_shell": "bash -c",
+      "evaluation_method": "patch_replay",
+      "replay_source_run_id": "40177855906",
+      "number": 245,
+      "source": "actions",
+      "updated_at": "2026-10-25T11:38:50.676215+00:00",
+      "github_run_id": "40187712903",
+      "github_run_attempt": "1"
+    },
+    {
+      "instance_id": "instance_future-architect__vuls-abd80417728b16c6502067914d27989ee575f0ee",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 220.13,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 12
+      },
+      "patch_bytes": 2846,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_future-architect__vuls-abd80417728b16c6502067914d27989ee575f0ee",
+      "verifier_shell": "bash -c",
+      "evaluation_method": "patch_replay",
+      "replay_source_run_id": "40177855906",
+      "number": 246,
+      "source": "actions",
+      "updated_at": "2026-10-25T11:39:40.906399+00:00",
+      "github_run_id": "40187712903",
+      "github_run_attempt": "1"
+    },
+    {
+      "instance_id": "instance_future-architect__vuls-ad2edbb8448e2c41a097f1c0b52696c0f6c5924d",
+      "evaluation_status": "failed",
+      "reward": 0,
+      "seconds": 185.61,
+      "agent": {
+        "status": "step_limit",
+        "model_rounds": 30
+      },
+      "patch_bytes": 10970,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_future-architect__vuls-ad2edbb8448e2c41a097f1c0b52696c0f6c5924d",
+      "verifier_shell": "bash -c",
+      "evaluation_method": "patch_replay",
+      "replay_source_run_id": "40177855906",
+      "number": 247,
+      "source": "actions",
+      "updated_at": "2026-10-25T11:40:15.364730+00:00",
+      "github_run_id": "40187712903",
+      "github_run_attempt": "1"
+    },
+    {
+      "instance_id": "instance_future-architect__vuls-b8db2e0b74f60cb7d45f710f255e061f054b6afc",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 138.7,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 16
+      },
+      "patch_bytes": 2553,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_future-architect__vuls-b8db2e0b74f60cb7d45f710f255e061f054b6afc",
+      "verifier_shell": "bash -c",
+      "evaluation_method": "patch_replay",
+      "replay_source_run_id": "40177855906",
+      "number": 248,
+      "source": "actions",
+      "updated_at": "2026-10-25T11:39:23.070943+00:00",
+      "github_run_id": "40187712903",
+      "github_run_attempt": "1"
+    },
+    {
+      "instance_id": "instance_future-architect__vuls-be7b9114cc9545e68fb0ee7bc63d7ec53d1a00ad",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 125.06,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 17
+      },
+      "patch_bytes": 1790,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_future-architect__vuls-be7b9114cc9545e68fb0ee7bc63d7ec53d1a00ad",
+      "verifier_shell": "bash -c",
+      "evaluation_method": "patch_replay",
+      "replay_source_run_id": "40177855906",
+      "number": 249,
+      "source": "actions",
+      "updated_at": "2026-10-25T11:39:03.351046+00:00",
+      "github_run_id": "40187712903",
+      "github_run_attempt": "1"
+    },
+    {
+      "instance_id": "instance_future-architect__vuls-bff6b7552370b55ff76d474860eead4ab5de785a-v1151a6325649aaf997cd541ebe533b53fddf1b07",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 181.12,
+      "agent": {
+        "status": "step_limit",
+        "model_rounds": 30
+      },
+      "patch_bytes": 8918,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_future-architect__vuls-bff6b7552370b55ff76d474860eead4ab5de785a-v1151a6325649aaf997cd541ebe533b53fddf1b07",
+      "verifier_shell": "bash -c",
+      "evaluation_method": "patch_replay",
+      "replay_source_run_id": "40177855906",
+      "number": 250,
+      "source": "actions",
+      "updated_at": "2026-10-25T11:40:59.203963+00:00",
+      "github_run_id": "40187712903",
+      "github_run_attempt": "1"
+    },
+    {
+      "instance_id": "instance_future-architect__vuls-c11ba27509f733d7d280bdf661cbbe2e7a99df4c",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 110.27,
+      "agent": {
+        "status": "step_limit",
+        "model_rounds": 30
+      },
+      "patch_bytes": 13463,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_future-architect__vuls-c11ba27509f733d7d280bdf661cbbe2e7a99df4c",
+      "verifier_shell": "bash -c",
+      "evaluation_method": "patch_replay",
+      "replay_source_run_id": "40177855906",
+      "number": 251,
+      "source": "actions",
+      "updated_at": "2026-10-25T11:40:05.869904+00:00",
+      "github_run_id": "40187712903",
+      "github_run_attempt": "1"
+    },
+    {
+      "instance_id": "instance_future-architect__vuls-ca3f6b1dbf2cd24d1537bfda43e788443ce03a0c",
+      "evaluation_status": "failed",
+      "reward": 0,
+      "seconds": 255.14,
+      "agent": {
+        "status": "step_limit",
+        "model_rounds": 30
+      },
+      "patch_bytes": 560,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_future-architect__vuls-ca3f6b1dbf2cd24d1537bfda43e788443ce03a0c",
+      "verifier_shell": "bash -c",
+      "evaluation_method": "patch_replay",
+      "replay_source_run_id": "40177855906",
+      "number": 252,
+      "source": "actions",
+      "updated_at": "2026-10-25T11:42:59.093583+00:00",
+      "github_run_id": "40187712903",
+      "github_run_attempt": "1"
+    },
+    {
+      "instance_id": "instance_future-architect__vuls-cc63a0eccfdd318e67c0a6edeffc7bf09b6025c0",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 100.89,
+      "agent": {
+        "status": "step_limit",
+        "model_rounds": 30
+      },
+      "patch_bytes": 2588,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_future-architect__vuls-cc63a0eccfdd318e67c0a6edeffc7bf09b6025c0",
+      "verifier_shell": "bash -c",
+      "evaluation_method": "patch_replay",
+      "replay_source_run_id": "40177855906",
+      "number": 253,
+      "source": "actions",
+      "updated_at": "2026-10-25T11:39:41.045048+00:00",
+      "github_run_id": "40187712903",
+      "github_run_attempt": "1"
+    },
+    {
+      "instance_id": "instance_future-architect__vuls-d18e7a751d07260d75ce3ba0cd67c4a6aebfd967",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 91.74,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 24
+      },
+      "patch_bytes": 5641,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_future-architect__vuls-d18e7a751d07260d75ce3ba0cd67c4a6aebfd967",
+      "verifier_shell": "bash -c",
+      "evaluation_method": "patch_replay",
+      "replay_source_run_id": "40177855906",
+      "number": 254,
+      "source": "actions",
+      "updated_at": "2026-10-25T11:40:40.218123+00:00",
+      "github_run_id": "40187712903",
+      "github_run_attempt": "1"
+    },
+    {
+      "instance_id": "instance_future-architect__vuls-d576b6c6c15e56c47cc3e26f5878867677d4a9ea",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 221.77,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 22
+      },
+      "patch_bytes": 10368,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_future-architect__vuls-d576b6c6c15e56c47cc3e26f5878867677d4a9ea",
+      "verifier_shell": "bash -c",
+      "evaluation_method": "patch_replay",
+      "replay_source_run_id": "40177855906",
+      "number": 255,
+      "source": "actions",
+      "updated_at": "2026-10-25T11:43:05.863486+00:00",
+      "github_run_id": "40187712903",
+      "github_run_attempt": "1"
+    },
+    {
+      "instance_id": "instance_future-architect__vuls-dc496468b9e9fb73371f9606cdcdb0f8e12e70ca",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 232.32,
+      "agent": {
+        "status": "step_limit",
+        "model_rounds": 30
+      },
+      "patch_bytes": 6467,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_future-architect__vuls-dc496468b9e9fb73371f9606cdcdb0f8e12e70ca",
+      "verifier_shell": "bash -c",
+      "evaluation_method": "patch_replay",
+      "replay_source_run_id": "40177855906",
+      "number": 256,
+      "source": "actions",
+      "updated_at": "2026-10-25T11:42:34.366162+00:00",
+      "github_run_id": "40187712903",
+      "github_run_attempt": "1"
+    },
+    {
+      "instance_id": "instance_future-architect__vuls-e049df50fa1eecdccc5348e27845b5c783ed7c76-v73dc95f6b90883d8a87e01e5e9bb6d3cc32add6d",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 113.86,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 22
+      },
+      "patch_bytes": 4969,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_future-architect__vuls-e049df50fa1eecdccc5348e27845b5c783ed7c76-v73dc95f6b90883d8a87e01e5e9bb6d3cc32add6d",
+      "verifier_shell": "bash -c",
+      "evaluation_method": "patch_replay",
+      "replay_source_run_id": "40177855906",
+      "number": 257,
+      "source": "actions",
+      "updated_at": "2026-10-25T11:41:18.710263+00:00",
+      "github_run_id": "40187712903",
+      "github_run_attempt": "1"
+    },
+    {
+      "instance_id": "instance_future-architect__vuls-e1df74cbc1a1d1889428b3333a3b2405c4651993",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 118.26,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 11
+      },
+      "patch_bytes": 790,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_future-architect__vuls-e1df74cbc1a1d1889428b3333a3b2405c4651993",
+      "verifier_shell": "bash -c",
+      "evaluation_method": "patch_replay",
+      "replay_source_run_id": "40177855906",
+      "number": 258,
+      "source": "actions",
+      "updated_at": "2026-10-25T11:41:40.812410+00:00",
+      "github_run_id": "40187712903",
+      "github_run_attempt": "1"
+    },
+    {
+      "instance_id": "instance_future-architect__vuls-e1fab805afcfc92a2a615371d0ec1e667503c254-v264a82e2f4818e30f5a25e4da53b27ba119f62b5",
+      "evaluation_status": "failed",
+      "reward": 0,
+      "seconds": 174.78,
+      "agent": {
+        "status": "step_limit",
+        "model_rounds": 30
+      },
+      "patch_bytes": 7717,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_future-architect__vuls-e1fab805afcfc92a2a615371d0ec1e667503c254-v264a82e2f4818e30f5a25e4da53b27ba119f62b5",
+      "verifier_shell": "bash -c",
+      "evaluation_method": "patch_replay",
+      "replay_source_run_id": "40177855906",
+      "number": 259,
+      "source": "actions",
+      "updated_at": "2026-10-25T11:43:34.660541+00:00",
+      "github_run_id": "40187712903",
+      "github_run_attempt": "1"
+    },
+    {
+      "instance_id": "instance_future-architect__vuls-e3c27e1817d68248043bd09d63cc31f3344a6f2c",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 128.74,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 22
+      },
+      "patch_bytes": 10086,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_future-architect__vuls-e3c27e1817d68248043bd09d63cc31f3344a6f2c",
+      "verifier_shell": "bash -c",
+      "evaluation_method": "patch_replay",
+      "replay_source_run_id": "40177855906",
+      "number": 260,
+      "source": "actions",
+      "updated_at": "2026-10-25T11:42:32.578014+00:00",
+      "github_run_id": "40187712903",
+      "github_run_attempt": "1"
+    },
+    {
+      "instance_id": "instance_future-architect__vuls-e4728e388120b311c4ed469e4f942e0347a2689b-v264a82e2f4818e30f5a25e4da53b27ba119f62b5",
+      "evaluation_status": "failed",
+      "reward": 0,
+      "seconds": 83.85,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 14
+      },
+      "patch_bytes": 3986,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_future-architect__vuls-e4728e388120b311c4ed469e4f942e0347a2689b-v264a82e2f4818e30f5a25e4da53b27ba119f62b5",
+      "verifier_shell": "bash -c",
+      "evaluation_method": "patch_replay",
+      "replay_source_run_id": "40177855906",
+      "number": 261,
+      "source": "actions",
+      "updated_at": "2026-10-25T11:41:48.417380+00:00",
+      "github_run_id": "40187712903",
+      "github_run_attempt": "1"
+    },
+    {
+      "instance_id": "instance_future-architect__vuls-e52fa8d6ed1d23e36f2a86e5d3efe9aa057a1b0d",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 387.24,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 16
+      },
+      "patch_bytes": 1101,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_future-architect__vuls-e52fa8d6ed1d23e36f2a86e5d3efe9aa057a1b0d",
+      "verifier_shell": "bash -c",
+      "evaluation_method": "patch_replay",
+      "replay_source_run_id": "40177855906",
+      "number": 262,
+      "source": "actions",
+      "updated_at": "2026-10-25T11:46:32.268044+00:00",
+      "github_run_id": "40187712903",
+      "github_run_attempt": "1"
+    },
+    {
+      "instance_id": "instance_future-architect__vuls-e6c0da61324a0c04026ffd1c031436ee2be9503a",
+      "evaluation_status": "failed",
+      "reward": 0,
+      "seconds": 609.26,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 27
+      },
+      "patch_bytes": 8082,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_future-architect__vuls-e6c0da61324a0c04026ffd1c031436ee2be9503a",
+      "verifier_shell": "bash -c",
+      "evaluation_method": "patch_replay",
+      "replay_source_run_id": "40177855906",
+      "number": 263,
+      "source": "actions",
+      "updated_at": "2026-10-25T11:50:50.583814+00:00",
+      "github_run_id": "40187712903",
+      "github_run_attempt": "1"
+    },
+    {
+      "instance_id": "instance_future-architect__vuls-edb324c3d9ec3b107bf947f00e38af99d05b3e16",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 199.01,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 16
+      },
+      "patch_bytes": 5129,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_future-architect__vuls-edb324c3d9ec3b107bf947f00e38af99d05b3e16",
+      "verifier_shell": "bash -c",
+      "evaluation_method": "patch_replay",
+      "replay_source_run_id": "40177855906",
+      "number": 264,
+      "source": "actions",
+      "updated_at": "2026-10-25T11:43:54.326249+00:00",
+      "github_run_id": "40187712903",
+      "github_run_attempt": "1"
+    },
+    {
+      "instance_id": "instance_future-architect__vuls-ef2be3d6ea4c0a13674aaab08b182eca4e2b9a17-v264a82e2f4818e30f5a25e4da53b27ba119f62b5",
+      "evaluation_status": "failed",
+      "reward": 0,
+      "seconds": 84.57,
+      "agent": {
+        "status": "step_limit",
+        "model_rounds": 30
+      },
+      "patch_bytes": 15762,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_future-architect__vuls-ef2be3d6ea4c0a13674aaab08b182eca4e2b9a17-v264a82e2f4818e30f5a25e4da53b27ba119f62b5",
+      "verifier_shell": "bash -c",
+      "evaluation_method": "patch_replay",
+      "replay_source_run_id": "40177855906",
+      "number": 265,
+      "source": "actions",
+      "updated_at": "2026-10-25T11:41:46.908100+00:00",
+      "github_run_id": "40187712903",
+      "github_run_attempt": "1"
+    },
+    {
+      "instance_id": "instance_future-architect__vuls-f0b3a8b1db98eb1bd32685f1c36c41a99c3452ed",
+      "evaluation_status": "failed",
+      "reward": 0,
+      "seconds": 271.66,
+      "agent": {
+        "status": "step_limit",
+        "model_rounds": 30
+      },
+      "patch_bytes": 6864,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_future-architect__vuls-f0b3a8b1db98eb1bd32685f1c36c41a99c3452ed",
+      "verifier_shell": "bash -c",
+      "evaluation_method": "patch_replay",
+      "replay_source_run_id": "40177855906",
+      "number": 266,
+      "source": "actions",
+      "updated_at": "2026-10-25T11:46:07.407029+00:00",
+      "github_run_id": "40187712903",
+      "github_run_attempt": "1"
+    },
+    {
+      "instance_id": "instance_future-architect__vuls-f6509a537660ea2bce0e57958db762edd3a36702",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 138.34,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 16
+      },
+      "patch_bytes": 1218,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_future-architect__vuls-f6509a537660ea2bce0e57958db762edd3a36702",
+      "verifier_shell": "bash -c",
+      "evaluation_method": "patch_replay",
+      "replay_source_run_id": "40177855906",
+      "number": 267,
+      "source": "actions",
+      "updated_at": "2026-10-25T11:44:43.213814+00:00",
+      "github_run_id": "40187712903",
+      "github_run_attempt": "1"
+    },
+    {
+      "instance_id": "instance_future-architect__vuls-f6cc8c263dc00329786fa516049c60d4779c4a07",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 213.0,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 25
+      },
+      "patch_bytes": 11254,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_future-architect__vuls-f6cc8c263dc00329786fa516049c60d4779c4a07",
+      "verifier_shell": "bash -c",
+      "evaluation_method": "patch_replay",
+      "replay_source_run_id": "40177855906",
+      "number": 268,
+      "source": "actions",
+      "updated_at": "2026-10-25T11:45:41.389316+00:00",
+      "github_run_id": "40187712903",
+      "github_run_attempt": "1"
+    },
+    {
+      "instance_id": "instance_future-architect__vuls-fd18df1dd4e4360f8932bc4b894bd8b40d654e7c",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 116.38,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 18
+      },
+      "patch_bytes": 4278,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_future-architect__vuls-fd18df1dd4e4360f8932bc4b894bd8b40d654e7c",
+      "verifier_shell": "bash -c",
+      "evaluation_method": "patch_replay",
+      "replay_source_run_id": "40177855906",
+      "number": 269,
+      "source": "actions",
+      "updated_at": "2026-10-25T11:43:55.603402+00:00",
+      "github_run_id": "40187712903",
+      "github_run_attempt": "1"
+    },
+    {
+      "instance_id": "instance_future-architect__vuls-fe8d252c51114e922e6836055ef86a15f79ad042",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 127.12,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 19
+      },
+      "patch_bytes": 1984,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_future-architect__vuls-fe8d252c51114e922e6836055ef86a15f79ad042",
+      "verifier_shell": "bash -c",
+      "evaluation_method": "patch_replay",
+      "replay_source_run_id": "40177855906",
+      "number": 270,
+      "source": "actions",
+      "updated_at": "2026-10-25T11:44:11.610476+00:00",
+      "github_run_id": "40187712903",
+      "github_run_attempt": "1"
+    },
+    {
+      "instance_id": "instance_gravitational__teleport-005dcb16bacc6a5d5890c4cd302ccfd4298e275d-vee9b09fb20c43af7e520f57e9239bbcf46b7113d",
+      "evaluation_status": "failed",
+      "reward": 0,
+      "seconds": 365.36,
+      "agent": {
+        "status": "step_limit",
+        "model_rounds": 30
+      },
+      "patch_bytes": 13480,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_gravitational__teleport-005dcb16bacc6a5d5890c4cd302ccfd4298e275d-vee9b09fb20c43af7e520f57e9239bbcf46b7113d",
+      "number": 271,
+      "source": "actions",
+      "updated_at": "2026-10-25T09:54:41.382878+00:00",
+      "github_run_id": "40177855906",
+      "github_run_attempt": "1",
+      "fatal_error": false
+    },
+    {
+      "instance_id": "instance_gravitational__teleport-007235446f85b1cbaef92664c3b3867517250f21",
+      "evaluation_status": "failed",
+      "reward": 0,
+      "seconds": 186.51,
+      "agent": {
+        "status": "step_limit",
+        "model_rounds": 30
+      },
+      "patch_bytes": 4909,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_gravitational__teleport-007235446f85b1cbaef92664c3b3867517250f21",
+      "number": 272,
+      "source": "actions",
+      "updated_at": "2026-10-25T09:52:10.922513+00:00",
+      "github_run_id": "40177855906",
+      "github_run_attempt": "1",
+      "fatal_error": false
+    },
+    {
+      "instance_id": "instance_gravitational__teleport-02d1efb8560a1aa1c72cfb1c08edd8b84a9511b4-vce94f93ad1030e3136852817f2423c1b3ac37bc4",
+      "evaluation_status": "failed",
+      "reward": 0,
+      "seconds": 293.16,
+      "agent": {
+        "status": "step_limit",
+        "model_rounds": 30
+      },
+      "patch_bytes": 4870,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_gravitational__teleport-02d1efb8560a1aa1c72cfb1c08edd8b84a9511b4-vce94f93ad1030e3136852817f2423c1b3ac37bc4",
+      "number": 273,
+      "source": "actions",
+      "updated_at": "2026-10-25T09:55:04.230064+00:00",
+      "github_run_id": "40177855906",
+      "github_run_attempt": "1",
+      "fatal_error": false
+    },
+    {
+      "instance_id": "instance_gravitational__teleport-0415e422f12454db0c22316cf3eaa5088d6b6322",
+      "evaluation_status": "failed",
+      "reward": 0,
+      "seconds": 377.3,
+      "agent": {
+        "status": "step_limit",
+        "model_rounds": 30
+      },
+      "patch_bytes": 9134,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_gravitational__teleport-0415e422f12454db0c22316cf3eaa5088d6b6322",
+      "number": 274,
+      "source": "actions",
+      "updated_at": "2026-10-25T09:56:31.255585+00:00",
+      "github_run_id": "40177855906",
+      "github_run_attempt": "1",
+      "fatal_error": false
+    },
+    {
+      "instance_id": "instance_gravitational__teleport-0ac7334939981cf85b9591ac295c3816954e287e",
+      "evaluation_status": "failed",
+      "reward": 0,
+      "seconds": 283.46,
+      "agent": {
+        "status": "step_limit",
+        "model_rounds": 30
+      },
+      "patch_bytes": 7727,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_gravitational__teleport-0ac7334939981cf85b9591ac295c3816954e287e",
+      "number": 275,
+      "source": "actions",
+      "updated_at": "2026-10-25T09:54:55.152934+00:00",
+      "github_run_id": "40177855906",
+      "github_run_attempt": "1",
+      "fatal_error": false
+    },
+    {
+      "instance_id": "instance_gravitational__teleport-0cb341c926713bdfcbb490c69659a9b101df99eb",
+      "evaluation_status": "failed",
+      "reward": 0,
+      "seconds": 107.17,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 9
+      },
+      "patch_bytes": 1364,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_gravitational__teleport-0cb341c926713bdfcbb490c69659a9b101df99eb",
+      "number": 276,
+      "source": "actions",
+      "updated_at": "2026-10-25T09:53:06.044789+00:00",
+      "github_run_id": "40177855906",
+      "github_run_attempt": "1",
+      "fatal_error": false
+    },
+    {
+      "instance_id": "instance_gravitational__teleport-0ecf31de0e98b272a6a2610abe1bbedd379a38a3-vce94f93ad1030e3136852817f2423c1b3ac37bc4",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 245.24,
+      "agent": {
+        "status": "step_limit",
+        "model_rounds": 30
+      },
+      "patch_bytes": 8526,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_gravitational__teleport-0ecf31de0e98b272a6a2610abe1bbedd379a38a3-vce94f93ad1030e3136852817f2423c1b3ac37bc4",
+      "number": 277,
+      "source": "actions",
+      "updated_at": "2026-10-25T09:55:41.902057+00:00",
+      "github_run_id": "40177855906",
+      "github_run_attempt": "1",
+      "fatal_error": false
+    },
+    {
+      "instance_id": "instance_gravitational__teleport-10123c046e21e1826098e485a4c2212865a49d9f",
+      "evaluation_status": "failed",
+      "reward": 0,
+      "seconds": 205.22,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 12
+      },
+      "patch_bytes": 1907,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_gravitational__teleport-10123c046e21e1826098e485a4c2212865a49d9f",
+      "number": 278,
+      "source": "actions",
+      "updated_at": "2026-10-25T09:54:27.071374+00:00",
+      "github_run_id": "40177855906",
+      "github_run_attempt": "1",
+      "fatal_error": false
+    },
+    {
+      "instance_id": "instance_gravitational__teleport-1316e6728a3ee2fc124e2ea0cc6a02044c87a144-v626ec2a48416b10a88641359a169d99e935ff037",
+      "evaluation_status": "failed",
+      "reward": 0,
+      "seconds": 296.59,
+      "agent": {
+        "status": "step_limit",
+        "model_rounds": 30
+      },
+      "patch_bytes": 22684,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_gravitational__teleport-1316e6728a3ee2fc124e2ea0cc6a02044c87a144-v626ec2a48416b10a88641359a169d99e935ff037",
+      "number": 279,
+      "source": "actions",
+      "updated_at": "2026-10-25T09:57:21.085494+00:00",
+      "github_run_id": "40177855906",
+      "github_run_attempt": "1",
+      "fatal_error": false
+    },
+    {
+      "instance_id": "instance_gravitational__teleport-1330415d33a27594c948a36d9d7701f496229e9f",
+      "evaluation_status": "failed",
+      "reward": 0,
+      "seconds": 323.94,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 29
+      },
+      "patch_bytes": 6784,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_gravitational__teleport-1330415d33a27594c948a36d9d7701f496229e9f",
+      "number": 280,
+      "source": "actions",
+      "updated_at": "2026-10-25T09:57:47.797529+00:00",
+      "github_run_id": "40177855906",
+      "github_run_attempt": "1",
+      "fatal_error": false
+    },
+    {
+      "instance_id": "instance_gravitational__teleport-1b08e7d0dbe68fe530a0f08ad408ec198b7c53fc-vee9b09fb20c43af7e520f57e9239bbcf46b7113d",
+      "evaluation_status": "failed",
+      "reward": 0,
+      "seconds": 140.37,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 12
+      },
+      "patch_bytes": 2091,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_gravitational__teleport-1b08e7d0dbe68fe530a0f08ad408ec198b7c53fc-vee9b09fb20c43af7e520f57e9239bbcf46b7113d",
+      "number": 281,
+      "source": "actions",
+      "updated_at": "2026-10-25T09:55:32.230706+00:00",
+      "github_run_id": "40177855906",
+      "github_run_attempt": "1",
+      "fatal_error": false
+    },
+    {
+      "instance_id": "instance_gravitational__teleport-24cafecd8721891092210afc55f6413ab46ca211-vee9b09fb20c43af7e520f57e9239bbcf46b7113d",
+      "evaluation_status": "failed",
+      "reward": 0,
+      "seconds": 479.57,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 17
+      },
+      "patch_bytes": 2636,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_gravitational__teleport-24cafecd8721891092210afc55f6413ab46ca211-vee9b09fb20c43af7e520f57e9239bbcf46b7113d",
+      "number": 282,
+      "source": "actions",
+      "updated_at": "2026-10-25T10:01:18.327325+00:00",
+      "github_run_id": "40177855906",
+      "github_run_attempt": "1",
+      "fatal_error": false
+    },
+    {
+      "instance_id": "instance_gravitational__teleport-288c5519ce0dec9622361a5e5d6cd36aa2d9e348",
+      "evaluation_status": "failed",
+      "reward": 0,
+      "seconds": 311.31,
+      "agent": {
+        "status": "step_limit",
+        "model_rounds": 30
+      },
+      "patch_bytes": 5628,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_gravitational__teleport-288c5519ce0dec9622361a5e5d6cd36aa2d9e348",
+      "number": 283,
+      "source": "actions",
+      "updated_at": "2026-10-25T09:59:14.633773+00:00",
+      "github_run_id": "40177855906",
+      "github_run_attempt": "1",
+      "fatal_error": false
+    },
+    {
+      "instance_id": "instance_gravitational__teleport-2b15263e49da5625922581569834eec4838a9257-vee9b09fb20c43af7e520f57e9239bbcf46b7113d",
+      "evaluation_status": "failed",
+      "reward": 0,
+      "seconds": 291.98,
+      "agent": {
+        "status": "step_limit",
+        "model_rounds": 30
+      },
+      "patch_bytes": 21506,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_gravitational__teleport-2b15263e49da5625922581569834eec4838a9257-vee9b09fb20c43af7e520f57e9239bbcf46b7113d",
+      "number": 284,
+      "source": "actions",
+      "updated_at": "2026-10-25T09:59:01.446274+00:00",
+      "github_run_id": "40177855906",
+      "github_run_attempt": "1",
+      "fatal_error": false
+    },
+    {
+      "instance_id": "instance_gravitational__teleport-2bb3bbbd8aff1164a2353381cb79e1dc93b90d28-vee9b09fb20c43af7e520f57e9239bbcf46b7113d",
+      "evaluation_status": "failed",
+      "reward": 0,
+      "seconds": 552.6,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 25
+      },
+      "patch_bytes": 2230,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_gravitational__teleport-2bb3bbbd8aff1164a2353381cb79e1dc93b90d28-vee9b09fb20c43af7e520f57e9239bbcf46b7113d",
+      "number": 285,
+      "source": "actions",
+      "updated_at": "2026-10-25T10:04:00.003854+00:00",
+      "github_run_id": "40177855906",
+      "github_run_attempt": "1",
+      "fatal_error": false
+    },
+    {
+      "instance_id": "instance_gravitational__teleport-2be514d3c33b0ae9188e11ac9975485c853d98bb-vce94f93ad1030e3136852817f2423c1b3ac37bc4",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 229.32,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 12
+      },
+      "patch_bytes": 2071,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_gravitational__teleport-2be514d3c33b0ae9188e11ac9975485c853d98bb-vce94f93ad1030e3136852817f2423c1b3ac37bc4",
+      "number": 286,
+      "source": "actions",
+      "updated_at": "2026-10-25T09:58:05.448793+00:00",
+      "github_run_id": "40177855906",
+      "github_run_attempt": "1",
+      "fatal_error": false
+    },
+    {
+      "instance_id": "instance_gravitational__teleport-326fd1d7be87b03998dbc53bc706fdef90f5065c-v626ec2a48416b10a88641359a169d99e935ff037",
+      "evaluation_status": "failed",
+      "reward": 0,
+      "seconds": 444.86,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 28
+      },
+      "patch_bytes": 3432,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_gravitational__teleport-326fd1d7be87b03998dbc53bc706fdef90f5065c-v626ec2a48416b10a88641359a169d99e935ff037",
+      "number": 287,
+      "source": "actions",
+      "updated_at": "2026-10-25T10:02:21.764869+00:00",
+      "github_run_id": "40177855906",
+      "github_run_attempt": "1",
+      "fatal_error": false
+    },
+    {
+      "instance_id": "instance_gravitational__teleport-32bcd71591c234f0d8b091ec01f1f5cbfdc0f13c-vee9b09fb20c43af7e520f57e9239bbcf46b7113d",
+      "evaluation_status": "failed",
+      "reward": 0,
+      "seconds": 613.99,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 23
+      },
+      "patch_bytes": 9502,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_gravitational__teleport-32bcd71591c234f0d8b091ec01f1f5cbfdc0f13c-vee9b09fb20c43af7e520f57e9239bbcf46b7113d",
+      "number": 288,
+      "source": "actions",
+      "updated_at": "2026-10-25T10:05:53.889788+00:00",
+      "github_run_id": "40177855906",
+      "github_run_attempt": "1",
+      "fatal_error": false
+    },
+    {
+      "instance_id": "instance_gravitational__teleport-3587cca7840f636489449113969a5066025dd5bf",
+      "evaluation_status": "failed",
+      "reward": 0,
+      "seconds": 237.62,
+      "agent": {
+        "status": "step_limit",
+        "model_rounds": 30
+      },
+      "patch_bytes": 158925,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_gravitational__teleport-3587cca7840f636489449113969a5066025dd5bf",
+      "number": 289,
+      "source": "actions",
+      "updated_at": "2026-10-25T10:00:10.385934+00:00",
+      "github_run_id": "40177855906",
+      "github_run_attempt": "1",
+      "fatal_error": false
+    },
+    {
+      "instance_id": "instance_gravitational__teleport-3a5c1e26394df2cb4fb3f01147fb9979662972c5-vee9b09fb20c43af7e520f57e9239bbcf46b7113d",
+      "evaluation_status": "failed",
+      "reward": 0,
+      "seconds": 213.49,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 11
+      },
+      "patch_bytes": 2653,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_gravitational__teleport-3a5c1e26394df2cb4fb3f01147fb9979662972c5-vee9b09fb20c43af7e520f57e9239bbcf46b7113d",
+      "number": 290,
+      "source": "actions",
+      "updated_at": "2026-10-25T09:59:06.973384+00:00",
+      "github_run_id": "40177855906",
+      "github_run_attempt": "1",
+      "fatal_error": false
+    },
+    {
+      "instance_id": "instance_gravitational__teleport-3fa6904377c006497169945428e8197158667910-v626ec2a48416b10a88641359a169d99e935ff037",
+      "evaluation_status": "failed",
+      "reward": 0,
+      "seconds": 240.66,
+      "agent": {
+        "status": "step_limit",
+        "model_rounds": 30
+      },
+      "patch_bytes": 38011,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_gravitational__teleport-3fa6904377c006497169945428e8197158667910-v626ec2a48416b10a88641359a169d99e935ff037",
+      "number": 291,
+      "source": "actions",
+      "updated_at": "2026-10-25T10:00:38.553609+00:00",
+      "github_run_id": "40177855906",
+      "github_run_attempt": "1",
+      "fatal_error": false
+    },
+    {
+      "instance_id": "instance_gravitational__teleport-3ff19cf7c41f396ae468797d3aeb61515517edc9-vee9b09fb20c43af7e520f57e9239bbcf46b7113d",
+      "evaluation_status": "failed",
+      "reward": 0,
+      "seconds": 195.64,
+      "agent": {
+        "status": "step_limit",
+        "model_rounds": 30
+      },
+      "patch_bytes": 8245,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_gravitational__teleport-3ff19cf7c41f396ae468797d3aeb61515517edc9-vee9b09fb20c43af7e520f57e9239bbcf46b7113d",
+      "number": 292,
+      "source": "actions",
+      "updated_at": "2026-10-25T10:00:43.025919+00:00",
+      "github_run_id": "40177855906",
+      "github_run_attempt": "1",
+      "fatal_error": false
+    },
+    {
+      "instance_id": "instance_gravitational__teleport-3ff75e29fb2153a2637fe7f83e49dc04b1c99c9f",
+      "evaluation_status": "failed",
+      "reward": 0,
+      "seconds": 486.58,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 30
+      },
+      "patch_bytes": 2181,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_gravitational__teleport-3ff75e29fb2153a2637fe7f83e49dc04b1c99c9f",
+      "number": 293,
+      "source": "actions",
+      "updated_at": "2026-10-25T10:05:12.844772+00:00",
+      "github_run_id": "40177855906",
+      "github_run_attempt": "1",
+      "fatal_error": false
+    },
+    {
+      "instance_id": "instance_gravitational__teleport-46a13210519461c7cec8d643bfbe750265775b41",
+      "evaluation_status": "failed",
+      "reward": 0,
+      "seconds": 233.75,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 19
+      },
+      "patch_bytes": 2369,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_gravitational__teleport-46a13210519461c7cec8d643bfbe750265775b41",
+      "number": 294,
+      "source": "actions",
+      "updated_at": "2026-10-25T10:00:43.672088+00:00",
+      "github_run_id": "40177855906",
+      "github_run_attempt": "1",
+      "fatal_error": false
+    },
+    {
+      "instance_id": "instance_gravitational__teleport-46aa81b1ce96ebb4ebed2ae53fd78cd44a05da6c-vee9b09fb20c43af7e520f57e9239bbcf46b7113d",
+      "evaluation_status": "failed",
+      "reward": 0,
+      "seconds": 306.01,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 18
+      },
+      "patch_bytes": 5174,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_gravitational__teleport-46aa81b1ce96ebb4ebed2ae53fd78cd44a05da6c-vee9b09fb20c43af7e520f57e9239bbcf46b7113d",
+      "number": 295,
+      "source": "actions",
+      "updated_at": "2026-10-25T10:04:42.416436+00:00",
+      "github_run_id": "40177855906",
+      "github_run_attempt": "1",
+      "fatal_error": false
+    },
+    {
+      "instance_id": "instance_gravitational__teleport-47530e1fd8bfb84ec096ebcbbc29990f30829655-vee9b09fb20c43af7e520f57e9239bbcf46b7113d",
+      "evaluation_status": "failed",
+      "reward": 0,
+      "seconds": 881.25,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 17
+      },
+      "patch_bytes": 3242,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_gravitational__teleport-47530e1fd8bfb84ec096ebcbbc29990f30829655-vee9b09fb20c43af7e520f57e9239bbcf46b7113d",
+      "number": 296,
+      "source": "actions",
+      "updated_at": "2026-10-25T10:13:01.233908+00:00",
+      "github_run_id": "40177855906",
+      "github_run_attempt": "1",
+      "fatal_error": false
+    },
+    {
+      "instance_id": "instance_gravitational__teleport-53814a2d600ccd74c1e9810a567563432b98386e-vce94f93ad1030e3136852817f2423c1b3ac37bc4",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 542.96,
+      "agent": {
+        "status": "step_limit",
+        "model_rounds": 30
+      },
+      "patch_bytes": 5850,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_gravitational__teleport-53814a2d600ccd74c1e9810a567563432b98386e-vce94f93ad1030e3136852817f2423c1b3ac37bc4",
+      "number": 297,
+      "source": "actions",
+      "updated_at": "2026-10-25T10:07:54.791161+00:00",
+      "github_run_id": "40177855906",
+      "github_run_attempt": "1",
+      "fatal_error": false
+    },
+    {
+      "instance_id": "instance_gravitational__teleport-59d39dee5a8a66e5b8a18a9085a199d369b1fba8-v626ec2a48416b10a88641359a169d99e935ff037",
+      "evaluation_status": "failed",
+      "reward": 0,
+      "seconds": 367.47,
+      "agent": {
+        "status": "step_limit",
+        "model_rounds": 30
+      },
+      "patch_bytes": 25584,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_gravitational__teleport-59d39dee5a8a66e5b8a18a9085a199d369b1fba8-v626ec2a48416b10a88641359a169d99e935ff037",
+      "number": 298,
+      "source": "actions",
+      "updated_at": "2026-10-25T10:06:16.924065+00:00",
+      "github_run_id": "40177855906",
+      "github_run_attempt": "1",
+      "fatal_error": false
+    },
+    {
+      "instance_id": "instance_gravitational__teleport-629dc432eb191ca479588a8c49205debb83e80e2",
+      "evaluation_status": "failed",
+      "reward": 0,
+      "seconds": 251.4,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 11
+      },
+      "patch_bytes": 13004,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_gravitational__teleport-629dc432eb191ca479588a8c49205debb83e80e2",
+      "number": 299,
+      "source": "actions",
+      "updated_at": "2026-10-25T10:03:18.527610+00:00",
+      "github_run_id": "40177855906",
+      "github_run_attempt": "1",
+      "fatal_error": false
+    },
+    {
+      "instance_id": "instance_gravitational__teleport-645afa051b65d137654fd0d2d878a700152b305a-vee9b09fb20c43af7e520f57e9239bbcf46b7113d",
+      "evaluation_status": "failed",
+      "reward": 0,
+      "seconds": 201.2,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 17
+      },
+      "patch_bytes": 4186,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_gravitational__teleport-645afa051b65d137654fd0d2d878a700152b305a-vee9b09fb20c43af7e520f57e9239bbcf46b7113d",
+      "number": 300,
+      "source": "actions",
+      "updated_at": "2026-10-25T10:02:49.893055+00:00",
+      "github_run_id": "40177855906",
+      "github_run_attempt": "1",
+      "fatal_error": false
+    },
+    {
+      "instance_id": "instance_gravitational__teleport-65438e6e44b6ce51458d09b7bb028a2797cfb0ea-vce94f93ad1030e3136852817f2423c1b3ac37bc4",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 802.35,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 25
+      },
+      "patch_bytes": 11910,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_gravitational__teleport-65438e6e44b6ce51458d09b7bb028a2797cfb0ea-vce94f93ad1030e3136852817f2423c1b3ac37bc4",
+      "number": 301,
+      "source": "actions",
+      "updated_at": "2026-10-25T10:13:43.936148+00:00",
+      "github_run_id": "40177855906",
+      "github_run_attempt": "1",
+      "fatal_error": false
+    },
+    {
+      "instance_id": "instance_gravitational__teleport-6a14edcf1ff010172fdbac622d0a474ed6af46de",
+      "evaluation_status": "failed",
+      "reward": 0,
+      "seconds": 109.97,
+      "agent": {
+        "status": "step_limit",
+        "model_rounds": 30
+      },
+      "patch_bytes": 3128,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_gravitational__teleport-6a14edcf1ff010172fdbac622d0a474ed6af46de",
+      "number": 302,
+      "source": "actions",
+      "updated_at": "2026-10-25T10:02:44.932403+00:00",
+      "github_run_id": "40177855906",
+      "github_run_attempt": "1",
+      "fatal_error": false
+    },
+    {
+      "instance_id": "instance_gravitational__teleport-6eaaf3a27e64f4ef4ef855bd35d7ec338cf17460-v626ec2a48416b10a88641359a169d99e935ff037",
+      "evaluation_status": "failed",
+      "reward": 0,
+      "seconds": 231.99,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 29
+      },
+      "patch_bytes": 11527,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_gravitational__teleport-6eaaf3a27e64f4ef4ef855bd35d7ec338cf17460-v626ec2a48416b10a88641359a169d99e935ff037",
+      "number": 303,
+      "source": "actions",
+      "updated_at": "2026-10-25T10:05:14.501648+00:00",
+      "github_run_id": "40177855906",
+      "github_run_attempt": "1",
+      "fatal_error": false
+    },
+    {
+      "instance_id": "instance_gravitational__teleport-73cc189b0e9636d418c4470ecce0d9af5dae2f02-vee9b09fb20c43af7e520f57e9239bbcf46b7113d",
+      "evaluation_status": "failed",
+      "reward": 0,
+      "seconds": 1076.73,
+      "agent": {
+        "status": "finished",
+        "model_rounds": 28
+      },
+      "patch_bytes": 6227,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_gravitational__teleport-73cc189b0e9636d418c4470ecce0d9af5dae2f02-vee9b09fb20c43af7e520f57e9239bbcf46b7113d",
+      "number": 304,
+      "source": "actions",
+      "updated_at": "2026-10-25T10:19:07.941667+00:00",
+      "github_run_id": "40177855906",
+      "github_run_attempt": "1",
+      "fatal_error": false
+    },
+    {
+      "instance_id": "instance_gravitational__teleport-769b4b5eec7286b7b14e179f2cc52e6b15d2d9f3-v626ec2a48416b10a88641359a169d99e935ff037",
+      "evaluation_status": "failed",
+      "reward": 0,
+      "seconds": 420.95,
+      "agent": {
+        "status": "step_limit",
+        "model_rounds": 30
+      },
+      "patch_bytes": 9670,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_gravitational__teleport-769b4b5eec7286b7b14e179f2cc52e6b15d2d9f3-v626ec2a48416b10a88641359a169d99e935ff037",
+      "number": 305,
+      "source": "actions",
+      "updated_at": "2026-10-25T10:08:45.593543+00:00",
+      "github_run_id": "40177855906",
+      "github_run_attempt": "1",
+      "fatal_error": false
+    },
+    {
+      "instance_id": "instance_gravitational__teleport-7744f72c6eb631791434b648ba41083b5f6d2278-vce94f93ad1030e3136852817f2423c1b3ac37bc4",
+      "evaluation_status": "passed",
+      "reward": 1,
+      "seconds": 214.2,
+      "agent": {
+        "status": "step_limit",
+        "model_rounds": 30
+      },
+      "patch_bytes": 12980,
+      "download_image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_gravitational__teleport-7744f72c6eb631791434b648ba41083b5f6d2278-vce94f93ad1030e3136852817f2423c1b3ac37bc4",
+      "number": 306,
+      "source": "actions",
+      "updated_at": "2026-10-25T10:05:12.955980+00:00",
+      "github_run_id": "40177855906",
+      "github_run_attempt": "1",
+      "fatal_error": false
     }
   ]
 }

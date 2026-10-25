@@ -43,8 +43,8 @@ class ActionsTests(unittest.TestCase):
         baseline = ci.read_json(ci.ROOT / "benchmarks/pro_v2/baseline.json")
         # 基线无需本地大体积日志，也不依赖任务仓库仍在本机。
         scored = {row["number"] for row in baseline["records"] if row["evaluation_status"] in ci.VALID_RESULTS}
-        self.assertEqual(len(scored), 197)
-        self.assertEqual(len(baseline["records"]), 212)
+        self.assertEqual(len(scored), 305)
+        self.assertEqual(len(baseline["records"]), 306)
         all_ids = [None] * baseline["total"]
         for row in baseline["records"]:
             all_ids[row["number"] - 1] = row["instance_id"]
@@ -56,8 +56,8 @@ class ActionsTests(unittest.TestCase):
         self.assertTrue(scored.isdisjoint(selected))
         retry = ci.candidate_numbers(all_ids, baseline["records"], retry_failed=True)
         passed = {row["number"] for row in baseline["records"] if row["evaluation_status"] == "passed"}
-        self.assertEqual(len(passed), 106)
-        self.assertEqual(len(retry), 536)
+        self.assertEqual(len(passed), 237)
+        self.assertEqual(len(retry), 405)
         self.assertTrue(passed.isdisjoint(retry))
         self.assertTrue({row['number'] for row in baseline['records']
                          if row['evaluation_status'] in {'failed', 'error'}}.issubset(retry))
